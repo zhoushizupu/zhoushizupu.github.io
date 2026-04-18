@@ -1,0 +1,29 @@
+.family-tree-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  margin-top: 70px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.family-tree-container svg {
+  display: block;
+}
+
+.link {
+  transition: stroke 0.3s;
+}
+
+.node circle {
+  transition: all 0.3s;
+}
+
+.node circle:hover {
+  stroke: #667eea;
+  stroke-width: 4px;
+}
+
+.node text {
+  pointer-events: none;
+  user-select: none;
+}
