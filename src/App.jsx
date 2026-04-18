@@ -5,7 +5,7 @@ import Navigation from './components/Navigation'
 import PersonCard from './components/PersonCard'
 import './App.css'
 
-const PASSWORD = '123456'
+const PASSWORD = 'github'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
