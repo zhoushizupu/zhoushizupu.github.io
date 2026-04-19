@@ -882,26 +882,63 @@
       const family = {
         father: null,
         grandfather: null,
+        greatGrandfather: null,
         spouses: [],
-        children: []
+        children: [],
+        grandchildren: [],
+        greatGrandchildren: []
       };
 
+      // 父亲
       if (person.family && person.family.parents && person.family.parents.length > 0) {
         const fatherId = person.family.parents[0];
         family.father = getPersonById(fatherId, personMap);
         
+        // 祖父（父亲的父亲）
         if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
           const grandfatherId = family.father.family.parents[0];
           family.grandfather = getPersonById(grandfatherId, personMap);
+          
+          // 太祖父（祖父的父亲）
+          if (family.grandfather && family.grandfather.family && family.grandfather.family.parents && family.grandfather.family.parents.length > 0) {
+            const greatGrandfatherId = family.grandfather.family.parents[0];
+            family.greatGrandfather = getPersonById(greatGrandfatherId, personMap);
+          }
         }
       }
 
+      // 配偶
       if (person.family && person.family.spouses) {
         family.spouses = person.family.spouses.map(id => getPersonById(id, personMap)).filter(Boolean);
       }
 
+      // 子女
       if (person.family && person.family.children) {
         family.children = person.family.children.map(id => getPersonById(id, personMap)).filter(Boolean);
+        
+        // 孙子/孙女（子女的子女）
+        family.children.forEach(child => {
+          if (child.family && child.family.children) {
+            child.family.children.forEach(grandchildId => {
+              const grandchild = getPersonById(grandchildId, personMap);
+              if (grandchild) {
+                family.grandchildren.push(grandchild);
+              }
+            });
+          }
+        });
+        
+        // 曾孙（孙子的子女）
+        family.grandchildren.forEach(grandchild => {
+          if (grandchild.family && grandchild.family.children) {
+            grandchild.family.children.forEach(greatGrandchildId => {
+              const greatGrandchild = getPersonById(greatGrandchildId, personMap);
+              if (greatGrandchild) {
+                family.greatGrandchildren.push(greatGrandchild);
+              }
+            });
+          }
+        });
       }
 
       return family;
