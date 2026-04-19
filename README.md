@@ -1,4 +1,4 @@
-# 周氏族谱网站
+# 周氏族谱
 
 一个轻量级、响应式的家族族谱管理系统，支持家族成员信息管理、树形展示、搜索查询等功能。
 
@@ -16,16 +16,14 @@
 ```
 zhoushizipu/
 ├── admin.html              # 后台管理页面
-├── index.html              # 入口页面
-├── public/
-│   ├── home.html           # 主页（族谱列表）
-│   ├── detail.html         # 人物详情页
-│   ├── search.html         # 搜索结果页
-│   └── data/
-│       └── family.json     # 家族数据文件
+├── index.html              # 主页（列表视图）
+├── detail.html             # 人物详情页
+├── search.html             # 搜索结果页
 ├── media/                  # 图片资源
-├── data/                   # 数据备份目录
-└── .gitignore              # Git 配置
+├── data/                   # 数据文件目录
+│   └── family.json         # 家族数据文件
+└── backup/                 # 数据备份目录
+    └── family.json         # 备份数据
 ```
 
 ## 🚀 快速开始
@@ -48,34 +46,26 @@ npx http-server -p 8080
 ```
 
 3. 访问网站
-- 主页：http://localhost:8080/public/home.html
+- 主页：http://localhost:8080/index.html
 - 后台：http://localhost:8080/admin.html
 
-### 部署到 Vercel
+### 部署到 Gitee Pages
 
-1. 访问 [Vercel](https://vercel.com/) 并登录
-
-2. 导入 Git 仓库
-   - 点击「**Add New Project**」
-   - 选择「**Import Git Repository**」
-   - 选择您的 Gitee 仓库 `zhoushizipu`
-
-3. 配置项目
-   - **Framework Preset**: 选择 `Other`
-   - **Build Command**: 留空（纯静态项目无需构建）
-   - **Output Directory**: 留空（默认为根目录）
-   - 点击「**Deploy**」
-
-4. 等待部署完成
-   - Vercel 会自动构建并部署
-   - 部署完成后会显示访问地址
-
-5. 访问您的网站
-```
-https://zhoushizipu.vercel.app/
+1. 推送代码到 Gitee 仓库
+```bash
+git push gitee main:master
 ```
 
-**注意**: Vercel 会自动分配一个域名，格式为 `https://[项目名].vercel.app`，也可以在 Vercel 设置中绑定自定义域名。
+2. 在 Gitee 仓库页面开启 Pages 服务
+   - 进入仓库设置
+   - 选择 Pages 服务
+   - 选择 master 分支
+   - 点击确定
+
+3. 访问部署后的网站
+```
+https://linksshow.gitee.io/zhoushizipu/
+```
 
 ## 🔐 后台管理
 
@@ -93,21 +83,22 @@ https://zhoushizipu.vercel.app/
 
 ## 📊 数据格式
 
-家族数据存储在 `public/data/family.json` 文件中，格式如下：
+家族数据存储在 `data/family.json` 文件中，格式如下：
 
 ```json
 {
   "id": "100000001",
   "name": "周某某",
-  "gender": "male",
-  "spouse": "配偶姓名",
-  "generation": 1,
-  "father": null,
-  "mother": null,
-  "biography": "人物简介...",
+  "gender": "M",
+  "generationCode": 1001,
   "birthDate": "1900-01-01",
   "deathDate": null,
-  "avatar": "media/100000001.jpg"
+  "biography": "人物简介...",
+  "family": {
+    "parents": [],
+    "spouses": [],
+    "children": []
+  }
 }
 ```
 
@@ -115,60 +106,56 @@ https://zhoushizipu.vercel.app/
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| id | string | 唯一标识符 |
+| id | string | 唯一标识符（9 位数字，从 100000001 开始递增） |
 | name | string | 姓名 |
-| gender | string | 性别（male/female） |
-| spouse | string | 配偶姓名 |
-| generation | number | 世代（1 为最长辈） |
-| father | string/null | 父亲 ID |
-| mother | string/null | 母亲 ID |
-| biography | string | 人物简介 |
+| gender | string | 性别（M: 男，F: 女） |
+| generationCode | number | 代际码（代际 × 1000 + 1，如第 1 代为 1001） |
 | birthDate | string | 出生日期 |
 | deathDate | string/null | 去世日期 |
-| avatar | string | 头像图片路径 |
+| birthPlace | string | 出生地 |
+| biography | string | 人物简介 |
+| family | object | 家庭关系（父母、配偶、子女） |
 
 ### ID 编码规则
 
-成员 ID 采用 9 位数字编码，格式为 `1XXYYYYY`，具体规则如下：
+成员 ID 采用 9 位数字编码，从 `100000001` 开始顺序递增：
 
-**编码结构：**
+**示例：**
 ```
-1 01 00001
-│ ││ │││││
-│ ││ └─ ─ ─ ─┘
-│ ││    顺序号（5 位）：00001-99999
-│ │└─ 代际（2 位）：01-99
-│ └─ 家族标识（固定为 1）
+100000001  ← 第 1 个录入的成员
+100000002  ← 第 2 个录入的成员
+100000003  ← 第 3 个录入的成员
 ```
 
-**编码示例：**
-```
-1 01 00001  ← 第 1 代第 1 人（周文王姬昌）
-1 02 00001  ← 第 2 代第 1 人（周公旦姬旦）
-1 03 00001  ← 第 3 代第 1 人（君陈姬陈）
-1 04 00001  ← 第 4 代第 1 人（陈公）
-```
-
-**编码特点：**
+**特点：**
 - ✅ **唯一性**：每个家族成员拥有唯一的 ID 标识
-- ✅ **可读性**：从 ID 可直接看出代际信息
-- ✅ **可扩展**：支持 99 代，每代可容纳 99,999 人
-- ✅ **易识别**：首位固定为 1，代表周氏家族
-- ✅ **容量大**：理论总容量约 990 万人
+- ✅ **简单性**：按录入顺序递增，易于管理
+- ✅ **容量大**：理论上可容纳 9 亿个成员
 
-**容量说明：**
-- **代际**：2 位数字（01-99），最多支持 99 代
-- **每代人数**：5 位数字（00001-99999），每代最多 99,999 人
-- **时间跨度**：按每代 30 年计算，99 代可覆盖约 3000 年历史
+### 代际码规则
 
-**注意事项：**
-- ID 一旦分配，不可修改
-- 删除成员后，其 ID 不会重复使用
-- 新增成员时，根据代际和录入顺序自动分配 ID
+代际码（generationCode）用于标识家族成员所属的代际：
+
+**计算公式：**
+```
+代际码 = 代际 × 1000 + 1
+```
+
+**示例：**
+```
+1001  ← 第 1 代（1 × 1000 + 1）
+2001  ← 第 2 代（2 × 1000 + 1）
+3001  ← 第 3 代（3 × 1000 + 1）
+```
+
+**特点：**
+- ✅ **快速计算**：可通过 `Math.floor(代际码 / 1000)` 快速获取代际
+- ✅ **可扩展**：支持最多 999 代
+- ✅ **便于排序**：代际码可直接用于排序和筛选
 
 ## 🎨 页面说明
 
-### 1. 主页 (home.html)
+### 1. 主页 (index.html)
 - 展示所有家族成员列表
 - 支持分页浏览
 - 提供树形视图入口
@@ -211,19 +198,25 @@ https://zhoushizipu.vercel.app/
 ## 🔧 自定义配置
 
 ### 修改网站标题
-编辑 `public/home.html`，找到：
+编辑 `index.html`，找到：
 ```html
 <h1>周氏族谱</h1>
 ```
 修改为您的家族名称。
 
 ### 修改默认头像
-替换 `public/media/default-avatar.png` 文件。
+替换 `media/man.png` 文件。
 
 ### 添加更多图片
-将图片放入 `media/` 或 `public/media/` 目录。
+将图片放入 `media/` 目录。
 
 ## 📝 版本历史
+
+### V3.0.1 (2026-04-19)
+- 🧹 移除 Vercel 相关配置文件
+- 🧹 精简 .gitignore 文件
+- 📝 更新 README 文档，移除 Vercel 部署说明
+- ✨ 优化代码结构
 
 ### V3.0.0 (2026-04-19) - 正式版本
 - 🎯 正式发布生产版本

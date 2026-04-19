@@ -1,4 +1,2 @@
-﻿.vercel
-.env*.local
 node_modules/
-src/
+*.local
