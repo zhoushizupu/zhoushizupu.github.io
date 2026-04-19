@@ -372,6 +372,31 @@
       margin-top: 15px;
     }
 
+    @media screen and (max-width: 1200px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+
     .family-relation {
       margin-top: 0;
       padding: 0;
@@ -544,13 +569,86 @@
         right: 4px;
       }
 
+      .content {
+        padding: 15px;
+        margin-top: 0;
+        margin-bottom: 80px;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .person-detail {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+      }
+
       .detail-avatar {
-        width: 150px;
-        height: 200px;
+        width: 180px;
+        height: 240px;
+        margin: 0 auto;
+      }
+
+      .detail-info {
+        width: 100%;
       }
 
       .detail-info h2 {
-        font-size: 20px;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .gender-badge {
+        padding: 6px 18px;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .info-section {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .info-section h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .info-section p,
+      .info-section li {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .family-relation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .family-relation {
+        padding: 12px;
+      }
+
+      .family-relation-avatar {
+        width: 60px;
+        height: 80px;
+      }
+
+      .family-relation-info h4 {
+        font-size: 12px;
+      }
+
+      .family-relation-name {
+        font-size: 13px;
+      }
+
+      .back-btn {
+        padding: 12px 30px;
+        font-size: 15px;
+        width: 100%;
+        text-align: center;
       }
     }
 
@@ -576,22 +674,58 @@
         right: 3px;
       }
 
+      .content {
+        padding: 12px;
+      }
+
       .detail-avatar {
-        width: 120px;
-        height: 160px;
+        width: 150px;
+        height: 200px;
       }
 
       .detail-info h2 {
-        font-size: 18px;
+        font-size: 20px;
       }
 
-      .detail-section h3 {
-        font-size: 16px;
-      }
-
-      .detail-section p,
-      .detail-section li {
+      .gender-badge {
+        padding: 5px 15px;
         font-size: 12px;
+      }
+
+      .info-section h3 {
+        font-size: 14px;
+      }
+
+      .info-section p,
+      .info-section li {
+        font-size: 12px;
+      }
+
+      .family-relation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .family-relation {
+        padding: 10px;
+      }
+
+      .family-relation-avatar {
+        width: 50px;
+        height: 67px;
+      }
+
+      .family-relation-info h4 {
+        font-size: 11px;
+      }
+
+      .family-relation-name {
+        font-size: 12px;
+      }
+
+      .back-btn {
+        padding: 10px 24px;
+        font-size: 14px;
       }
     }
   </style>
