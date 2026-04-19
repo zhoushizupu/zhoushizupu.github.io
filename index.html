@@ -532,17 +532,28 @@
 
       /* 人物卡片适配 - 保持横向布局 */
       .person-card {
-        padding: 12px;
-        gap: 12px;
+        padding: 15px;
+        gap: 15px;
         flex-direction: row;
         align-items: flex-start;
         text-align: left;
       }
 
       .person-card .card-avatar {
-        width: 75px;
-        height: 100px;
+        width: 90px;
+        height: 120px;
         flex-shrink: 0;
+      }
+
+      .person-card .card-header {
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .card-title {
+        flex: 1;
+        min-width: 0;
+        padding-left: 10px;
       }
 
       .person-card .card-header {
@@ -672,14 +683,27 @@
         flex-direction: row;
         align-items: flex-start;
         text-align: left;
-        padding: 12px;
-        gap: 12px;
+        padding: 15px;
+        gap: 15px;
       }
 
       .person-card .card-avatar {
-        width: 60px;
-        height: 80px;
+        width: 80px;
+        height: 107px;
         flex-shrink: 0;
+      }
+
+      .person-card .card-header {
+        flex-direction: row;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .card-title {
+        flex: 1;
+        min-width: 0;
+        padding-left: 10px;
       }
 
       .person-card .card-header {
@@ -741,8 +765,8 @@
       }
 
       .person-card .card-avatar {
-        width: 54px;
-        height: 72px;
+        width: 72px;
+        height: 96px;
       }
 
       .card-title h3 {
