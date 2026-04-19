@@ -552,7 +552,7 @@
         <p>璇疯繑鍥炲垪琛ㄩ€夋嫨姝ｇ‘鐨勫鏃忔垚鍛?/p>
       </div>
       <div style="text-align: right; margin-top: 30px;">
-        <a href="index.html" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">杩斿洖鍒楄〃</a>
+        <a href="home.html" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">杩斿洖鍒楄〃</a>
       </div>
     </div>
   </div>
@@ -566,7 +566,7 @@
 
     async function loadFamilyData() {
       try {
-        const response = await fetch('data/family.json');
+        const response = await fetch('./data/family.json');
         if (!response.ok) {
           throw new Error('鏁版嵁鍔犺浇澶辫触');
         }

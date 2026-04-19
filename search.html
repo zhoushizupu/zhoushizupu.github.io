@@ -228,13 +228,13 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1 onclick="window.location.href='index.html'">鍛ㄦ皬鏃忚氨</h1>
+      <h1 onclick="window.location.href='home.html'">鍛ㄦ皬鏃忚氨</h1>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="鎼滅储瀹舵棌鎴愬憳...">
         <button onclick="searchPerson()">鎼滅储</button>
       </div>
       <div class="header-right">
-        <a href="index.html" class="back-btn">杩斿洖鍒楄〃</a>
+        <a href="home.html" class="back-btn">杩斿洖鍒楄〃</a>
       </div>
     </div>
 
@@ -263,7 +263,7 @@
 
     async function loadFamilyData() {
       try {
-        const response = await fetch('/public/data/family.json');
+        const response = await fetch('data/family.json');
         if (!response.ok) {
           throw new Error('鏁版嵁鍔犺浇澶辫触');
         }
