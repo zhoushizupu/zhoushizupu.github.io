@@ -1052,11 +1052,6 @@
         familyHTML += createFamilyRelationCard('祖父', family.grandfather);
       }
 
-      // 爷爷（与祖父相同，备用）
-      if (family.grandfather && !family.grandfatherDisplayed) {
-        familyHTML += createFamilyRelationCard('爷爷', family.grandfather);
-      }
-
       // 父亲
       if (family.father) {
         familyHTML += createFamilyRelationCard('父亲', family.father);
