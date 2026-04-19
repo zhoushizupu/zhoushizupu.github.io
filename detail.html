@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -750,7 +750,7 @@
     // 创建家族关系卡片的函数
     function createFamilyRelationCard(relationType, person) {
       return `
-        <div class="family-relation" onclick="window.location.href='/?id=${person.id}'" style="cursor: pointer;">
+        <div class="family-relation" onclick="window.location.href='detail.html?id=${person.id}'" style="cursor: pointer;">
           <div class="family-relation-avatar">
             <img src="media/${person.id}.jpg" alt="${person.name}" onerror="this.src='media/man.png'">
           </div>
