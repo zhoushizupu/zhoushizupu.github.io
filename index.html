@@ -109,26 +109,23 @@
 
     /* 树形视图切换按钮 */
     .tree-toggle-btn {
-      padding: 10px 12px;
-      background: #667eea;
-      color: white;
+      padding: 10px;
+      background: transparent;
+      color: #667eea;
       border: none;
-      border-radius: 8px;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
       transition: all 0.3s ease;
       white-space: nowrap;
       margin-left: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 40px;
     }
 
     .tree-toggle-btn:hover {
-      background: #764ba2;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      color: #764ba2;
+      transform: scale(1.1);
     }
 
     .tree-search-box {
@@ -550,9 +547,15 @@
       .tree-toggle-btn {
         margin-left: 8px;
         order: 3;
-        padding: 6px 10px;
-        font-size: 14px;
-        min-width: 36px;
+        padding: 8px;
+        font-size: 18px;
+        background: transparent;
+        color: #667eea;
+      }
+
+      .tree-toggle-btn:hover {
+        color: #764ba2;
+        transform: scale(1.1);
       }
 
       /* 内容区域调整 */
@@ -717,9 +720,15 @@
       }
 
       .tree-toggle-btn {
-        padding: 5px 8px;
-        font-size: 13px;
-        min-width: 32px;
+        padding: 6px;
+        font-size: 16px;
+        background: transparent;
+        color: #667eea;
+      }
+
+      .tree-toggle-btn:hover {
+        color: #764ba2;
+        transform: scale(1.1);
       }
 
       .content {
