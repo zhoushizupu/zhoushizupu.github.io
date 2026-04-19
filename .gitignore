@@ -1,20 +1,2 @@
-﻿# 临时文件
-node_modules
-dist-ssr
-.DS_Store
-.vite
-
-# 构建文件
-dist
-assets
-
-# 源代码
-src/
-
-# 文档
-LICENSE
-
-# 部署脚本
-deploy.bat
-.env*.local
 .vercel
+.env*.local
