@@ -511,7 +511,7 @@
 <body>
   <div class="header">
     <div class="header-left">
-      <a href="./home.html" class="header-logo">周氏族谱</a>
+      <a href="index.html" class="header-logo">周氏族谱</a>
     </div>
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="搜索家族成员...">
@@ -552,7 +552,7 @@
         <p>请返回列表选择正确的家族成员</p>
       </div>
       <div style="text-align: right; margin-top: 30px;">
-        <a href="home.html" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">返回列表</a>
+        <a href="index.html" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">返回列表</a>
       </div>
     </div>
   </div>
@@ -566,7 +566,7 @@
 
     async function loadFamilyData() {
       try {
-        const response = await fetch('./data/family.json');
+        const response = await fetch('data/family.json');
         if (!response.ok) {
           throw new Error('数据加载失败');
         }
@@ -750,7 +750,7 @@
     // 创建家族关系卡片的函数
     function createFamilyRelationCard(relationType, person) {
       return `
-        <div class="family-relation" onclick="window.location.href='./home.html?id=${person.id}'" style="cursor: pointer;">
+        <div class="family-relation" onclick="window.location.href='index.html?id=${person.id}'" style="cursor: pointer;">
           <div class="family-relation-avatar">
             <img src="../media/${person.id}.jpg" alt="${person.name}" onerror="this.src='../media/man.png'">
           </div>
@@ -769,7 +769,7 @@
       const query = document.getElementById('searchInput').value.toLowerCase();
       if (!query) return;
       
-      window.location.href = `./home.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `index.html?q=${encodeURIComponent(query)}`;
     }
 
     document.getElementById('searchInput').addEventListener('keypress', (e) => {

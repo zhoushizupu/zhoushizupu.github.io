@@ -228,13 +228,13 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1 onclick="window.location.href='/public/home.html'">周氏族谱</h1>
+      <h1 onclick="window.location.href='index.html'">周氏族谱</h1>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="搜索家族成员...">
         <button onclick="searchPerson()">搜索</button>
       </div>
       <div class="header-right">
-        <a href="home.html" class="back-btn">返回列表</a>
+        <a href="index.html" class="back-btn">返回列表</a>
       </div>
     </div>
 
@@ -297,7 +297,7 @@
         searchResults.innerHTML = found.map(person => {
           const generation = calculateGeneration(person);
           return `
-            <div class="person-card" onclick="window.location.href='/public/detail.html?id=${person.id}'">
+            <div class="person-card" onclick="window.location.href='detail.html?id=${person.id}'">
               <div class="card-avatar">
                 <img src="/media/man.png" alt="${person.name}">
               </div>
