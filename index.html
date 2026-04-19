@@ -106,7 +106,6 @@
       transform: translateY(-50%) scale(1.1);
     }
 
-    /* 树形视图切换按钮 */
     .tree-toggle-btn {
       padding: 10px;
       background: transparent;
@@ -478,17 +477,12 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    /* ========== 移动端响应式布局 ========== */
-    
-    /* 平板和手机适配 (max-width: 768px) */
     @media screen and (max-width: 768px) {
-      /* 容器调整 */
       .container {
         padding: 0;
         padding-top: 80px;
       }
 
-      /* 头部适配移动端 - 改为顶部固定栏 */
       .header {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -510,7 +504,6 @@
         flex-shrink: 0;
       }
 
-      /* 搜索框 */
       .search-box {
         flex: 1;
         min-width: 0;
@@ -542,7 +535,6 @@
         color: #764ba2;
       }
 
-      /* 树形视图按钮 */
       .tree-toggle-btn {
         margin-left: 8px;
         order: 3;
@@ -557,7 +549,6 @@
         transform: scale(1.1);
       }
 
-      /* 内容区域调整 */
       .content {
         padding: 15px;
         padding-top: 0;
@@ -567,14 +558,12 @@
         margin-top: 0;
       }
 
-      /* 人物列表改为 2 列 */
       .person-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         margin-top: 0;
       }
 
-      /* 人物卡片适配 - 保持横向布局 */
       .person-card {
         padding: 15px;
         padding-top: 0;
@@ -645,7 +634,6 @@
         text-overflow: ellipsis;
       }
 
-      /* 树形搜索框调整 */
       .tree-search-box {
         flex-direction: row;
         flex-wrap: wrap;
@@ -662,7 +650,6 @@
         white-space: nowrap;
       }
 
-      /* 分页调整 */
       .pagination {
         padding: 15px 10px;
       }
@@ -672,7 +659,6 @@
         font-size: 12px;
       }
 
-      /* 模态框适配 */
       .modal-content {
         width: calc(100% - 20px);
         max-height: calc(100vh - 40px);
@@ -691,7 +677,6 @@
       }
     }
 
-    /* 小屏手机优化 (max-width: 480px) */
     @media screen and (max-width: 480px) {
       .container {
         padding-top: 110px;
@@ -745,13 +730,11 @@
         padding: 10px;
       }
 
-      /* 人物列表改为 1 列 */
       .person-list {
         grid-template-columns: 1fr;
         gap: 12px;
       }
 
-      /* 人物卡片 - 保持左图右文布局 */
       .person-card {
         flex-direction: row;
         align-items: center;
@@ -831,7 +814,6 @@
       }
     }
 
-    /* 超小屏幕 (max-width: 360px) */
     @media screen and (max-width: 360px) {
       .header h1 {
         font-size: 16px;
