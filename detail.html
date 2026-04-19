@@ -1,0 +1,790 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鍛ㄦ皬鏃忚氨 - 浜虹墿璇︽儏</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background: white;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      max-width: 1440px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex: 1;
+    }
+
+    .header-logo {
+      color: #667eea;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .header-logo:hover {
+      opacity: 0.7;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #667eea;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover {
+      color: #764ba2;
+    }
+
+    .breadcrumb .separator {
+      color: #999;
+      font-size: 12px;
+    }
+
+    .breadcrumb .current {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      max-width: 400px;
+      margin-left: 50px;
+      justify-content: flex-end;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #667eea;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .search-box button:hover {
+      background: #764ba2;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .back-btn {
+      padding: 8px 16px;
+      background: #f0f0f0;
+      color: #666;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background: #e0e0e0;
+    }
+
+    .footer {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: calc(100vh - 40px);
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .content {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 80px;
+      margin-bottom: 100px;
+      min-height: calc(100vh - 200px);
+    }
+
+    .person-detail {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .detail-avatar {
+      width: 300px;
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .detail-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-info {
+      flex: 1;
+    }
+
+    .detail-info h2 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .gender-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .gender-badge.male {
+      background: #667eea;
+    }
+
+    .gender-badge.female {
+      background: #FF69B4;
+    }
+
+    .info-section {
+      margin-bottom: 25px;
+    }
+
+    .info-section h3 {
+      color: #667eea;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-section p, .info-section li {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-section ul {
+      padding-left: 20px;
+    }
+
+    .info-section strong {
+      display: inline-block;
+      min-width: 100px;
+    }
+
+    .info-section strong::before {
+      font-size: 16px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .info-section + .info-section {
+      margin-top: 15px;
+    }
+
+    /* Markdown 鏍峰紡 */
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3,
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+      color: #333;
+      margin: 20px 0 10px 0;
+      font-weight: 600;
+    }
+
+    .markdown-content h1 {
+      font-size: 24px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 8px;
+    }
+
+    .markdown-content h2 {
+      font-size: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 6px;
+    }
+
+    .markdown-content h3 {
+      font-size: 18px;
+      color: #667eea;
+    }
+
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+      font-size: 16px;
+    }
+
+    .markdown-content p {
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+      margin-bottom: 12px;
+      padding-left: 24px;
+    }
+
+    .markdown-content li {
+      margin-bottom: 6px;
+    }
+
+    .markdown-content strong {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .markdown-content em {
+      font-style: italic;
+    }
+
+    .markdown-content blockquote {
+      border-left: 4px solid #667eea;
+      padding-left: 16px;
+      margin: 16px 0;
+      color: #666;
+      background: #f8f9ff;
+      padding: 12px 16px;
+      border-radius: 4px;
+    }
+
+    .markdown-content code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #e83e8c;
+    }
+
+    .markdown-content pre {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    .markdown-content pre code {
+      background: transparent;
+      padding: 0;
+      color: #333;
+    }
+
+    .markdown-content hr {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 20px 0;
+    }
+
+    .markdown-content a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .markdown-content a:hover {
+      text-decoration: underline;
+    }
+
+    .markdown-content img {
+      max-width: 100%;
+      height: auto;
+      margin: 16px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    #detailFamily {
+      display: block;
+    }
+
+    #detailFamily > h3 {
+      margin-bottom: 15px;
+    }
+
+    .family-relation-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .family-relation {
+      margin-top: 0;
+      padding: 0;
+      background: #f9f9f9;
+      border-radius: 10px;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .family-relation:hover {
+      transform: translateY(-5px);
+    }
+
+    .family-relation-avatar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .family-relation-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .family-relation-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.3) 50%, 
+        rgba(0,0,0,0.9) 100%);
+      z-index: 2;
+    }
+
+    .family-relation-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 10px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .family-relation h4 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 11px;
+      margin: 0 0 3px 0;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .family-relation-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      line-height: 1.3;
+    }
+
+    .family-relation-name a {
+      color: rgba(255, 255, 255, 0.95);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .family-relation-name a:hover {
+      opacity: 0.9;
+      text-decoration: none;
+    }
+
+    .family-relation:hover .family-relation-overlay {
+      background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.1) 0%, 
+        rgba(0,0,0,0.5) 50%, 
+        rgba(0,0,0,0.95) 100%);
+    }
+
+    .family-relation-meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .family-relation a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .family-relation a:hover {
+      text-decoration: underline;
+    }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      font-size: 24px;
+      color: #667eea;
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 50px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <a href="index.html" class="header-logo">鍛ㄦ皬鏃忚氨</a>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="鎼滅储瀹舵棌鎴愬憳...">
+      <button onclick="searchPerson()">鎼滅储</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div id="loading" class="loading">鍔犺浇涓?..</div>
+      <div id="personDetail" style="display: none;">
+        <div class="person-detail">
+          <div class="detail-avatar">
+            <img id="detailAvatar" src="" alt="">
+          </div>
+          <div class="detail-info">
+            <h2 id="detailName">鍛ㄦ枃鐜?/h2>
+            <div class="info-section" id="detailGeneration">
+              <h3>涓栦唬淇℃伅</h3>
+              <p>绗嚑浠ｏ細绗?1 浠?/p>
+            </div>
+            <div class="info-section">
+              <h3>鍩烘湰淇℃伅</h3>
+              <p id="detailBasic">鍑虹敓锛氬叕鍏冨墠 1152 骞?| 閫濅笘锛氬叕鍏冨墠 1056 骞?| 绫嶈疮锛氬矏灞?| 鑱屼笟锛氬懆鏈濆悰涓?/p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section" id="detailFamily">
+          <h3>瀹舵棌鍏崇郴</h3>
+          <div class="family-relation-grid" id="familyRelationGrid">
+            <!-- 瀹舵棌鍏崇郴鍗＄墖灏嗛€氳繃 JavaScript 鍔ㄦ€佺敓鎴?-->
+          </div>
+        </div>
+      </div>
+      <div id="notFound" class="not-found" style="display: none;">
+        <h2>鏈壘鍒颁汉鐗╀俊鎭?/h2>
+        <p>璇疯繑鍥炲垪琛ㄩ€夋嫨姝ｇ‘鐨勫鏃忔垚鍛?/p>
+      </div>
+      <div style="text-align: right; margin-top: 30px;">
+        <a href="index.html" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">杩斿洖鍒楄〃</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 鍛ㄦ皬鏃忚氨 - 瀹舵棌浼犳壙锛屾簮杩滄祦闀?/p>
+  </div>
+
+  <script>
+    let familyData = null;
+
+    async function loadFamilyData() {
+      try {
+        const response = await fetch('data/family.json');
+        if (!response.ok) {
+          throw new Error('鏁版嵁鍔犺浇澶辫触');
+        }
+        familyData = await response.json();
+        return true;
+      } catch (error) {
+        console.error('鍔犺浇瀹舵棌鏁版嵁澶辫触:', error);
+        return false;
+      }
+    }
+
+    function calculateGeneration(person) {
+      if (person.generationCode) {
+        return Math.floor(parseInt(person.generationCode) / 1000);
+      }
+      return 1;
+    }
+
+    function buildPersonMap() {
+      const personMap = new Map();
+      if (familyData && familyData.family && familyData.family.persons) {
+        Object.values(familyData.family.persons).forEach(p => {
+          personMap.set(p.id, p);
+        });
+      }
+      return personMap;
+    }
+
+    function getPersonById(id, personMap) {
+      return personMap.get(id);
+    }
+
+    function getFamilyMembers(person, personMap) {
+      const family = {
+        father: null,
+        grandfather: null,
+        spouses: [],
+        children: []
+      };
+
+      if (person.family && person.family.parents && person.family.parents.length > 0) {
+        const fatherId = person.family.parents[0];
+        family.father = getPersonById(fatherId, personMap);
+        
+        if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
+          const grandfatherId = family.father.family.parents[0];
+          family.grandfather = getPersonById(grandfatherId, personMap);
+        }
+      }
+
+      if (person.family && person.family.spouses) {
+        family.spouses = person.family.spouses.map(id => getPersonById(id, personMap)).filter(Boolean);
+      }
+
+      if (person.family && person.family.children) {
+        family.children = person.family.children.map(id => getPersonById(id, personMap)).filter(Boolean);
+      }
+
+      return family;
+    }
+
+    async function initPage() {
+      const loaded = await loadFamilyData();
+      if (!loaded) {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('notFound').style.display = 'block';
+        return;
+      }
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const personId = urlParams.get('id');
+      if (personId) {
+        showPersonDetail(personId);
+      } else {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('personDetail').style.display = 'none';
+        document.getElementById('notFound').style.display = 'block';
+      }
+    }
+
+    initPage();
+
+    function showPersonDetail(personId) {
+      console.log('鏌ユ壘浜虹墿 ID:', personId);
+      const personMap = buildPersonMap();
+      const person = getPersonById(personId, personMap);
+      
+      console.log('鎵惧埌鐨勪汉鐗?', person);
+      
+      if (!person) {
+        console.log('鏈壘鍒颁汉鐗╋紝鏄剧ず閿欒淇℃伅');
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('personDetail').style.display = 'none';
+        document.getElementById('notFound').style.display = 'block';
+        return;
+      }
+
+      const family = getFamilyMembers(person, personMap);
+      const generation = calculateGeneration(person);
+
+      document.getElementById('detailAvatar').src = `../media/${personId}.jpg`;
+      document.getElementById('detailAvatar').alt = person.name;
+      document.getElementById('detailAvatar').onerror = function() {
+        this.src = '../media/man.png';
+      };
+      document.getElementById('detailName').textContent = person.name;
+
+      // 鍩烘湰淇℃伅
+      const basicInfoHTML = `
+        <div class="info-section">
+          <div style="margin-bottom: 8px;"><strong>馃搷 鍑虹敓鍦?/strong>锛?{person.birthPlace || '涓嶈'}</div>
+          <div style="margin-bottom: 8px;"><strong>馃彔 鐜板眳鍦?/strong>锛?{person.residence || '涓嶈'}</div>
+          <div style="margin-bottom: 8px;"><strong>馃巶 鍑虹敓鏃ユ湡</strong>锛?{person.birthDate || '涓嶈'}</div>
+          <div style="margin-bottom: 8px;"><strong>鈿帮笍 閫濅笘鏃ユ湡</strong>锛?{person.deathDate || '鍦ㄤ笘'}</div>
+          ${person.cemetery && person.cemetery.location ? `<div style="margin-bottom: 8px;"><strong>馃 澧撳湴</strong>锛?a href="https://uri.amap.com/marker?position=${person.cemetery.longitude},${person.cemetery.latitude}&name=${encodeURIComponent(person.cemetery.location)}" target="_blank" style="color: #333; text-decoration: none;">${person.cemetery.location} <span style="font-size: 12px; color: #666;">锛堢偣鍑诲鑸級</span></a></div>` : ''}
+          <div style="margin-bottom: 8px;"><strong style="color: white;">ID</strong><span style="color: white;">锛?/span><span style="color: white;">${person.id}</span></div>
+        </div>
+      `;
+      document.getElementById('detailBasic').parentElement.innerHTML = basicInfoHTML;
+      
+      // 涓栦唬淇℃伅
+      const generationInfoHTML = `
+        <div class="info-section">
+          <div style="margin-bottom: 8px;"><strong>馃懁 濮撳悕</strong>锛?{person.name}</div>
+          <div style="margin-bottom: 8px;"><strong>鈾傦笍 鎬у埆</strong>锛?{person.gender === 'M' ? '鐢? : '濂?}</div>
+          ${person.generationWord ? `<div style="margin-bottom: 8px;"><strong>馃摐 瀛楄緢</strong>锛?{person.generationWord}</div>` : '<div style="margin-bottom: 8px;"><strong>馃摐 瀛楄緢</strong>锛氭殏鏃?/div>'}
+        </div>
+      `;
+      document.getElementById('detailGeneration').innerHTML = generationInfoHTML;
+      
+      // 鏄剧ず绠€浠?鐢熷钩锛堟敮鎸?Markdown锛?      if (person.biography) {
+        const biographyHTML = `
+          <div class="info-section" style="margin-top: 20px;">
+            <h3>绠€浠?鐢熷钩</h3>
+            <div class="markdown-content">${marked.parse(person.biography)}</div>
+          </div>
+        `;
+        document.getElementById('detailFamily').insertAdjacentHTML('beforebegin', biographyHTML);
+      }
+
+      // 娓叉煋瀹舵棌鍏崇郴锛堟瘡涓汉鍗曠嫭涓€涓崱鐗囷級
+      const familyGrid = document.getElementById('familyRelationGrid');
+      let familyHTML = '';
+
+      // 閰嶅伓
+      if (family.spouses && family.spouses.length > 0) {
+        family.spouses.forEach(spouse => {
+          familyHTML += createFamilyRelationCard('閰嶅伓', spouse);
+        });
+      }
+
+      // 绁栫埗
+      if (family.grandfather) {
+        familyHTML += createFamilyRelationCard('绁栫埗', family.grandfather);
+      }
+
+      // 鐖朵翰
+      if (family.father) {
+        familyHTML += createFamilyRelationCard('鐖朵翰', family.father);
+      }
+
+      // 瀛愬コ
+      if (family.children && family.children.length > 0) {
+        family.children.forEach(child => {
+          familyHTML += createFamilyRelationCard('瀛愬コ', child);
+        });
+      }
+
+      if (familyHTML === '') {
+        familyHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #999; padding: 20px;">鏆傛棤瀹舵棌鍏崇郴</div>';
+      }
+
+      familyGrid.innerHTML = familyHTML;
+
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('personDetail').style.display = 'block';
+      document.getElementById('notFound').style.display = 'none';
+    }
+
+    // 鍒涘缓瀹舵棌鍏崇郴鍗＄墖鐨勫嚱鏁?    function createFamilyRelationCard(relationType, person) {
+      return `
+        <div class="family-relation" onclick="window.location.href='index.html?id=${person.id}'" style="cursor: pointer;">
+          <div class="family-relation-avatar">
+            <img src="../media/${person.id}.jpg" alt="${person.name}" onerror="this.src='../media/man.png'">
+          </div>
+          <div class="family-relation-overlay"></div>
+          <div class="family-relation-info">
+            <h4>${relationType}</h4>
+            <p class="family-relation-name">
+              ${person.name}
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    function searchPerson() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      if (!query) return;
+      
+      window.location.href = `index.html?q=${encodeURIComponent(query)}`;
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchPerson();
+      }
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const personId = urlParams.get('id');
+    if (personId) {
+      showPersonDetail(personId);
+    } else {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('personDetail').style.display = 'none';
+      document.getElementById('notFound').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
