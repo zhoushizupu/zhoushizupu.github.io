@@ -534,9 +534,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 400px;
+      height: 100vh;
       font-size: 24px;
       color: #667eea;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .not-found {
@@ -858,8 +871,9 @@
     }
 
     function calculateGeneration(person) {
+      // 从 generationCode 计算代际（代际 × 1000 + 1）
       if (person.generationCode) {
-        return Math.floor(parseInt(person.generationCode) / 1000);
+        return Math.floor(person.generationCode / 1000);
       }
       return 1;
     }
@@ -946,9 +960,13 @@
     }
 
     async function initPage() {
+      // 确保初始状态下详情和错误信息都隐藏
+      document.getElementById('personDetail').style.display = 'none';
+      document.getElementById('notFound').style.display = 'none';
+      
       const loaded = await loadFamilyData();
       if (!loaded) {
-        document.getElementById('loading').style.display = 'none';
+        hideLoading();
         document.getElementById('notFound').style.display = 'block';
         return;
       }
@@ -958,10 +976,18 @@
       if (personId) {
         showPersonDetail(personId);
       } else {
-        document.getElementById('loading').style.display = 'none';
+        hideLoading();
         document.getElementById('personDetail').style.display = 'none';
         document.getElementById('notFound').style.display = 'block';
       }
+    }
+    
+    function hideLoading() {
+      const loading = document.getElementById('loading');
+      loading.classList.add('hidden');
+      setTimeout(() => {
+        loading.style.display = 'none';
+      }, 300);
     }
 
     initPage();
@@ -975,7 +1001,7 @@
       
       if (!person) {
         console.log('未找到人物，显示错误信息');
-        document.getElementById('loading').style.display = 'none';
+        hideLoading();
         document.getElementById('personDetail').style.display = 'none';
         document.getElementById('notFound').style.display = 'block';
         return;
@@ -1085,7 +1111,8 @@
 
       familyGrid.innerHTML = familyHTML;
 
-      document.getElementById('loading').style.display = 'none';
+      // 所有内容渲染完成后，隐藏加载状态并显示详情
+      hideLoading();
       document.getElementById('personDetail').style.display = 'block';
       document.getElementById('notFound').style.display = 'none';
     }
@@ -1126,7 +1153,7 @@
     if (personId) {
       showPersonDetail(personId);
     } else {
-      document.getElementById('loading').style.display = 'none';
+      hideLoading();
       document.getElementById('personDetail').style.display = 'none';
       document.getElementById('notFound').style.display = 'block';
     }

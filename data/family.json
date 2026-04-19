@@ -1,246 +1,228 @@
 {
   "family": {
-    "name": "周氏族谱",
-    "description": "周氏族谱系",
+    "lastId": 157,
     "rootId": "100000001",
     "persons": {
       "100000001": {
         "id": "100000001",
-        "generationCode": "1001",
-        "name": "周文王",
+        "generationCode": 1001,
+        "name": "姬昌",
+        "title": "周文王",
         "gender": "M",
         "birthDate": "公元前 1152 年",
         "deathDate": "公元前 1056 年",
         "birthPlace": "岐山",
         "residence": "",
         "generationWord": "",
-        "biography": "周文王姬昌，周朝奠基者，在位 50 年，奠定了周朝八百年的基业。",
-        "cemetery": {
-          "location": "陕西省咸阳市渭城区周陵镇",
-          "name": "周文王陵",
-          "latitude": 34.408,
-          "longitude": 108.726
-        },
+        "biography": "周文王姬昌，周朝奠基者，在位 50 年。",
         "family": {
           "parents": [],
           "spouses": [
             "100000002"
           ],
           "children": [
-            "100000002",
-            "100000003",
-            "100000004",
-            "100000005",
-            "100000006",
-            "100000007"
+            "100000015",
+            "100000016",
+            "100000017"
           ]
         }
       },
       "100000002": {
         "id": "100000002",
-        "generationCode": "2001",
-        "name": "周武王",
-        "gender": "M",
-        "birthDate": "1998 年 8 月十八",
-        "deathDate": "公元前 1043 年",
-        "birthPlace": "镐京",
+        "generationCode": 1001,
+        "name": "太姒",
+        "title": "文王妃",
+        "gender": "F",
+        "birthDate": "公元前 1150 年",
+        "deathDate": "公元前 1060 年",
+        "birthPlace": "莘国",
         "residence": "",
         "generationWord": "",
-        "biography": "周武王姬发，周文王之子，推翻商朝，建立周朝，定都镐京。",
+        "biography": "太姒，周文王之正妃，生十子。",
         "family": {
-          "parents": [
+          "parents": [],
+          "spouses": [
             "100000001"
           ],
-          "spouses": [
-            "100000008"
-          ],
           "children": [
-            "100000009",
-            "100000010",
-            "100000011"
+            "100000015",
+            "100000016",
+            "100000017"
           ]
         }
       },
       "100000003": {
         "id": "100000003",
-        "generationCode": "2002",
-        "name": "周公旦",
-        "gender": "M",
-        "birthDate": "公元前 1080 年",
-        "deathDate": "公元前 1020 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 1001,
+        "name": "邑姜",
+        "title": "武王后",
+        "gender": "F",
+        "birthDate": "公元前 1095 年",
+        "deathDate": "公元前 1035 年",
+        "birthPlace": "齐国",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "周公旦，周文王第四子，西周初期杰出的政治家，被尊为'元圣'。",
+        "biography": "邑姜，周武王之正妃，姜子牙之女。",
         "family": {
-          "parents": [
-            "100000001"
-          ],
+          "parents": [],
           "spouses": [
-            "100000012"
+            "100000015"
           ],
           "children": [
-            "100000013",
-            "100000014"
+            "100000018",
+            "100000019"
           ]
         }
       },
       "100000004": {
         "id": "100000004",
-        "generationCode": "2003",
-        "name": "管叔鲜",
-        "gender": "M",
-        "birthDate": "公元前 1075 年",
-        "deathDate": "公元前 1040 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 1001,
+        "name": "姜氏",
+        "title": "周公妃",
+        "gender": "F",
+        "birthDate": "公元前 1085 年",
+        "deathDate": "公元前 1025 年",
+        "birthPlace": "齐国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "管叔鲜，周文王第三子，封于管国。",
+        "biography": "姜氏，周公旦之正妻。",
         "family": {
-          "parents": [
-            "100000001"
-          ],
+          "parents": [],
           "spouses": [
-            "100000015"
+            "100000016"
           ],
           "children": [
-            "100000016"
+            "100000020",
+            "100000021"
           ]
         }
       },
       "100000005": {
         "id": "100000005",
-        "generationCode": "2004",
-        "name": "召公奭",
-        "gender": "M",
-        "birthDate": "公元前 1070 年",
-        "deathDate": "公元前 1000 年",
-        "birthPlace": "镐京",
-        "residence": "",
-        "generationWord": "",
-        "biography": "召公奭，周文王第五子，封于燕国。",
-        "family": {
-          "parents": [
-            "100000001"
-          ],
-          "spouses": [
-            "100000017"
-          ],
-          "children": [
-            "100000018"
-          ]
-        }
-      },
-      "100000006": {
-        "id": "100000006",
-        "generationCode": "2005",
-        "name": "荣公",
-        "gender": "M",
-        "birthDate": "公元前 1065 年",
-        "deathDate": "公元前 1010 年",
-        "birthPlace": "镐京",
-        "residence": "",
-        "generationWord": "",
-        "biography": "荣公，周文王第六子。",
-        "family": {
-          "parents": [
-            "100000001"
-          ],
-          "spouses": [
-            "100000019"
-          ],
-          "children": [
-            "100000020"
-          ]
-        }
-      },
-      "100000007": {
-        "id": "100000007",
-        "generationCode": "2006",
-        "name": "毕公",
-        "gender": "M",
+        "generationCode": 1001,
+        "name": "卫康叔妃",
+        "title": "",
+        "gender": "F",
         "birthDate": "公元前 1060 年",
         "deathDate": "公元前 1005 年",
-        "birthPlace": "镐京",
+        "birthPlace": "卫国",
         "residence": "",
         "generationWord": "",
-        "biography": "毕公，周文王第七子。",
+        "biography": "卫康叔之妃。",
         "family": {
-          "parents": [
-            "100000001"
-          ],
+          "parents": [],
           "spouses": [
-            "100000021"
+            "100000017"
           ],
           "children": [
             "100000022"
           ]
         }
       },
-      "100000008": {
-        "id": "100000008",
-        "generationCode": "2001",
-        "name": "邑姜",
+      "100000006": {
+        "id": "100000006",
+        "generationCode": 1001,
+        "name": "王姒",
+        "title": "成王后",
         "gender": "F",
-        "birthDate": "公元前 1090 年",
-        "deathDate": "公元前 1030 年",
+        "birthDate": "公元前 1050 年",
+        "deathDate": "公元前 1025 年",
         "birthPlace": "镐京",
         "residence": "",
         "generationWord": "",
-        "biography": "邑姜，周武王之王后，姜子牙之女。",
+        "biography": "王姒，周成王之后。",
         "family": {
           "parents": [],
           "spouses": [
-            "100000002"
+            "100000018"
           ],
           "children": [
-            "100000009",
-            "100000010",
-            "100000011"
+            "100000023"
+          ]
+        }
+      },
+      "100000007": {
+        "id": "100000007",
+        "generationCode": 1001,
+        "name": "唐叔虞妃",
+        "title": "",
+        "gender": "F",
+        "birthDate": "公元前 1045 年",
+        "deathDate": "公元前 1000 年",
+        "birthPlace": "唐国",
+        "residence": "",
+        "generationWord": "",
+        "biography": "唐叔虞之妃。",
+        "family": {
+          "parents": [],
+          "spouses": [
+            "100000019"
+          ],
+          "children": [
+            "100000024"
+          ]
+        }
+      },
+      "100000008": {
+        "id": "100000008",
+        "generationCode": 1001,
+        "name": "伯禽妃",
+        "title": "",
+        "gender": "F",
+        "birthDate": "公元前 1055 年",
+        "deathDate": "公元前 1010 年",
+        "birthPlace": "鲁国",
+        "residence": "",
+        "generationWord": "",
+        "biography": "伯禽之妃。",
+        "family": {
+          "parents": [],
+          "spouses": [
+            "100000020"
+          ],
+          "children": [
+            "100000025"
           ]
         }
       },
       "100000009": {
         "id": "100000009",
-        "generationCode": "2002",
-        "name": "周成王",
-        "gender": "M",
-        "birthDate": "公元前 1055 年",
-        "deathDate": "公元前 1021 年",
-        "birthPlace": "镐京",
+        "generationCode": 1001,
+        "name": "君陈妃",
+        "title": "",
+        "gender": "F",
+        "birthDate": "公元前 1050 年",
+        "deathDate": "公元前 1005 年",
+        "birthPlace": "陈国",
         "residence": "",
         "generationWord": "",
-        "biography": "周成王姬诵，周武王之子，在位期间由周公旦辅政，开创了成康之治。",
+        "biography": "君陈之妃。",
         "family": {
-          "parents": [
-            "100000002"
-          ],
+          "parents": [],
           "spouses": [
-            "100000023"
+            "100000021"
           ],
           "children": [
-            "100000024",
-            "100000025"
+            "100000026"
           ]
         }
       },
       "100000010": {
         "id": "100000010",
-        "generationCode": "2003",
-        "name": "唐叔虞",
-        "gender": "M",
-        "birthDate": "公元前 1050 年",
-        "deathDate": "公元前 1000 年",
-        "birthPlace": "镐京",
+        "generationCode": 1001,
+        "name": "卫康伯妃",
+        "title": "",
+        "gender": "F",
+        "birthDate": "公元前 1030 年",
+        "deathDate": "公元前 980 年",
+        "birthPlace": "卫国",
         "residence": "",
         "generationWord": "",
-        "biography": "唐叔虞，周武王第三子，周成王之弟，封于唐，是晋国的始祖。",
+        "biography": "卫康伯之妃。",
         "family": {
-          "parents": [
-            "100000002"
-          ],
+          "parents": [],
           "spouses": [
-            "100000026"
+            "100000022"
           ],
           "children": [
             "100000027"
@@ -249,972 +231,967 @@
       },
       "100000011": {
         "id": "100000011",
-        "generationCode": "2004",
-        "name": "卫康叔",
-        "gender": "M",
-        "birthDate": "公元前 1045 年",
-        "deathDate": "公元前 990 年",
+        "generationCode": 1001,
+        "name": "王姜",
+        "title": "康王后",
+        "gender": "F",
+        "birthDate": "公元前 1025 年",
+        "deathDate": "公元前 1000 年",
         "birthPlace": "镐京",
         "residence": "",
         "generationWord": "",
-        "biography": "卫康叔，周武王少子，封于卫，是卫国的始祖。",
+        "biography": "王姜，周康王之后。",
         "family": {
-          "parents": [
-            "100000002"
-          ],
+          "parents": [],
           "spouses": [
-            "100000028"
+            "100000023"
           ],
           "children": [
-            "100000029"
+            "100000028"
           ]
         }
       },
       "100000012": {
         "id": "100000012",
-        "generationCode": "2005",
-        "name": "姜氏",
+        "generationCode": 1001,
+        "name": "晋侯燮妃",
+        "title": "",
         "gender": "F",
-        "birthDate": "公元前 1085 年",
-        "deathDate": "公元前 1025 年",
-        "birthPlace": "镐京",
+        "birthDate": "公元前 1015 年",
+        "deathDate": "公元前 970 年",
+        "birthPlace": "晋国",
         "residence": "",
         "generationWord": "",
-        "biography": "姜氏，周公旦之正妻。",
+        "biography": "晋侯燮之妃。",
         "family": {
           "parents": [],
           "spouses": [
-            "100000003"
+            "100000024"
           ],
           "children": [
-            "100000013",
-            "100000014"
+            "100000029"
           ]
         }
       },
       "100000013": {
         "id": "100000013",
-        "generationCode": "2006",
-        "name": "伯禽",
-        "gender": "M",
-        "birthDate": "公元前 1040 年",
-        "deathDate": "公元前 990 年",
-        "birthPlace": "镐京",
+        "generationCode": 1001,
+        "name": "鲁公妃",
+        "title": "",
+        "gender": "F",
+        "birthDate": "公元前 1025 年",
+        "deathDate": "公元前 980 年",
+        "birthPlace": "鲁国",
         "residence": "",
         "generationWord": "",
-        "biography": "伯禽，周公旦长子，封于鲁，是鲁国的始祖。",
+        "biography": "鲁公之妃。",
         "family": {
-          "parents": [
-            "100000003"
-          ],
+          "parents": [],
           "spouses": [
-            "100000030"
+            "100000025"
           ],
           "children": [
-            "100000031"
+            "100000030"
           ]
         }
       },
       "100000014": {
         "id": "100000014",
-        "generationCode": "2007",
-        "name": "君陈",
-        "gender": "M",
-        "birthDate": "公元前 1035 年",
-        "deathDate": "公元前 985 年",
-        "birthPlace": "镐京",
+        "generationCode": 1001,
+        "name": "陈公妃",
+        "title": "",
+        "gender": "F",
+        "birthDate": "公元前 1020 年",
+        "deathDate": "公元前 975 年",
+        "birthPlace": "陈国",
         "residence": "",
         "generationWord": "",
-        "biography": "君陈，周公旦次子，封于陈，是陈国的始祖。",
+        "biography": "陈公之妃。",
         "family": {
-          "parents": [
-            "100000003"
-          ],
+          "parents": [],
           "spouses": [
-            "100000032"
+            "100000026"
           ],
           "children": [
-            "100000033"
+            "100000031"
           ]
         }
       },
       "100000015": {
         "id": "100000015",
-        "generationCode": "2008",
-        "name": "管叔鲜夫人",
-        "gender": "F",
-        "birthDate": "公元前 1080 年",
-        "deathDate": "公元前 1045 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "generationCode": 2001,
+        "name": "姬发",
+        "title": "周武王",
+        "gender": "M",
+        "birthDate": "公元前 1099 年",
+        "deathDate": "公元前 1043 年",
+        "birthPlace": "岐山",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "管叔鲜夫人。",
+        "biography": "周武王姬发，周文王次子，推翻商朝，建立周朝。",
         "family": {
-          "parents": [],
+          "parents": [
+            "100000001"
+          ],
           "spouses": [
-            "100000004"
+            "100000003"
           ],
           "children": [
-            "100000016"
+            "100000018",
+            "100000019"
           ]
         }
       },
       "100000016": {
         "id": "100000016",
-        "generationCode": "3001",
-        "name": "管仲",
+        "generationCode": 2001,
+        "name": "姬旦",
+        "title": "周公旦",
         "gender": "M",
-        "birthDate": "公元前 1030 年",
-        "deathDate": "公元前 980 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "birthDate": "公元前 1090 年",
+        "deathDate": "公元前 1020 年",
+        "birthPlace": "岐山",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "管仲，管叔鲜之孙，春秋时期著名政治家。",
+        "biography": "周公旦姬旦，周文王第四子，制礼作乐。",
         "family": {
           "parents": [
-            "100000004"
+            "100000001"
           ],
           "spouses": [
-            "100000034"
+            "100000004"
           ],
           "children": [
-            "100000035"
+            "100000020",
+            "100000021"
           ]
         }
       },
       "100000017": {
         "id": "100000017",
-        "generationCode": "2009",
-        "name": "召公奭夫人",
-        "gender": "F",
-        "birthDate": "公元前 1075 年",
-        "deathDate": "公元前 1010 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 2001,
+        "name": "姬封",
+        "title": "卫康叔",
+        "gender": "M",
+        "birthDate": "公元前 1065 年",
+        "deathDate": "公元前 1005 年",
+        "birthPlace": "岐山",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "召公奭夫人。",
+        "biography": "卫康叔姬封，周文王第九子，卫国始祖。",
         "family": {
-          "parents": [],
+          "parents": [
+            "100000001"
+          ],
           "spouses": [
             "100000005"
           ],
           "children": [
-            "100000018"
+            "100000022"
           ]
         }
       },
       "100000018": {
         "id": "100000018",
-        "generationCode": "3002",
-        "name": "燕召公",
+        "generationCode": 3001,
+        "name": "姬诵",
+        "title": "周成王",
         "gender": "M",
-        "birthDate": "公元前 1040 年",
-        "deathDate": "公元前 980 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "birthDate": "公元前 1055 年",
+        "deathDate": "公元前 1021 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "燕召公，召公奭之子，继承燕国。",
+        "biography": "周成王姬诵，周武王之子，开创成康之治。",
         "family": {
           "parents": [
-            "100000005"
+            "100000015"
           ],
           "spouses": [
-            "100000036"
+            "100000006"
           ],
           "children": [
-            "100000037"
+            "100000023"
           ]
         }
       },
       "100000019": {
         "id": "100000019",
-        "generationCode": "2010",
-        "name": "荣公夫人",
-        "gender": "F",
-        "birthDate": "公元前 1070 年",
-        "deathDate": "公元前 1015 年",
+        "generationCode": 3001,
+        "name": "姬虞",
+        "title": "唐叔虞",
+        "gender": "M",
+        "birthDate": "公元前 1050 年",
+        "deathDate": "公元前 1000 年",
         "birthPlace": "镐京",
-        "residence": "",
+        "residence": "唐国",
         "generationWord": "",
-        "biography": "荣公夫人。",
+        "biography": "唐叔虞姬虞，周武王第三子，晋国始祖。",
         "family": {
-          "parents": [],
+          "parents": [
+            "100000015"
+          ],
           "spouses": [
-            "100000006"
+            "100000007"
           ],
           "children": [
-            "100000020"
+            "100000024"
           ]
         }
       },
       "100000020": {
         "id": "100000020",
-        "generationCode": "3003",
-        "name": "荣公之子",
+        "generationCode": 3001,
+        "name": "姬禽",
+        "title": "伯禽",
         "gender": "M",
-        "birthDate": "公元前 1035 年",
-        "deathDate": "公元前 985 年",
+        "birthDate": "公元前 1060 年",
+        "deathDate": "公元前 1010 年",
         "birthPlace": "镐京",
-        "residence": "",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "荣公之子。",
+        "biography": "伯禽姬禽，周公旦长子，鲁国始祖。",
         "family": {
           "parents": [
-            "100000006"
+            "100000016"
           ],
           "spouses": [
-            "100000038"
+            "100000008"
           ],
           "children": [
-            "100000039"
+            "100000025"
           ]
         }
       },
       "100000021": {
         "id": "100000021",
-        "generationCode": "2011",
-        "name": "毕公夫人",
-        "gender": "F",
-        "birthDate": "公元前 1065 年",
-        "deathDate": "公元前 1010 年",
+        "generationCode": 3001,
+        "name": "姬陈",
+        "title": "君陈",
+        "gender": "M",
+        "birthDate": "公元前 1055 年",
+        "deathDate": "公元前 1005 年",
         "birthPlace": "镐京",
-        "residence": "",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "毕公夫人。",
+        "biography": "君陈姬陈，周公旦次子，陈国始祖。",
         "family": {
-          "parents": [],
+          "parents": [
+            "100000016"
+          ],
           "spouses": [
-            "100000007"
+            "100000009"
           ],
           "children": [
-            "100000022"
+            "100000026"
           ]
         }
       },
       "100000022": {
         "id": "100000022",
-        "generationCode": "3004",
-        "name": "毕公之子",
+        "generationCode": 3001,
+        "name": "卫康伯",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 1030 年",
+        "birthDate": "公元前 1035 年",
         "deathDate": "公元前 980 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "毕公之子。",
+        "biography": "卫康伯，卫康叔之子，卫国第二代君主。",
         "family": {
           "parents": [
-            "100000007"
+            "100000017"
           ],
           "spouses": [
-            "100000040"
+            "100000010"
           ],
           "children": [
-            "100000041"
+            "100000027"
           ]
         }
       },
       "100000023": {
         "id": "100000023",
-        "generationCode": "2012",
-        "name": "周成王后",
-        "gender": "F",
-        "birthDate": "公元前 1060 年",
-        "deathDate": "公元前 1025 年",
+        "generationCode": 4001,
+        "name": "姬钊",
+        "title": "周康王",
+        "gender": "M",
+        "birthDate": "公元前 1030 年",
+        "deathDate": "公元前 996 年",
         "birthPlace": "镐京",
-        "residence": "",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "周成王之后。",
+        "biography": "周康王姬钊，周成王之子。",
         "family": {
-          "parents": [],
+          "parents": [
+            "100000018"
+          ],
           "spouses": [
-            "100000009"
+            "100000011"
           ],
           "children": [
-            "100000024",
-            "100000025"
+            "100000028"
           ]
         }
       },
       "100000024": {
         "id": "100000024",
-        "generationCode": "3005",
-        "name": "周康王",
+        "generationCode": 4001,
+        "name": "姬燮",
+        "title": "晋侯燮",
         "gender": "M",
-        "birthDate": "公元前 1030 年",
-        "deathDate": "公元前 996 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前 1020 年",
+        "deathDate": "公元前 970 年",
+        "birthPlace": "唐国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "周康王姬钊，周成王之子，在位期间继续推行成王的政策，史称'成康之治'。",
+        "biography": "晋侯燮姬燮，唐叔虞之子，改唐为晋。",
         "family": {
           "parents": [
-            "100000009"
+            "100000019"
           ],
           "spouses": [
-            "100000042"
+            "100000012"
           ],
           "children": [
-            "100000043"
+            "100000029"
           ]
         }
       },
       "100000025": {
         "id": "100000025",
-        "generationCode": "3006",
-        "name": "周昭王",
+        "generationCode": 4001,
+        "name": "鲁公",
         "gender": "M",
-        "birthDate": "公元前 1025 年",
+        "birthDate": "公元前 1030 年",
         "deathDate": "公元前 980 年",
-        "birthPlace": "镐京",
-        "residence": "",
-        "generationWord": "",
-        "biography": "周昭王姬瑕，周成王次子，南征楚国。",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "炀",
+        "biography": "鲁炀公，伯禽之子，鲁国第三代君主。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000009"
+            "100000020"
           ],
           "spouses": [
-            "100000044"
+            "100000013"
           ],
           "children": [
-            "100000045"
+            "100000030",
+            "100000036"
           ]
         }
       },
       "100000026": {
         "id": "100000026",
-        "generationCode": "2013",
-        "name": "唐叔虞夫人",
-        "gender": "F",
-        "birthDate": "公元前 1055 年",
-        "deathDate": "公元前 1005 年",
-        "birthPlace": "唐国",
-        "residence": "",
+        "generationCode": 4001,
+        "name": "陈公",
+        "gender": "M",
+        "birthDate": "公元前 1025 年",
+        "deathDate": "公元前 975 年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "唐叔虞夫人。",
+        "biography": "陈公，君陈之子，陈国君主。",
+        "cemetery": null,
         "family": {
-          "parents": [],
+          "parents": [
+            "100000021"
+          ],
           "spouses": [
-            "100000010"
+            "100000014"
           ],
           "children": [
-            "100000027"
+            "100000031"
           ]
         }
       },
       "100000027": {
         "id": "100000027",
-        "generationCode": "3007",
-        "name": "晋侯燮",
+        "generationCode": 4001,
+        "name": "卫孝伯",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 1020 年",
-        "deathDate": "公元前 970 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "birthDate": "公元前 1005 年",
+        "deathDate": "公元前 955 年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "晋侯燮，唐叔虞之子，晋国君主。",
+        "biography": "卫孝伯，卫康伯之子，卫国第四代君主。",
         "family": {
           "parents": [
-            "100000010"
+            "100000022"
           ],
-          "spouses": [
-            "100000046"
-          ],
-          "children": [
-            "100000047"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000028": {
         "id": "100000028",
-        "generationCode": "2014",
-        "name": "卫康叔夫人",
-        "gender": "F",
-        "birthDate": "公元前 1050 年",
-        "deathDate": "公元前 995 年",
-        "birthPlace": "卫国",
-        "residence": "",
+        "generationCode": 5001,
+        "name": "姬瑕",
+        "title": "周昭王",
+        "gender": "M",
+        "birthDate": "公元前 1000 年",
+        "deathDate": "公元前 977 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "卫康叔夫人。",
+        "biography": "周昭王姬瑕，周康王之子。",
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000011"
+          "parents": [
+            "100000023"
           ],
-          "children": [
-            "100000029"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000029": {
         "id": "100000029",
-        "generationCode": "3008",
-        "name": "卫康伯",
+        "generationCode": 5001,
+        "name": "姬宁族",
+        "title": "晋武侯",
         "gender": "M",
-        "birthDate": "公元前 1015 年",
-        "deathDate": "公元前 965 年",
-        "birthPlace": "卫国",
-        "residence": "",
+        "birthDate": "公元前 990 年",
+        "deathDate": "公元前 945 年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "卫康伯，卫康叔之子，卫国君主。",
+        "biography": "晋武侯姬宁族，晋侯燮之子。",
         "family": {
           "parents": [
-            "100000011"
+            "100000024"
           ],
-          "spouses": [
-            "100000048"
-          ],
-          "children": [
-            "100000049"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000030": {
         "id": "100000030",
-        "generationCode": "2015",
-        "name": "伯禽夫人",
-        "gender": "F",
-        "birthDate": "公元前 1045 年",
-        "deathDate": "公元前 995 年",
+        "generationCode": 5001,
+        "name": "鲁考公",
+        "gender": "M",
+        "birthDate": "公元前 1000 年",
+        "deathDate": "公元前 955 年",
         "birthPlace": "鲁国",
-        "residence": "",
-        "generationWord": "",
-        "biography": "伯禽夫人。",
+        "residence": "鲁国",
+        "generationWord": "考",
+        "biography": "鲁考公，鲁公之子。 鲁考公，鲁公之子。鲁考公，鲁公之子。鲁考公，鲁公之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000013"
+          "parents": [
+            "100000025"
           ],
-          "children": [
-            "100000031"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000031": {
         "id": "100000031",
-        "generationCode": "4001",
-        "name": "鲁公",
+        "generationCode": 5001,
+        "name": "陈伯",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 1010 年",
-        "deathDate": "公元前 960 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "birthDate": "公元前 995 年",
+        "deathDate": "公元前 950 年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "鲁公，伯禽之子，鲁国君主。",
+        "biography": "陈伯，陈公之子。",
         "family": {
           "parents": [
-            "100000013"
+            "100000026"
           ],
-          "spouses": [
-            "100000050"
-          ],
-          "children": [
-            "100000051"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000032": {
         "id": "100000032",
-        "generationCode": "2016",
-        "name": "君陈夫人",
-        "gender": "F",
-        "birthDate": "公元前 1040 年",
-        "deathDate": "公元前 990 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "generationCode": 6001,
+        "name": "姬满",
+        "title": "周穆王",
+        "gender": "M",
+        "birthDate": "公元前 976 年",
+        "deathDate": "公元前 922 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "君陈夫人。",
+        "biography": "周穆王姬满，周昭王之子，在位 55 年，曾西游见西王母。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000014"
+          "parents": [
+            "100000028"
           ],
-          "children": [
-            "100000033"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000033": {
         "id": "100000033",
-        "generationCode": "4002",
-        "name": "陈公",
+        "generationCode": 6001,
+        "name": "姬驩",
+        "title": "陈武侯",
         "gender": "M",
-        "birthDate": "公元前 1005 年",
-        "deathDate": "公元前 955 年",
+        "birthDate": "公元前 970 年",
+        "deathDate": "公元前 920 年",
         "birthPlace": "陈国",
-        "residence": "",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "陈公，君陈之子，陈国君主。",
+        "biography": "陈武侯姬驩，陈伯之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000014"
+            "100000031"
           ],
-          "spouses": [
-            "100000052"
-          ],
-          "children": [
-            "100000053"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000034": {
         "id": "100000034",
-        "generationCode": "2017",
-        "name": "管仲夫人",
-        "gender": "F",
-        "birthDate": "公元前 1035 年",
-        "deathDate": "公元前 985 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "generationCode": 5001,
+        "name": "卫嗣伯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前 980 年",
+        "deathDate": "公元前 930 年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "管仲夫人。",
+        "biography": "卫嗣伯，卫孝伯之子，卫国第五代君主。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000016"
+          "parents": [
+            "100000027"
           ],
-          "children": [
-            "100000035"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000035": {
         "id": "100000035",
-        "generationCode": "5001",
-        "name": "管仲之子",
+        "generationCode": 6001,
+        "name": "姬服人",
+        "title": "晋成侯",
         "gender": "M",
-        "birthDate": "公元前 1000 年",
-        "deathDate": "公元前 950 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "birthDate": "公元前 965 年",
+        "deathDate": "公元前 920 年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "管仲之子。",
+        "biography": "晋成侯姬服人，晋武侯之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000016"
+            "100000029"
           ],
-          "spouses": [
-            "100000054"
-          ],
-          "children": [
-            "100000055"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000036": {
         "id": "100000036",
-        "generationCode": "2018",
-        "name": "燕召公夫人",
-        "gender": "F",
-        "birthDate": "公元前 1045 年",
-        "deathDate": "公元前 985 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "generationCode": 6001,
+        "name": "姬酋",
+        "title": "鲁炀公",
+        "gender": "M",
+        "birthDate": "公元前 975 年",
+        "deathDate": "公元前 930 年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "燕召公夫人。",
+        "biography": "鲁炀公姬酋，鲁考公之弟，鲁公次子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000018"
+          "parents": [
+            "100000025"
           ],
-          "children": [
-            "100000037"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000037": {
         "id": "100000037",
-        "generationCode": "5002",
-        "name": "燕侯",
+        "generationCode": 7001,
+        "name": "姬繄扈",
+        "title": "周共王",
         "gender": "M",
-        "birthDate": "公元前 1000 年",
-        "deathDate": "公元前 950 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "birthDate": "公元前 950 年",
+        "deathDate": "公元前 900 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "燕侯，燕召公之子，燕国君主。",
+        "biography": "周共王姬繄扈，周穆王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000018"
+            "100000032"
           ],
-          "spouses": [
-            "100000056"
-          ],
-          "children": [
-            "100000057"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000038": {
         "id": "100000038",
-        "generationCode": "2019",
-        "name": "荣公之子夫人",
-        "gender": "F",
-        "birthDate": "公元前 1040 年",
-        "deathDate": "公元前 990 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 7001,
+        "name": "姬方叔",
+        "title": "陈夷公",
+        "gender": "M",
+        "birthDate": "公元前 945 年",
+        "deathDate": "公元前 895 年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "荣公之子夫人。",
+        "biography": "陈夷公姬方叔，陈武侯之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000020"
+          "parents": [
+            "100000033"
           ],
-          "children": [
-            "100000039"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000039": {
         "id": "100000039",
-        "generationCode": "5003",
-        "name": "荣公之孙",
+        "generationCode": 6001,
+        "name": "卫疌伯",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 995 年",
-        "deathDate": "公元前 945 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前 955 年",
+        "deathDate": "公元前 905 年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "荣公之孙。",
+        "biography": "卫疌伯，卫嗣伯之子，卫国第六代君主。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000020"
+            "100000034"
           ],
-          "spouses": [
-            "100000058"
-          ],
-          "children": [
-            "100000059"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000040": {
         "id": "100000040",
-        "generationCode": "2020",
-        "name": "毕公之子夫人",
-        "gender": "F",
-        "birthDate": "公元前 1035 年",
-        "deathDate": "公元前 985 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 7001,
+        "name": "姬福",
+        "title": "晋厉侯",
+        "gender": "M",
+        "birthDate": "公元前 940 年",
+        "deathDate": "公元前 895 年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "毕公之子夫人。",
+        "biography": "晋厉侯姬福，晋成侯之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000022"
+          "parents": [
+            "100000035"
           ],
-          "children": [
-            "100000041"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000041": {
         "id": "100000041",
-        "generationCode": "5004",
-        "name": "毕公之孙",
+        "generationCode": 7001,
+        "name": "姬熙",
+        "title": "鲁幽公",
         "gender": "M",
-        "birthDate": "公元前 990 年",
-        "deathDate": "公元前 940 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前 950 年",
+        "deathDate": "公元前 910 年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "毕公之孙。",
+        "biography": "鲁幽公姬熙，鲁炀公之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000022"
+            "100000036"
           ],
-          "spouses": [
-            "100000060"
-          ],
-          "children": [
-            "100000061"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000042": {
         "id": "100000042",
-        "generationCode": "2021",
-        "name": "周康王后",
-        "gender": "F",
-        "birthDate": "公元前 1035 年",
-        "deathDate": "公元前 1000 年",
+        "generationCode": 8001,
+        "name": "姬囏",
+        "title": "周懿王",
+        "gender": "M",
+        "birthDate": "公元前 925 年",
+        "deathDate": "公元前 880 年",
         "birthPlace": "镐京",
-        "residence": "",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "周康王之后。",
+        "biography": "周懿王姬囏，周共王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000024"
+          "parents": [
+            "100000037"
           ],
-          "children": [
-            "100000043"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000043": {
         "id": "100000043",
-        "generationCode": "5005",
-        "name": "周昭王",
+        "generationCode": 8001,
+        "name": "姬突",
+        "title": "陈平公",
         "gender": "M",
-        "birthDate": "公元前 995 年",
-        "deathDate": "公元前 950 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前 920 年",
+        "deathDate": "公元前 870 年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "周昭王，周康王之子，南征楚国。",
+        "biography": "陈平公姬突，陈夷公之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000024"
+            "100000038"
           ],
-          "spouses": [
-            "100000062"
-          ],
-          "children": [
-            "100000063"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000044": {
         "id": "100000044",
-        "generationCode": "2022",
-        "name": "周昭王后",
-        "gender": "F",
-        "birthDate": "公元前 1030 年",
-        "deathDate": "公元前 985 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 7001,
+        "name": "卫靖伯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前 930 年",
+        "deathDate": "公元前 880 年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "周昭王之后。",
+        "biography": "卫靖伯，卫疌伯之子，卫国第七代君主。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000025"
+          "parents": [
+            "100000039"
           ],
-          "children": [
-            "100000045"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000045": {
         "id": "100000045",
-        "generationCode": "5006",
-        "name": "周穆王",
+        "generationCode": 8001,
+        "name": "姬宜臼",
+        "title": "晋靖侯",
         "gender": "M",
-        "birthDate": "公元前 980 年",
-        "deathDate": "公元前 930 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前 915 年",
+        "deathDate": "公元前 870 年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "周穆王姬满，周昭王之子，周游列国。",
+        "biography": "晋靖侯姬宜臼，晋厉侯之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000025"
+            "100000040"
           ],
-          "spouses": [
-            "100000064"
-          ],
-          "children": [
-            "100000065",
-            "100000066"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000046": {
         "id": "100000046",
-        "generationCode": "2023",
-        "name": "晋侯燮夫人",
-        "gender": "F",
-        "birthDate": "公元前 1025 年",
-        "deathDate": "公元前 975 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "generationCode": 8001,
+        "name": "姬宰",
+        "title": "鲁魏公",
+        "gender": "M",
+        "birthDate": "公元前 925 年",
+        "deathDate": "公元前 885 年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "晋侯燮夫人。",
+        "biography": "鲁魏公姬宰，鲁幽公之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000027"
+          "parents": [
+            "100000036"
           ],
-          "children": [
-            "100000047"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000047": {
         "id": "100000047",
-        "generationCode": "5007",
-        "name": "晋武侯",
+        "generationCode": 9001,
+        "name": "姬辟方",
+        "title": "周孝王",
         "gender": "M",
-        "birthDate": "公元前 970 年",
-        "deathDate": "公元前 920 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "birthDate": "公元前 900 年",
+        "deathDate": "公元前 870 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "晋武侯，晋侯燮之子，晋国君主。",
+        "biography": "周孝王姬辟方，周穆王之子，周懿王之叔。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000027"
+            "100000032"
           ],
-          "spouses": [
-            "100000067"
-          ],
-          "children": [
-            "100000068"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000048": {
         "id": "100000048",
-        "generationCode": "2024",
-        "name": "卫康伯夫人",
-        "gender": "F",
-        "birthDate": "公元前 1020 年",
-        "deathDate": "公元前 970 年",
+        "generationCode": 8001,
+        "name": "卫贞伯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前 905 年",
+        "deathDate": "公元前 855 年",
         "birthPlace": "卫国",
-        "residence": "",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "卫康伯夫人。",
+        "biography": "卫贞伯，卫靖伯之子，卫国第八代君主。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000029"
+          "parents": [
+            "100000044"
           ],
-          "children": [
-            "100000049"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000049": {
         "id": "100000049",
-        "generationCode": "5008",
-        "name": "卫考伯",
+        "generationCode": 10001,
+        "name": "姬燮",
+        "title": "周夷王",
         "gender": "M",
-        "birthDate": "公元前 965 年",
-        "deathDate": "公元前 915 年",
-        "birthPlace": "卫国",
-        "residence": "",
+        "birthDate": "公元前 885 年",
+        "deathDate": "公元前 855 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "卫考伯，卫康伯之子，卫国君主。",
+        "biography": "周夷王姬燮，周懿王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000029"
+            "100000042"
           ],
-          "spouses": [
-            "100000069"
-          ],
-          "children": [
-            "100000070"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000050": {
         "id": "100000050",
-        "generationCode": "2025",
-        "name": "鲁公夫人",
-        "gender": "F",
-        "birthDate": "公元前 1015 年",
-        "deathDate": "公元前 965 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "generationCode": 9001,
+        "name": "卫顷侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前 880 年",
+        "deathDate": "公元前 830 年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "鲁公夫人。",
+        "biography": "卫顷侯，卫贞伯之子，卫国第九代君主。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000031"
+          "parents": [
+            "100000044"
           ],
+          "spouses": [],
           "children": [
-            "100000051"
+            "100000070",
+            "100000096",
+            "100000127"
           ]
         }
       },
       "100000051": {
         "id": "100000051",
-        "generationCode": "6001",
-        "name": "鲁孝公",
+        "generationCode": 11001,
+        "name": "姬胡",
+        "title": "周厉王",
         "gender": "M",
-        "birthDate": "公元前 960 年",
-        "deathDate": "公元前 910 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "birthDate": "公元前 865 年",
+        "deathDate": "公元前 828 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "鲁孝公，鲁公之子，鲁国君主。",
+        "biography": "周厉王姬胡，周夷王之子，在位期间发生国人暴动。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000031"
+            "100000049"
           ],
-          "spouses": [
-            "100000071"
-          ],
-          "children": [
-            "100000072"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000052": {
         "id": "100000052",
-        "generationCode": "2026",
-        "name": "陈公夫人",
-        "gender": "F",
-        "birthDate": "公元前 1010 年",
-        "deathDate": "公元前 960 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "generationCode": 12001,
+        "name": "姬静",
+        "title": "周宣王",
+        "gender": "M",
+        "birthDate": "公元前 840 年",
+        "deathDate": "公元前 782 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "陈公夫人。",
+        "biography": "周宣王姬静，周厉王之子，开创宣王中兴。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000033"
+          "parents": [
+            "100000051"
           ],
-          "children": [
-            "100000053"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000053": {
         "id": "100000053",
-        "generationCode": "6002",
-        "name": "陈平公",
+        "generationCode": 13001,
+        "name": "姬宫湦",
+        "title": "周幽王",
         "gender": "M",
-        "birthDate": "公元前 955 年",
-        "deathDate": "公元前 905 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "birthDate": "公元前 810 年",
+        "deathDate": "公元前 771 年",
+        "birthPlace": "镐京",
+        "residence": "镐京",
         "generationWord": "",
-        "biography": "陈平公，陈公之子，陈国君主。",
+        "biography": "周幽王姬宫湦，周宣王之子，烽火戏诸侯。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000033"
+            "100000052"
           ],
-          "spouses": [
-            "100000073"
-          ],
-          "children": [
-            "100000074"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000054": {
         "id": "100000054",
-        "generationCode": "2027",
-        "name": "管仲之子夫人",
-        "gender": "F",
-        "birthDate": "公元前 1005 年",
-        "deathDate": "公元前 955 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "generationCode": 14001,
+        "name": "姬宜臼",
+        "title": "周平王",
+        "gender": "M",
+        "birthDate": "公元前 780 年",
+        "deathDate": "公元前 720 年",
+        "birthPlace": "镐京",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "管仲之子夫人。",
+        "biography": "周平王姬宜臼，周幽王之子，东周第一位君主，迁都洛邑。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000035"
+          "parents": [
+            "100000053"
           ],
+          "spouses": [],
           "children": [
             "100000055"
           ]
@@ -1222,43 +1199,45 @@
       },
       "100000055": {
         "id": "100000055",
-        "generationCode": "7001",
-        "name": "管国后裔",
+        "generationCode": 15001,
+        "name": "姬林",
+        "title": "周桓王",
         "gender": "M",
-        "birthDate": "公元前 950 年",
-        "deathDate": "公元前 900 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "birthDate": "公元前720年",
+        "deathDate": "公元前690年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "管国后裔。",
+        "biography": "周桓王姬林，周平王之孙。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000035"
+            "100000054"
           ],
-          "spouses": [
-            "100000075"
-          ],
+          "spouses": [],
           "children": [
-            "100000076"
+            "100000056"
           ]
         }
       },
       "100000056": {
         "id": "100000056",
-        "generationCode": "2028",
-        "name": "燕侯夫人",
-        "gender": "F",
-        "birthDate": "公元前 1005 年",
-        "deathDate": "公元前 955 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "generationCode": 16001,
+        "name": "姬佗",
+        "title": "周庄王",
+        "gender": "M",
+        "birthDate": "公元前705年",
+        "deathDate": "公元前675年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "燕侯夫人。",
+        "biography": "周庄王姬佗，周桓王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000037"
+          "parents": [
+            "100000055"
           ],
+          "spouses": [],
           "children": [
             "100000057"
           ]
@@ -1266,43 +1245,45 @@
       },
       "100000057": {
         "id": "100000057",
-        "generationCode": "7002",
-        "name": "燕国后裔",
+        "generationCode": 17001,
+        "name": "姬胡齐",
+        "title": "周釐王",
         "gender": "M",
-        "birthDate": "公元前 950 年",
-        "deathDate": "公元前 900 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "birthDate": "公元前690年",
+        "deathDate": "公元前660年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "燕国后裔。",
+        "biography": "周釐王姬胡齐，周庄王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000037"
+            "100000056"
           ],
-          "spouses": [
-            "100000077"
-          ],
+          "spouses": [],
           "children": [
-            "100000078"
+            "100000058"
           ]
         }
       },
       "100000058": {
         "id": "100000058",
-        "generationCode": "2029",
-        "name": "荣公之孙夫人",
-        "gender": "F",
-        "birthDate": "公元前 1000 年",
-        "deathDate": "公元前 950 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 18001,
+        "name": "姬阆",
+        "title": "周惠王",
+        "gender": "M",
+        "birthDate": "公元前675年",
+        "deathDate": "公元前645年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "荣公之孙夫人。",
+        "biography": "周惠王姬阆，周釐王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000039"
+          "parents": [
+            "100000057"
           ],
+          "spouses": [],
           "children": [
             "100000059"
           ]
@@ -1310,43 +1291,45 @@
       },
       "100000059": {
         "id": "100000059",
-        "generationCode": "7003",
-        "name": "荣公曾孙",
+        "generationCode": 19001,
+        "name": "姬郑",
+        "title": "周襄王",
         "gender": "M",
-        "birthDate": "公元前 945 年",
-        "deathDate": "公元前 895 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前660年",
+        "deathDate": "公元前630年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "荣公曾孙。",
+        "biography": "周襄王姬郑，周惠王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000039"
+            "100000058"
           ],
-          "spouses": [
-            "100000079"
-          ],
+          "spouses": [],
           "children": [
-            "100000080"
+            "100000060"
           ]
         }
       },
       "100000060": {
         "id": "100000060",
-        "generationCode": "2030",
-        "name": "毕公之孙夫人",
-        "gender": "F",
-        "birthDate": "公元前 995 年",
-        "deathDate": "公元前 945 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 20001,
+        "name": "姬郑臣",
+        "title": "周顷王",
+        "gender": "M",
+        "birthDate": "公元前645年",
+        "deathDate": "公元前615年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "毕公之孙夫人。",
+        "biography": "周顷王姬郑臣，周襄王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000041"
+          "parents": [
+            "100000059"
           ],
+          "spouses": [],
           "children": [
             "100000061"
           ]
@@ -1354,43 +1337,45 @@
       },
       "100000061": {
         "id": "100000061",
-        "generationCode": "7004",
-        "name": "毕公曾孙",
+        "generationCode": 21001,
+        "name": "姬班",
+        "title": "周匡王",
         "gender": "M",
-        "birthDate": "公元前 940 年",
-        "deathDate": "公元前 890 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前630年",
+        "deathDate": "公元前600年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "毕公曾孙。",
+        "biography": "周匡王姬班，周顷王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000041"
+            "100000060"
           ],
-          "spouses": [
-            "100000081"
-          ],
+          "spouses": [],
           "children": [
-            "100000082"
+            "100000062"
           ]
         }
       },
       "100000062": {
         "id": "100000062",
-        "generationCode": "2031",
-        "name": "周昭王后",
-        "gender": "F",
-        "birthDate": "公元前 1000 年",
-        "deathDate": "公元前 955 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 22001,
+        "name": "姬瑜",
+        "title": "周定王",
+        "gender": "M",
+        "birthDate": "公元前615年",
+        "deathDate": "公元前585年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周昭王之后。",
+        "biography": "周定王姬瑜，周匡王之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000043"
+          "parents": [
+            "100000061"
           ],
+          "spouses": [],
           "children": [
             "100000063"
           ]
@@ -1398,111 +1383,114 @@
       },
       "100000063": {
         "id": "100000063",
-        "generationCode": "7005",
-        "name": "周共王",
+        "generationCode": 23001,
+        "name": "姬夷",
+        "title": "周简王",
         "gender": "M",
-        "birthDate": "公元前 930 年",
-        "deathDate": "公元前 880 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前600年",
+        "deathDate": "公元前570年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周共王，周昭王之子，周朝君主。",
+        "biography": "周简王姬夷，周定王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000043"
+            "100000062"
           ],
-          "spouses": [
-            "100000083"
-          ],
+          "spouses": [],
           "children": [
-            "100000084"
+            "100000064"
           ]
         }
       },
       "100000064": {
         "id": "100000064",
-        "generationCode": "2032",
-        "name": "周穆王后",
-        "gender": "F",
-        "birthDate": "公元前 985 年",
-        "deathDate": "公元前 935 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 24001,
+        "name": "姬泄心",
+        "title": "周灵王",
+        "gender": "M",
+        "birthDate": "公元前585年",
+        "deathDate": "公元前555年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周穆王之后。",
+        "biography": "周灵王姬泄心，周简王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000045"
+          "parents": [
+            "100000063"
           ],
+          "spouses": [],
           "children": [
-            "100000065",
-            "100000066"
+            "100000065"
           ]
         }
       },
       "100000065": {
         "id": "100000065",
-        "generationCode": "7006",
-        "name": "周共王",
+        "generationCode": 25001,
+        "name": "姬贵",
+        "title": "周景王",
         "gender": "M",
-        "birthDate": "公元前 935 年",
-        "deathDate": "公元前 885 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前570年",
+        "deathDate": "公元前540年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周共王，周穆王长子，周朝君主。",
+        "biography": "周景王姬贵，周灵王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000045"
+            "100000064"
           ],
-          "spouses": [
-            "100000085"
-          ],
+          "spouses": [],
           "children": [
-            "100000086"
+            "100000066"
           ]
         }
       },
       "100000066": {
         "id": "100000066",
-        "generationCode": "7007",
-        "name": "周懿王",
+        "generationCode": 26001,
+        "name": "姬猛",
+        "title": "周悼王",
         "gender": "M",
-        "birthDate": "公元前 930 年",
-        "deathDate": "公元前 880 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前555年",
+        "deathDate": "公元前525年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周懿王，周穆王次子，周朝君主。",
+        "biography": "周悼王姬猛，周景王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000045"
+            "100000065"
           ],
-          "spouses": [
-            "100000087"
-          ],
+          "spouses": [],
           "children": [
-            "100000088"
+            "100000067"
           ]
         }
       },
       "100000067": {
         "id": "100000067",
-        "generationCode": "2033",
-        "name": "晋武侯夫人",
-        "gender": "F",
-        "birthDate": "公元前 975 年",
-        "deathDate": "公元前 925 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "generationCode": 27001,
+        "name": "姬匄",
+        "title": "周敬王",
+        "gender": "M",
+        "birthDate": "公元前540年",
+        "deathDate": "公元前510年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "晋武侯夫人。",
+        "biography": "周敬王姬匄，周悼王之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000047"
+          "parents": [
+            "100000066"
           ],
+          "spouses": [],
           "children": [
             "100000068"
           ]
@@ -1510,87 +1498,89 @@
       },
       "100000068": {
         "id": "100000068",
-        "generationCode": "7008",
-        "name": "晋成侯",
+        "generationCode": 28001,
+        "name": "姬仁",
+        "title": "周元王",
         "gender": "M",
-        "birthDate": "公元前 920 年",
-        "deathDate": "公元前 870 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "birthDate": "公元前525年",
+        "deathDate": "公元前495年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "晋成侯，晋武侯之子，晋国君主。",
+        "biography": "周元王姬仁，周敬王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000047"
+            "100000067"
           ],
-          "spouses": [
-            "100000089"
-          ],
+          "spouses": [],
           "children": [
-            "100000090"
+            "100000069"
           ]
         }
       },
       "100000069": {
         "id": "100000069",
-        "generationCode": "2034",
-        "name": "卫考伯夫人",
-        "gender": "F",
-        "birthDate": "公元前 970 年",
-        "deathDate": "公元前 920 年",
-        "birthPlace": "卫国",
-        "residence": "",
+        "generationCode": 29001,
+        "name": "姬介",
+        "title": "周贞定王",
+        "gender": "M",
+        "birthDate": "公元前510年",
+        "deathDate": "公元前480年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "卫考伯夫人。",
+        "biography": "周贞定王姬介，周元王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000049"
+          "parents": [
+            "100000068"
           ],
-          "children": [
-            "100000070"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000070": {
         "id": "100000070",
-        "generationCode": "8001",
-        "name": "卫顷侯",
+        "generationCode": 10001,
+        "name": "卫武公",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 915 年",
-        "deathDate": "公元前 865 年",
+        "birthDate": "公元前800年",
+        "deathDate": "公元前770年",
         "birthPlace": "卫国",
-        "residence": "",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "卫顷侯，卫考伯之子，卫国君主。",
+        "biography": "卫武公，卫顷侯之子，卫国第 10 代君主。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000049"
+            "100000050"
           ],
-          "spouses": [
-            "100000091"
-          ],
+          "spouses": [],
           "children": [
-            "100000092"
+            "100000071"
           ]
         }
       },
       "100000071": {
         "id": "100000071",
-        "generationCode": "2035",
-        "name": "鲁孝公夫人",
-        "gender": "F",
-        "birthDate": "公元前 965 年",
-        "deathDate": "公元前 915 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "generationCode": 11001,
+        "name": "卫庄公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前780年",
+        "deathDate": "公元前750年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "鲁孝公夫人。",
+        "biography": "卫庄公，卫武公之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000051"
+          "parents": [
+            "100000070"
           ],
+          "spouses": [],
           "children": [
             "100000072"
           ]
@@ -1598,43 +1588,43 @@
       },
       "100000072": {
         "id": "100000072",
-        "generationCode": "8002",
-        "name": "鲁弗公",
+        "generationCode": 12001,
+        "name": "卫桓公",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 910 年",
-        "deathDate": "公元前 860 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "birthDate": "公元前760年",
+        "deathDate": "公元前730年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
         "generationWord": "",
-        "biography": "鲁弗公，鲁孝公之子，鲁国君主。",
+        "biography": "卫桓公，卫庄公之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000051"
+            "100000071"
           ],
-          "spouses": [
-            "100000093"
-          ],
-          "children": [
-            "100000094"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000073": {
         "id": "100000073",
-        "generationCode": "2036",
-        "name": "陈平公夫人",
-        "gender": "F",
-        "birthDate": "公元前 960 年",
-        "deathDate": "公元前 910 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "generationCode": 9001,
+        "name": "晋釐侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "陈平公夫人。",
+        "biography": "晋釐侯，晋靖侯之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000053"
+          "parents": [
+            null
           ],
+          "spouses": [],
           "children": [
             "100000074"
           ]
@@ -1642,43 +1632,45 @@
       },
       "100000074": {
         "id": "100000074",
-        "generationCode": "8003",
-        "name": "陈灵公",
+        "generationCode": 10001,
+        "name": "晋献侯",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 905 年",
-        "deathDate": "公元前 855 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "birthDate": "公元前835年",
+        "deathDate": "公元前805年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "陈灵公，陈平公之子，陈国君主。",
+        "biography": "晋献侯，晋釐侯之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000053"
+            "100000073"
           ],
-          "spouses": [
-            "100000095"
-          ],
+          "spouses": [],
           "children": [
-            "100000096"
+            "100000075"
           ]
         }
       },
       "100000075": {
         "id": "100000075",
-        "generationCode": "2037",
-        "name": "管国后裔夫人",
-        "gender": "F",
-        "birthDate": "公元前 955 年",
-        "deathDate": "公元前 905 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "generationCode": 11001,
+        "name": "晋穆侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前820年",
+        "deathDate": "公元前790年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "管国后裔夫人。",
+        "biography": "晋穆侯，晋献侯之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000055"
+          "parents": [
+            "100000074"
           ],
+          "spouses": [],
           "children": [
             "100000076"
           ]
@@ -1686,87 +1678,89 @@
       },
       "100000076": {
         "id": "100000076",
-        "generationCode": "8004",
-        "name": "管国八世",
+        "generationCode": 12001,
+        "name": "晋殇叔",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 900 年",
-        "deathDate": "公元前 850 年",
-        "birthPlace": "管国",
-        "residence": "",
+        "birthDate": "公元前805年",
+        "deathDate": "公元前775年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "管国八世。",
+        "biography": "晋殇叔，晋穆侯之弟。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000055"
+            "100000075"
           ],
-          "spouses": [
-            "100000097"
-          ],
+          "spouses": [],
           "children": [
-            "100000098"
+            "100000077"
           ]
         }
       },
       "100000077": {
         "id": "100000077",
-        "generationCode": "2038",
-        "name": "燕国后裔夫人",
-        "gender": "F",
-        "birthDate": "公元前 955 年",
-        "deathDate": "公元前 905 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "generationCode": 12001,
+        "name": "晋文侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前790年",
+        "deathDate": "公元前760年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "燕国后裔夫人。",
+        "biography": "晋文侯，晋穆侯之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000057"
+          "parents": [
+            "100000076"
           ],
-          "children": [
-            "100000078"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000078": {
         "id": "100000078",
-        "generationCode": "8005",
-        "name": "燕国八世",
+        "generationCode": 9001,
+        "name": "鲁厉公",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 900 年",
-        "deathDate": "公元前 850 年",
-        "birthPlace": "燕国",
-        "residence": "",
+        "birthDate": "公元前870年",
+        "deathDate": "公元前840年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "燕国八世。",
+        "biography": "鲁厉公，鲁魏公之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000057"
+            null
           ],
-          "spouses": [
-            "100000099"
-          ],
+          "spouses": [],
           "children": [
-            "100000100"
+            "100000079"
           ]
         }
       },
       "100000079": {
         "id": "100000079",
-        "generationCode": "2039",
-        "name": "荣公曾孙夫人",
-        "gender": "F",
-        "birthDate": "公元前 950 年",
-        "deathDate": "公元前 900 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 10001,
+        "name": "鲁献公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前855年",
+        "deathDate": "公元前825年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "荣公曾孙夫人。",
+        "biography": "鲁献公，鲁厉公之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000059"
+          "parents": [
+            "100000078"
           ],
+          "spouses": [],
           "children": [
             "100000080"
           ]
@@ -1774,43 +1768,45 @@
       },
       "100000080": {
         "id": "100000080",
-        "generationCode": "8006",
-        "name": "荣公八世孙",
+        "generationCode": 11001,
+        "name": "鲁真公",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 895 年",
-        "deathDate": "公元前 845 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前840年",
+        "deathDate": "公元前810年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "荣公八世孙。",
+        "biography": "鲁真公，鲁献公之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000059"
+            "100000079"
           ],
-          "spouses": [
-            "100000101"
-          ],
+          "spouses": [],
           "children": [
-            "100000102"
+            "100000081"
           ]
         }
       },
       "100000081": {
         "id": "100000081",
-        "generationCode": "2040",
-        "name": "毕公曾孙夫人",
-        "gender": "F",
-        "birthDate": "公元前 945 年",
-        "deathDate": "公元前 895 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 12001,
+        "name": "鲁武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前825年",
+        "deathDate": "公元前795年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "毕公曾孙夫人。",
+        "biography": "鲁武公，鲁真公之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000061"
+          "parents": [
+            "100000080"
           ],
+          "spouses": [],
           "children": [
             "100000082"
           ]
@@ -1818,333 +1814,1719 @@
       },
       "100000082": {
         "id": "100000082",
-        "generationCode": "8007",
-        "name": "毕公八世孙",
+        "generationCode": 13001,
+        "name": "鲁懿公",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 890 年",
-        "deathDate": "公元前 840 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前810年",
+        "deathDate": "公元前780年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
         "generationWord": "",
-        "biography": "毕公八世孙。",
+        "biography": "鲁懿公，鲁武公之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000061"
+            "100000081"
           ],
-          "spouses": [
-            "100000103"
-          ],
-          "children": [
-            "100000104"
-          ]
+          "spouses": [],
+          "children": []
         }
       },
       "100000083": {
         "id": "100000083",
-        "generationCode": "2041",
-        "name": "周共王后",
-        "gender": "F",
-        "birthDate": "公元前 935 年",
-        "deathDate": "公元前 885 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 9001,
+        "name": "陈釐公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "周共王之后。",
+        "biography": "陈釐公，陈平公之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000065"
+          "parents": [
+            null
           ],
+          "spouses": [],
           "children": [
-            "100000086"
+            "100000084"
           ]
         }
       },
       "100000084": {
         "id": "100000084",
-        "generationCode": "2042",
-        "name": "周懿王后",
-        "gender": "F",
-        "birthDate": "公元前 930 年",
-        "deathDate": "公元前 880 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 10001,
+        "name": "陈武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前835年",
+        "deathDate": "公元前805年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "周懿王之后。",
+        "biography": "陈武公，陈釐公之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000066"
+          "parents": [
+            "100000083"
           ],
+          "spouses": [],
           "children": [
-            "100000088"
+            "100000085"
           ]
         }
       },
       "100000085": {
         "id": "100000085",
-        "generationCode": "2043",
-        "name": "周夷王后",
-        "gender": "F",
-        "birthDate": "公元前 905 年",
-        "deathDate": "公元前 855 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 11001,
+        "name": "陈夷公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前820年",
+        "deathDate": "公元前790年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "周夷王之后。",
+        "biography": "陈夷公，陈武公之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000068"
+          "parents": [
+            "100000084"
           ],
+          "spouses": [],
           "children": [
-            "100000090"
+            "100000086"
           ]
         }
       },
       "100000086": {
         "id": "100000086",
-        "generationCode": "8008",
-        "name": "周厉王",
+        "generationCode": 12001,
+        "name": "陈平公",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 860 年",
-        "deathDate": "公元前 828 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前805年",
+        "deathDate": "公元前775年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
         "generationWord": "",
-        "biography": "周厉王，周共王之子，周朝君主。",
+        "biography": "陈平公，陈夷公之弟。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000065"
+            "100000085"
           ],
-          "spouses": [
-            "100000105"
-          ],
+          "spouses": [],
           "children": [
-            "100000106",
-            "100000107"
+            "100000109",
+            "100000140"
           ]
         }
       },
       "100000087": {
         "id": "100000087",
-        "generationCode": "2044",
-        "name": "周夷王后",
-        "gender": "F",
-        "birthDate": "公元前 900 年",
-        "deathDate": "公元前 850 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "generationCode": 30001,
+        "name": "姬午",
+        "title": "周哀王",
+        "gender": "M",
+        "birthDate": "公元前450年",
+        "deathDate": "公元前420年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周夷王之后。",
+        "biography": "周哀王姬午，周贞定王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000072"
+          "parents": [
+            null
           ],
+          "spouses": [],
           "children": [
-            "100000094"
+            "100000088"
           ]
         }
       },
       "100000088": {
         "id": "100000088",
-        "generationCode": "8009",
-        "name": "周宣王",
+        "generationCode": 30001,
+        "name": "姬去疾",
+        "title": "周思王",
         "gender": "M",
-        "birthDate": "公元前 850 年",
-        "deathDate": "公元前 783 年",
-        "birthPlace": "镐京",
-        "residence": "",
+        "birthDate": "公元前440年",
+        "deathDate": "公元前410年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "周宣王，周厉王之子，周朝君主，中兴周朝。",
+        "biography": "周思王姬去疾，周哀王之弟。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000066"
+            "100000087"
           ],
-          "spouses": [
-            "100000108"
-          ],
+          "spouses": [],
           "children": [
-            "100000109",
-            "100000110"
+            "100000089"
           ]
         }
       },
       "100000089": {
         "id": "100000089",
-        "generationCode": "2045",
-        "name": "晋顷侯夫人",
-        "gender": "F",
-        "birthDate": "公元前 870 年",
-        "deathDate": "公元前 820 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "generationCode": 30001,
+        "name": "姬嵬",
+        "title": "周考王",
+        "gender": "M",
+        "birthDate": "公元前430年",
+        "deathDate": "公元前400年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "晋顷侯夫人。",
+        "biography": "周考王姬嵬，周思王之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000070"
+          "parents": [
+            "100000088"
           ],
+          "spouses": [],
           "children": [
-            "100000092"
+            "100000090"
           ]
         }
       },
       "100000090": {
         "id": "100000090",
-        "generationCode": "8010",
-        "name": "晋定公",
+        "generationCode": 31001,
+        "name": "姬午",
+        "title": "周威烈王",
         "gender": "M",
-        "birthDate": "公元前 840 年",
-        "deathDate": "公元前 790 年",
-        "birthPlace": "晋国",
-        "residence": "",
+        "birthDate": "公元前420年",
+        "deathDate": "公元前390年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "晋定公，晋顷侯之子，晋国君主。",
+        "biography": "周威烈王姬午，周考王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000068"
+            "100000089"
           ],
-          "spouses": [
-            "100000111"
-          ],
+          "spouses": [],
           "children": [
-            "100000112"
+            "100000091"
           ]
         }
       },
       "100000091": {
         "id": "100000091",
-        "generationCode": "2046",
-        "name": "卫顷侯夫人",
-        "gender": "F",
-        "birthDate": "公元前 920 年",
-        "deathDate": "公元前 870 年",
-        "birthPlace": "卫国",
-        "residence": "",
+        "generationCode": 32001,
+        "name": "姬骄",
+        "title": "周安王",
+        "gender": "M",
+        "birthDate": "公元前410年",
+        "deathDate": "公元前380年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "卫顷侯夫人。",
+        "biography": "周安王姬骄，周威烈王之子。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000074"
+          "parents": [
+            "100000090"
           ],
+          "spouses": [],
           "children": [
-            "100000096"
+            "100000092"
           ]
         }
       },
       "100000092": {
         "id": "100000092",
-        "generationCode": "8011",
-        "name": "卫武公",
+        "generationCode": 33001,
+        "name": "姬喜",
+        "title": "周烈王",
         "gender": "M",
-        "birthDate": "公元前 865 年",
-        "deathDate": "公元前 815 年",
-        "birthPlace": "卫国",
-        "residence": "",
+        "birthDate": "公元前400年",
+        "deathDate": "公元前370年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "卫武公，卫顷侯之子，卫国君主。",
+        "biography": "周烈王姬喜，周安王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000070"
+            "100000091"
           ],
-          "spouses": [
-            "100000113"
-          ],
+          "spouses": [],
           "children": [
-            "100000114"
+            "100000093"
           ]
         }
       },
       "100000093": {
         "id": "100000093",
-        "generationCode": "2047",
-        "name": "鲁厉公夫人",
-        "gender": "F",
-        "birthDate": "公元前 885 年",
-        "deathDate": "公元前 835 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "generationCode": 34001,
+        "name": "姬扁",
+        "title": "周显王",
+        "gender": "M",
+        "birthDate": "公元前390年",
+        "deathDate": "公元前360年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "鲁厉公夫人。",
+        "biography": "周显王姬扁，周烈王之弟。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000076"
+          "parents": [
+            "100000092"
           ],
+          "spouses": [],
           "children": [
-            "100000098"
+            "100000094"
           ]
         }
       },
       "100000094": {
         "id": "100000094",
-        "generationCode": "8012",
-        "name": "鲁献公",
+        "generationCode": 35001,
+        "name": "姬定",
+        "title": "周慎靓王",
         "gender": "M",
-        "birthDate": "公元前 860 年",
-        "deathDate": "公元前 810 年",
-        "birthPlace": "鲁国",
-        "residence": "",
+        "birthDate": "公元前380年",
+        "deathDate": "公元前350年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "鲁献公，鲁厉公之子，鲁国君主。",
+        "biography": "周慎靓王姬定，周显王之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000072"
+            "100000093"
           ],
-          "spouses": [
-            "100000115"
-          ],
+          "spouses": [],
           "children": [
-            "100000116"
+            "100000095"
           ]
         }
       },
       "100000095": {
         "id": "100000095",
-        "generationCode": "2048",
-        "name": "陈灵公夫人",
-        "gender": "F",
-        "birthDate": "公元前 870 年",
-        "deathDate": "公元前 820 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "generationCode": 36001,
+        "name": "姬延",
+        "title": "周赧王",
+        "gender": "M",
+        "birthDate": "公元前370年",
+        "deathDate": "公元前340年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
         "generationWord": "",
-        "biography": "陈灵公夫人。",
+        "biography": "周赧王姬延，周慎靓王之子，东周最后一位君主。",
+        "cemetery": null,
         "family": {
-          "parents": [],
-          "spouses": [
-            "100000078"
+          "parents": [
+            "100000094"
           ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000096": {
+        "id": "100000096",
+        "generationCode": 10001,
+        "name": "卫武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前800年",
+        "deathDate": "公元前770年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
+        "generationWord": "",
+        "biography": "卫武公，卫顷侯之子，卫国第 10 代君主。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000050"
+          ],
+          "spouses": [],
+          "children": [
+            "100000097"
+          ]
+        }
+      },
+      "100000097": {
+        "id": "100000097",
+        "generationCode": 11001,
+        "name": "卫庄公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前780年",
+        "deathDate": "公元前750年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
+        "generationWord": "",
+        "biography": "卫庄公，卫武公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000096"
+          ],
+          "spouses": [],
+          "children": [
+            "100000098"
+          ]
+        }
+      },
+      "100000098": {
+        "id": "100000098",
+        "generationCode": 12001,
+        "name": "卫桓公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前760年",
+        "deathDate": "公元前730年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
+        "generationWord": "",
+        "biography": "卫桓公，卫庄公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000097"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000099": {
+        "id": "100000099",
+        "generationCode": 9001,
+        "name": "晋釐侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋釐侯，晋靖侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
           "children": [
             "100000100"
           ]
         }
       },
-      "100000096": {
-        "id": "100000096",
-        "generationCode": "8013",
-        "name": "陈宣公",
+      "100000100": {
+        "id": "100000100",
+        "generationCode": 10001,
+        "name": "晋献侯",
+        "title": "",
         "gender": "M",
-        "birthDate": "公元前 855 年",
-        "deathDate": "公元前 805 年",
-        "birthPlace": "陈国",
-        "residence": "",
+        "birthDate": "公元前835年",
+        "deathDate": "公元前805年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
         "generationWord": "",
-        "biography": "陈宣公，陈灵公之子，陈国君主。",
+        "biography": "晋献侯，晋釐侯之子。",
+        "cemetery": null,
         "family": {
           "parents": [
-            "100000074"
+            "100000099"
           ],
-          "spouses": [
-            "100000117"
-          ],
+          "spouses": [],
           "children": [
-            "100000118"
+            "100000101"
           ]
+        }
+      },
+      "100000101": {
+        "id": "100000101",
+        "generationCode": 11001,
+        "name": "晋穆侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前820年",
+        "deathDate": "公元前790年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋穆侯，晋献侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000100"
+          ],
+          "spouses": [],
+          "children": [
+            "100000102"
+          ]
+        }
+      },
+      "100000102": {
+        "id": "100000102",
+        "generationCode": 12001,
+        "name": "晋殇叔",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前805年",
+        "deathDate": "公元前775年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋殇叔，晋穆侯之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000101"
+          ],
+          "spouses": [],
+          "children": [
+            "100000103"
+          ]
+        }
+      },
+      "100000103": {
+        "id": "100000103",
+        "generationCode": 12001,
+        "name": "晋文侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前790年",
+        "deathDate": "公元前760年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋文侯，晋穆侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000102"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000104": {
+        "id": "100000104",
+        "generationCode": 9001,
+        "name": "鲁厉公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前870年",
+        "deathDate": "公元前840年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁厉公，鲁魏公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000105"
+          ]
+        }
+      },
+      "100000105": {
+        "id": "100000105",
+        "generationCode": 10001,
+        "name": "鲁献公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前855年",
+        "deathDate": "公元前825年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁献公，鲁厉公之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000104"
+          ],
+          "spouses": [],
+          "children": [
+            "100000106"
+          ]
+        }
+      },
+      "100000106": {
+        "id": "100000106",
+        "generationCode": 11001,
+        "name": "鲁真公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前840年",
+        "deathDate": "公元前810年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁真公，鲁献公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000105"
+          ],
+          "spouses": [],
+          "children": [
+            "100000107"
+          ]
+        }
+      },
+      "100000107": {
+        "id": "100000107",
+        "generationCode": 12001,
+        "name": "鲁武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前825年",
+        "deathDate": "公元前795年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁武公，鲁真公之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000106"
+          ],
+          "spouses": [],
+          "children": [
+            "100000108"
+          ]
+        }
+      },
+      "100000108": {
+        "id": "100000108",
+        "generationCode": 13001,
+        "name": "鲁懿公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前810年",
+        "deathDate": "公元前780年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁懿公，鲁武公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000107"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000109": {
+        "id": "100000109",
+        "generationCode": 9001,
+        "name": "陈釐公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈釐公，陈平公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000086"
+          ],
+          "spouses": [],
+          "children": [
+            "100000110"
+          ]
+        }
+      },
+      "100000110": {
+        "id": "100000110",
+        "generationCode": 10001,
+        "name": "陈武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前835年",
+        "deathDate": "公元前805年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈武公，陈釐公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000109"
+          ],
+          "spouses": [],
+          "children": [
+            "100000111"
+          ]
+        }
+      },
+      "100000111": {
+        "id": "100000111",
+        "generationCode": 11001,
+        "name": "陈夷公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前820年",
+        "deathDate": "公元前790年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈夷公，陈武公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000110"
+          ],
+          "spouses": [],
+          "children": [
+            "100000112"
+          ]
+        }
+      },
+      "100000112": {
+        "id": "100000112",
+        "generationCode": 12001,
+        "name": "陈平公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前805年",
+        "deathDate": "公元前775年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈平公，陈夷公之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000111"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000113": {
+        "id": "100000113",
+        "generationCode": 9001,
+        "name": "燕侯舞",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前880年",
+        "deathDate": "公元前850年",
+        "birthPlace": "燕国",
+        "residence": "燕国",
+        "generationWord": "",
+        "biography": "燕侯舞，燕侯旨之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000114"
+          ]
+        }
+      },
+      "100000114": {
+        "id": "100000114",
+        "generationCode": 10001,
+        "name": "燕侯宪",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前865年",
+        "deathDate": "公元前835年",
+        "birthPlace": "燕国",
+        "residence": "燕国",
+        "generationWord": "",
+        "biography": "燕侯宪，燕侯舞之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000113"
+          ],
+          "spouses": [],
+          "children": [
+            "100000115"
+          ]
+        }
+      },
+      "100000115": {
+        "id": "100000115",
+        "generationCode": 11001,
+        "name": "燕侯和",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "燕国",
+        "residence": "燕国",
+        "generationWord": "",
+        "biography": "燕侯和，燕侯宪之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000114"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000116": {
+        "id": "100000116",
+        "generationCode": 9001,
+        "name": "管伯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前800年",
+        "deathDate": "公元前770年",
+        "birthPlace": "管国",
+        "residence": "齐国",
+        "generationWord": "",
+        "biography": "管伯，管叔鲜之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000117"
+          ]
+        }
+      },
+      "100000117": {
+        "id": "100000117",
+        "generationCode": 10001,
+        "name": "管仲",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前770年",
+        "deathDate": "公元前740年",
+        "birthPlace": "管国",
+        "residence": "齐国",
+        "generationWord": "",
+        "biography": "管仲，管伯之子，春秋时期著名政治家。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000116"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000118": {
+        "id": "100000118",
+        "generationCode": 30001,
+        "name": "姬午",
+        "title": "周哀王",
+        "gender": "M",
+        "birthDate": "公元前450年",
+        "deathDate": "公元前420年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周哀王姬午，周贞定王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000119"
+          ]
+        }
+      },
+      "100000119": {
+        "id": "100000119",
+        "generationCode": 30001,
+        "name": "姬去疾",
+        "title": "周思王",
+        "gender": "M",
+        "birthDate": "公元前440年",
+        "deathDate": "公元前410年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周思王姬去疾，周哀王之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000118"
+          ],
+          "spouses": [],
+          "children": [
+            "100000120"
+          ]
+        }
+      },
+      "100000120": {
+        "id": "100000120",
+        "generationCode": 30001,
+        "name": "姬嵬",
+        "title": "周考王",
+        "gender": "M",
+        "birthDate": "公元前430年",
+        "deathDate": "公元前400年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周考王姬嵬，周思王之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000119"
+          ],
+          "spouses": [],
+          "children": [
+            "100000121"
+          ]
+        }
+      },
+      "100000121": {
+        "id": "100000121",
+        "generationCode": 31001,
+        "name": "姬午",
+        "title": "周威烈王",
+        "gender": "M",
+        "birthDate": "公元前420年",
+        "deathDate": "公元前390年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周威烈王姬午，周考王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000120"
+          ],
+          "spouses": [],
+          "children": [
+            "100000122"
+          ]
+        }
+      },
+      "100000122": {
+        "id": "100000122",
+        "generationCode": 32001,
+        "name": "姬骄",
+        "title": "周安王",
+        "gender": "M",
+        "birthDate": "公元前410年",
+        "deathDate": "公元前380年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周安王姬骄，周威烈王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000121"
+          ],
+          "spouses": [],
+          "children": [
+            "100000123"
+          ]
+        }
+      },
+      "100000123": {
+        "id": "100000123",
+        "generationCode": 33001,
+        "name": "姬喜",
+        "title": "周烈王",
+        "gender": "M",
+        "birthDate": "公元前400年",
+        "deathDate": "公元前370年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周烈王姬喜，周安王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000122"
+          ],
+          "spouses": [],
+          "children": [
+            "100000124"
+          ]
+        }
+      },
+      "100000124": {
+        "id": "100000124",
+        "generationCode": 34001,
+        "name": "姬扁",
+        "title": "周显王",
+        "gender": "M",
+        "birthDate": "公元前390年",
+        "deathDate": "公元前360年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周显王姬扁，周烈王之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000123"
+          ],
+          "spouses": [],
+          "children": [
+            "100000125"
+          ]
+        }
+      },
+      "100000125": {
+        "id": "100000125",
+        "generationCode": 35001,
+        "name": "姬定",
+        "title": "周慎靓王",
+        "gender": "M",
+        "birthDate": "公元前380年",
+        "deathDate": "公元前350年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周慎靓王姬定，周显王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000124"
+          ],
+          "spouses": [],
+          "children": [
+            "100000126"
+          ]
+        }
+      },
+      "100000126": {
+        "id": "100000126",
+        "generationCode": 36001,
+        "name": "姬延",
+        "title": "周赧王",
+        "gender": "M",
+        "birthDate": "公元前370年",
+        "deathDate": "公元前340年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周赧王姬延，周慎靓王之子，东周最后一位君主。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000125"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000127": {
+        "id": "100000127",
+        "generationCode": 10001,
+        "name": "卫武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前800年",
+        "deathDate": "公元前770年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
+        "generationWord": "",
+        "biography": "卫武公，卫顷侯之子，卫国第 10 代君主。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000050"
+          ],
+          "spouses": [],
+          "children": [
+            "100000128"
+          ]
+        }
+      },
+      "100000128": {
+        "id": "100000128",
+        "generationCode": 11001,
+        "name": "卫庄公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前780年",
+        "deathDate": "公元前750年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
+        "generationWord": "",
+        "biography": "卫庄公，卫武公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000127"
+          ],
+          "spouses": [],
+          "children": [
+            "100000129"
+          ]
+        }
+      },
+      "100000129": {
+        "id": "100000129",
+        "generationCode": 12001,
+        "name": "卫桓公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前760年",
+        "deathDate": "公元前730年",
+        "birthPlace": "卫国",
+        "residence": "卫国",
+        "generationWord": "",
+        "biography": "卫桓公，卫庄公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000128"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000130": {
+        "id": "100000130",
+        "generationCode": 9001,
+        "name": "晋釐侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋釐侯，晋靖侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000131"
+          ]
+        }
+      },
+      "100000131": {
+        "id": "100000131",
+        "generationCode": 10001,
+        "name": "晋献侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前835年",
+        "deathDate": "公元前805年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋献侯，晋釐侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000130"
+          ],
+          "spouses": [],
+          "children": [
+            "100000132"
+          ]
+        }
+      },
+      "100000132": {
+        "id": "100000132",
+        "generationCode": 11001,
+        "name": "晋穆侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前820年",
+        "deathDate": "公元前790年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋穆侯，晋献侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000131"
+          ],
+          "spouses": [],
+          "children": [
+            "100000133"
+          ]
+        }
+      },
+      "100000133": {
+        "id": "100000133",
+        "generationCode": 12001,
+        "name": "晋殇叔",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前805年",
+        "deathDate": "公元前775年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋殇叔，晋穆侯之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000132"
+          ],
+          "spouses": [],
+          "children": [
+            "100000134"
+          ]
+        }
+      },
+      "100000134": {
+        "id": "100000134",
+        "generationCode": 12001,
+        "name": "晋文侯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前790年",
+        "deathDate": "公元前760年",
+        "birthPlace": "晋国",
+        "residence": "晋国",
+        "generationWord": "",
+        "biography": "晋文侯，晋穆侯之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000133"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000135": {
+        "id": "100000135",
+        "generationCode": 9001,
+        "name": "鲁厉公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前870年",
+        "deathDate": "公元前840年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁厉公，鲁魏公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000136"
+          ]
+        }
+      },
+      "100000136": {
+        "id": "100000136",
+        "generationCode": 10001,
+        "name": "鲁献公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前855年",
+        "deathDate": "公元前825年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁献公，鲁厉公之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000135"
+          ],
+          "spouses": [],
+          "children": [
+            "100000137"
+          ]
+        }
+      },
+      "100000137": {
+        "id": "100000137",
+        "generationCode": 11001,
+        "name": "鲁真公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前840年",
+        "deathDate": "公元前810年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁真公，鲁献公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000136"
+          ],
+          "spouses": [],
+          "children": [
+            "100000138"
+          ]
+        }
+      },
+      "100000138": {
+        "id": "100000138",
+        "generationCode": 12001,
+        "name": "鲁武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前825年",
+        "deathDate": "公元前795年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁武公，鲁真公之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000137"
+          ],
+          "spouses": [],
+          "children": [
+            "100000139"
+          ]
+        }
+      },
+      "100000139": {
+        "id": "100000139",
+        "generationCode": 13001,
+        "name": "鲁懿公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前810年",
+        "deathDate": "公元前780年",
+        "birthPlace": "鲁国",
+        "residence": "鲁国",
+        "generationWord": "",
+        "biography": "鲁懿公，鲁武公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000138"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000140": {
+        "id": "100000140",
+        "generationCode": 9001,
+        "name": "陈釐公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈釐公，陈平公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000086"
+          ],
+          "spouses": [],
+          "children": [
+            "100000141"
+          ]
+        }
+      },
+      "100000141": {
+        "id": "100000141",
+        "generationCode": 10001,
+        "name": "陈武公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前835年",
+        "deathDate": "公元前805年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈武公，陈釐公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000140"
+          ],
+          "spouses": [],
+          "children": [
+            "100000142"
+          ]
+        }
+      },
+      "100000142": {
+        "id": "100000142",
+        "generationCode": 11001,
+        "name": "陈夷公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前820年",
+        "deathDate": "公元前790年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈夷公，陈武公之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000141"
+          ],
+          "spouses": [],
+          "children": [
+            "100000143"
+          ]
+        }
+      },
+      "100000143": {
+        "id": "100000143",
+        "generationCode": 12001,
+        "name": "陈平公",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前805年",
+        "deathDate": "公元前775年",
+        "birthPlace": "陈国",
+        "residence": "陈国",
+        "generationWord": "",
+        "biography": "陈平公，陈夷公之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000142"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000144": {
+        "id": "100000144",
+        "generationCode": 9001,
+        "name": "燕侯舞",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前880年",
+        "deathDate": "公元前850年",
+        "birthPlace": "燕国",
+        "residence": "燕国",
+        "generationWord": "",
+        "biography": "燕侯舞，燕侯旨之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000145"
+          ]
+        }
+      },
+      "100000145": {
+        "id": "100000145",
+        "generationCode": 10001,
+        "name": "燕侯宪",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前865年",
+        "deathDate": "公元前835年",
+        "birthPlace": "燕国",
+        "residence": "燕国",
+        "generationWord": "",
+        "biography": "燕侯宪，燕侯舞之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000144"
+          ],
+          "spouses": [],
+          "children": [
+            "100000146"
+          ]
+        }
+      },
+      "100000146": {
+        "id": "100000146",
+        "generationCode": 11001,
+        "name": "燕侯和",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前850年",
+        "deathDate": "公元前820年",
+        "birthPlace": "燕国",
+        "residence": "燕国",
+        "generationWord": "",
+        "biography": "燕侯和，燕侯宪之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000145"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000147": {
+        "id": "100000147",
+        "generationCode": 9001,
+        "name": "管伯",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前800年",
+        "deathDate": "公元前770年",
+        "birthPlace": "管国",
+        "residence": "齐国",
+        "generationWord": "",
+        "biography": "管伯，管叔鲜之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000148"
+          ]
+        }
+      },
+      "100000148": {
+        "id": "100000148",
+        "generationCode": 10001,
+        "name": "管仲",
+        "title": "",
+        "gender": "M",
+        "birthDate": "公元前770年",
+        "deathDate": "公元前740年",
+        "birthPlace": "管国",
+        "residence": "齐国",
+        "generationWord": "",
+        "biography": "管仲，管伯之子，春秋时期著名政治家。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000147"
+          ],
+          "spouses": [],
+          "children": []
+        }
+      },
+      "100000149": {
+        "id": "100000149",
+        "generationCode": 30001,
+        "name": "姬午",
+        "title": "周哀王",
+        "gender": "M",
+        "birthDate": "公元前450年",
+        "deathDate": "公元前420年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周哀王姬午，周贞定王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            null
+          ],
+          "spouses": [],
+          "children": [
+            "100000150"
+          ]
+        }
+      },
+      "100000150": {
+        "id": "100000150",
+        "generationCode": 30001,
+        "name": "姬去疾",
+        "title": "周思王",
+        "gender": "M",
+        "birthDate": "公元前440年",
+        "deathDate": "公元前410年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周思王姬去疾，周哀王之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000149"
+          ],
+          "spouses": [],
+          "children": [
+            "100000151"
+          ]
+        }
+      },
+      "100000151": {
+        "id": "100000151",
+        "generationCode": 30001,
+        "name": "姬嵬",
+        "title": "周考王",
+        "gender": "M",
+        "birthDate": "公元前430年",
+        "deathDate": "公元前400年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周考王姬嵬，周思王之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000150"
+          ],
+          "spouses": [],
+          "children": [
+            "100000152"
+          ]
+        }
+      },
+      "100000152": {
+        "id": "100000152",
+        "generationCode": 31001,
+        "name": "姬午",
+        "title": "周威烈王",
+        "gender": "M",
+        "birthDate": "公元前420年",
+        "deathDate": "公元前390年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周威烈王姬午，周考王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000151"
+          ],
+          "spouses": [],
+          "children": [
+            "100000153"
+          ]
+        }
+      },
+      "100000153": {
+        "id": "100000153",
+        "generationCode": 32001,
+        "name": "姬骄",
+        "title": "周安王",
+        "gender": "M",
+        "birthDate": "公元前410年",
+        "deathDate": "公元前380年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周安王姬骄，周威烈王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000152"
+          ],
+          "spouses": [],
+          "children": [
+            "100000154"
+          ]
+        }
+      },
+      "100000154": {
+        "id": "100000154",
+        "generationCode": 33001,
+        "name": "姬喜",
+        "title": "周烈王",
+        "gender": "M",
+        "birthDate": "公元前400年",
+        "deathDate": "公元前370年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周烈王姬喜，周安王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000153"
+          ],
+          "spouses": [],
+          "children": [
+            "100000155"
+          ]
+        }
+      },
+      "100000155": {
+        "id": "100000155",
+        "generationCode": 34001,
+        "name": "姬扁",
+        "title": "周显王",
+        "gender": "M",
+        "birthDate": "公元前390年",
+        "deathDate": "公元前360年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周显王姬扁，周烈王之弟。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000154"
+          ],
+          "spouses": [],
+          "children": [
+            "100000156"
+          ]
+        }
+      },
+      "100000156": {
+        "id": "100000156",
+        "generationCode": 35001,
+        "name": "姬定",
+        "title": "周慎靓王",
+        "gender": "M",
+        "birthDate": "公元前380年",
+        "deathDate": "公元前350年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周慎靓王姬定，周显王之子。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000155"
+          ],
+          "spouses": [],
+          "children": [
+            "100000157"
+          ]
+        }
+      },
+      "100000157": {
+        "id": "100000157",
+        "generationCode": 36001,
+        "name": "姬延",
+        "title": "周赧王",
+        "gender": "M",
+        "birthDate": "公元前370年",
+        "deathDate": "公元前340年",
+        "birthPlace": "洛邑",
+        "residence": "洛邑",
+        "generationWord": "",
+        "biography": "周赧王姬延，周慎靓王之子，东周最后一位君主。",
+        "cemetery": null,
+        "family": {
+          "parents": [
+            "100000156"
+          ],
+          "spouses": [],
+          "children": []
         }
       }
     }

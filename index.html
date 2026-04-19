@@ -939,8 +939,9 @@
     const pageSize = 15;
 
     function calculateGeneration(person) {
+      // 从 generationCode 计算代际（代际 × 1000 + 1）
       if (person.generationCode) {
-        return Math.floor(parseInt(person.generationCode) / 1000);
+        return Math.floor(person.generationCode / 1000);
       }
       return 1;
     }
@@ -1320,7 +1321,13 @@
       const persons = familyData.family.persons;
       const personMap = new Map(Object.values(persons).map(p => [p.id, p]));
       
-      const rootPerson = personMap.get(familyData.family.rootId);
+      const rootId = familyData.family.rootId || '100000001';
+      const rootPerson = personMap.get(rootId);
+      
+      if (!rootPerson) {
+        container.innerHTML = '<div style="padding: 20px; text-align: center;">未找到根节点，请检查数据配置</div>';
+        return;
+      }
       
       const maxDepth = 5;
       const hierarchy = getDescendantsWithSiblings(rootPerson, personMap, maxDepth);

@@ -392,8 +392,9 @@
     let familyData = null;
 
     function calculateGeneration(person) {
+      // 从 generationCode 计算代际（代际 × 1000 + 1）
       if (person.generationCode) {
-        return Math.floor(parseInt(person.generationCode) / 1000);
+        return Math.floor(person.generationCode / 1000);
       }
       return 1;
     }
