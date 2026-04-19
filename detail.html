@@ -1006,6 +1006,11 @@
         familyHTML += createFamilyRelationCard('祖父', family.grandfather);
       }
 
+      // 爷爷（与祖父相同，备用）
+      if (family.grandfather && !family.grandfatherDisplayed) {
+        familyHTML += createFamilyRelationCard('爷爷', family.grandfather);
+      }
+
       // 父亲
       if (family.father) {
         familyHTML += createFamilyRelationCard('父亲', family.father);
@@ -1015,6 +1020,20 @@
       if (family.children && family.children.length > 0) {
         family.children.forEach(child => {
           familyHTML += createFamilyRelationCard('子女', child);
+        });
+      }
+
+      // 孙子/孙女
+      if (family.grandchildren && family.grandchildren.length > 0) {
+        family.grandchildren.forEach(grandchild => {
+          familyHTML += createFamilyRelationCard('孙子/孙女', grandchild);
+        });
+      }
+
+      // 曾孙
+      if (family.greatGrandchildren && family.greatGrandchildren.length > 0) {
+        family.greatGrandchildren.forEach(greatGrandchild => {
+          familyHTML += createFamilyRelationCard('曾孙', greatGrandchild);
         });
       }
 
