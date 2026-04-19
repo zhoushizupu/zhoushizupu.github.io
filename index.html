@@ -620,7 +620,7 @@
         const card = document.createElement('div');
         card.className = 'person-card';
         card.onclick = () => {
-          window.location.href = `./detail.html?id=${person.id}`;
+          window.location.href = `detail.html?id=${person.id}`;
         };
 
         card.innerHTML = `
@@ -736,7 +736,7 @@
       if (!query || !familyData) return;
 
       // 跳转到搜索结果页面
-      window.location.href = `/public/search.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
     }
 
     function switchView(view) {
@@ -902,7 +902,7 @@
         .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
         .style('cursor', 'pointer')
         .on('click', (event, d) => {
-          window.location.href = `./detail.html?id=${d.data.id}`;
+          window.location.href = `detail.html?id=${d.data.id}`;
         });
 
       nodes.append('rect')
@@ -997,7 +997,7 @@
         .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
         .style('cursor', 'pointer')
         .on('click', (event, d) => {
-          window.location.href = `./detail.html?id=${d.data.id}`;
+          window.location.href = `detail.html?id=${d.data.id}`;
         });
 
       nodes.append('rect')
