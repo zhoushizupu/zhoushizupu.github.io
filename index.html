@@ -56,9 +56,9 @@
     .search-box {
       display: flex;
       gap: 10px;
-      flex: 1;
-      max-width: 400px;
-      margin-left: 50px;
+      flex: 0 0 auto;
+      max-width: 200px;
+      margin-left: 20px;
     }
 
     .search-box input {
@@ -67,6 +67,7 @@
       border: 2px solid #667eea;
       border-radius: 5px;
       font-size: 14px;
+      min-width: 80px;
     }
 
     .search-box button {
@@ -81,6 +82,27 @@
 
     .search-box button:hover {
       background: #764ba2;
+    }
+
+    /* 树形视图切换按钮 */
+    .tree-toggle-btn {
+      padding: 10px 18px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    .tree-toggle-btn:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
     }
 
     .tree-search-box {
@@ -474,6 +496,19 @@
         max-width: none;
         margin-left: 0;
         margin-top: 5px;
+        justify-content: center;
+      }
+
+      .search-box input {
+        max-width: 120px;
+      }
+
+      /* 树形视图按钮 */
+      .tree-toggle-btn {
+        margin-left: auto;
+        order: 2;
+        padding: 6px 12px;
+        font-size: 13px;
       }
 
       /* 内容区域调整 */
@@ -614,6 +649,11 @@
         font-size: 18px;
       }
 
+      .tree-toggle-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+
       .search-box input {
         padding: 8px 10px;
         font-size: 13px;
@@ -743,6 +783,7 @@
         <input type="text" id="searchInput" placeholder="搜索家族成员...">
         <button onclick="searchPerson()">搜索</button>
       </div>
+      <button class="tree-toggle-btn" onclick="toggleTreeView()">🌳 树形视图</button>
     </div>
 
     <div class="content">
@@ -1019,6 +1060,20 @@
         renderAncestryTree(person);
       } else {
         alert('未找到该家族成员');
+      }
+    }
+
+    function toggleTreeView() {
+      const listView = document.getElementById('list-view');
+      const treeView = document.getElementById('tree-view');
+      
+      if (listView.style.display === 'none') {
+        listView.style.display = 'block';
+        treeView.style.display = 'none';
+      } else {
+        listView.style.display = 'none';
+        treeView.style.display = 'block';
+        renderTree(currentGenerationFilter);
       }
     }
 
