@@ -165,13 +165,14 @@
 
     .detail-avatars {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       flex-shrink: 0;
+      justify-content: flex-start;
     }
 
     .detail-avatar-main,
     .detail-avatar-spouse {
-      width: 300px;
+      width: 350px;
       aspect-ratio: 3 / 4;
       border-radius: 10px;
       overflow: hidden;
@@ -616,15 +617,15 @@
 
       .detail-avatars {
         flex-direction: row;
-        gap: 15px;
-        justify-content: center;
+        gap: 20px;
+        justify-content: flex-start;
         flex-wrap: wrap;
       }
 
       .detail-avatar-main,
       .detail-avatar-spouse {
-        width: 150px;
-        height: 200px;
+        width: 180px;
+        height: 240px;
         margin: 0;
       }
 
@@ -725,13 +726,14 @@
       }
 
       .detail-avatars {
-        gap: 10px;
+        gap: 15px;
+        justify-content: flex-start;
       }
 
       .detail-avatar-main,
       .detail-avatar-spouse {
-        width: 120px;
-        height: 160px;
+        width: 140px;
+        height: 187px;
       }
 
       .avatar-label {
@@ -803,15 +805,15 @@
       <div id="personDetail" style="display: none;">
         <div class="person-detail">
           <div class="detail-avatars">
-            <div class="detail-avatar-main">
-              <img id="detailAvatar" src="" alt="">
-              <div class="avatar-label" id="mainAvatarLabel">本人</div>
+              <div class="detail-avatar-main">
+                <img id="detailAvatar" src="" alt="">
+                <div class="avatar-label" id="mainAvatarLabel"></div>
+              </div>
+              <div class="detail-avatar-spouse" id="spouseAvatarContainer" style="display: none;">
+                <img id="detailSpouseAvatar" src="" alt="">
+                <div class="avatar-label" id="spouseAvatarLabel"></div>
+              </div>
             </div>
-            <div class="detail-avatar-spouse" id="spouseAvatarContainer" style="display: none;">
-              <img id="detailSpouseAvatar" src="" alt="">
-              <div class="avatar-label" id="spouseAvatarLabel">配偶</div>
-            </div>
-          </div>
           <div class="detail-info">
             <h2 id="detailName">周文王</h2>
             <div class="info-section" id="detailGeneration">
@@ -958,6 +960,9 @@
         this.src = 'media/man.png';
       };
       document.getElementById('detailName').textContent = person.name;
+      
+      // 设置本人标签为名字
+      document.getElementById('mainAvatarLabel').textContent = person.name;
 
       // 显示配偶照片（如果有）
       const spouseContainer = document.getElementById('spouseAvatarContainer');
@@ -968,6 +973,8 @@
         document.getElementById('detailSpouseAvatar').onerror = function() {
           this.src = 'media/man.png';
         };
+        // 设置配偶标签为名字
+        document.getElementById('spouseAvatarLabel').textContent = spouse.name;
         spouseContainer.style.display = 'block';
         spouseContainer.classList.add('active');
       } else {
