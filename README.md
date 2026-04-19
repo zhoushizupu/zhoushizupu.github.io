@@ -51,23 +51,31 @@ npx http-server -p 8080
 - 主页：http://localhost:8080/public/home.html
 - 后台：http://localhost:8080/admin.html
 
-### 部署到 Gitee Pages
+### 部署到 Vercel
 
-1. 将项目推送到 Gitee 仓库
-```bash
-git push gitee master
+1. 访问 [Vercel](https://vercel.com/) 并登录
+
+2. 导入 Git 仓库
+   - 点击「**Add New Project**」
+   - 选择「**Import Git Repository**」
+   - 选择您的 Gitee 仓库 `zhoushizipu`
+
+3. 配置项目
+   - **Framework Preset**: 选择 `Other`
+   - **Build Command**: 留空（纯静态项目无需构建）
+   - **Output Directory**: 留空（默认为根目录）
+   - 点击「**Deploy**」
+
+4. 等待部署完成
+   - Vercel 会自动构建并部署
+   - 部署完成后会显示访问地址
+
+5. 访问您的网站
+```
+https://zhoushizipu.vercel.app/
 ```
 
-2. 在 Gitee 仓库页面：
-   - 进入「管理」→「Pages」
-   - 选择 master 分支
-   - 点击「启动」
-   - 等待部署完成
-
-3. 访问您的网站
-```
-https://linksshow.gitee.io/zhoushizipu/public/home.html
-```
+**注意**: Vercel 会自动分配一个域名，格式为 `https://[项目名].vercel.app`，也可以在 Vercel 设置中绑定自定义域名。
 
 ## 🔐 后台管理
 
