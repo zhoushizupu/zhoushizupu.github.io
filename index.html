@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -460,6 +460,187 @@
       padding-top: 20px;
       margin-top: 20px;
       border-top: 1px solid #f0f0f0;
+    }
+
+    /* ========== 移动端响应式布局 ========== */
+    /* 平板和手机适配 */
+    @media screen and (max-width: 768px) {
+      /* 容器调整 */
+      .container {
+        padding: 10px;
+        padding-top: 140px;
+      }
+
+      /* 头部适配移动端 */
+      .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        width: calc(100% - 20px);
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+      }
+
+      .header h1 {
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* 搜索框占满一行 */
+      .search-box {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        order: 2;
+      }
+
+      /* 视图切换按钮占满一行 */
+      .view-toggle {
+        width: 100%;
+        order: 1;
+        justify-content: center;
+      }
+
+      /* 内容区域调整 */
+      .content {
+        padding: 15px;
+        min-height: 500px;
+      }
+
+      /* 人物列表改为单列 */
+      .person-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      /* 人物卡片适配 */
+      .person-card {
+        padding: 15px;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .person-card .card-avatar {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+      }
+
+      .person-card .card-header {
+        flex: 1;
+        width: 100%;
+      }
+
+      .card-title h3 {
+        font-size: 18px;
+      }
+
+      .card-info p {
+        font-size: 13px;
+      }
+
+      /* 树形搜索框调整 */
+      .tree-search-box {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .tree-search-box input,
+      .tree-search-box button {
+        width: 100%;
+      }
+
+      /* 分页按钮调整 */
+      .pagination {
+        padding: 15px 10px;
+      }
+
+      .pagination-buttons button {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+
+      /* 模态框适配 */
+      .modal-content {
+        width: calc(100% - 30px);
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+      }
+
+      .modal-header h2 {
+        font-size: 20px;
+      }
+
+      .modal-body {
+        padding: 20px 15px;
+      }
+
+      .info-section {
+        font-size: 14px;
+      }
+    }
+
+    /* 小屏手机优化 */
+    @media screen and (max-width: 480px) {
+      .container {
+        padding: 5px;
+        padding-top: 160px;
+      }
+
+      .header {
+        padding: 12px;
+        gap: 12px;
+      }
+
+      .header h1 {
+        font-size: 20px;
+      }
+
+      .search-box input {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+
+      .search-box button {
+        padding: 8px 15px;
+        font-size: 13px;
+      }
+
+      .view-toggle button {
+        padding: 8px 12px;
+        font-size: 13px;
+        flex: 1;
+      }
+
+      .content {
+        padding: 10px;
+      }
+
+      .person-card {
+        padding: 12px;
+      }
+
+      .person-card .card-avatar {
+        width: 60px;
+        height: 60px;
+      }
+
+      .card-title h3 {
+        font-size: 16px;
+      }
+
+      .card-info p {
+        font-size: 12px;
+      }
+
+      .pagination-info {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
