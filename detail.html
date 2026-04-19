@@ -667,10 +667,10 @@
       const family = getFamilyMembers(person, personMap);
       const generation = calculateGeneration(person);
 
-      document.getElementById('detailAvatar').src = `../media/${personId}.jpg`;
+      document.getElementById('detailAvatar').src = `media/${personId}.jpg`;
       document.getElementById('detailAvatar').alt = person.name;
       document.getElementById('detailAvatar').onerror = function() {
-        this.src = '../media/man.png';
+        this.src = 'media/man.png';
       };
       document.getElementById('detailName').textContent = person.name;
 
@@ -752,7 +752,7 @@
       return `
         <div class="family-relation" onclick="window.location.href='/?id=${person.id}'" style="cursor: pointer;">
           <div class="family-relation-avatar">
-            <img src="../media/${person.id}.jpg" alt="${person.name}" onerror="this.src='../media/man.png'">
+            <img src="media/${person.id}.jpg" alt="${person.name}" onerror="this.src='media/man.png'">
           </div>
           <div class="family-relation-overlay"></div>
           <div class="family-relation-info">
