@@ -17,8 +17,8 @@ vite.config.js
 # 源代码
 src/
 
-# 文档
-*.md
+# 文档（保留 README.md）
+# *.md
 LICENSE
 
 # 部署脚本
