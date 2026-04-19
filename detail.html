@@ -1001,6 +1001,11 @@
         });
       }
 
+      // 太祖父
+      if (family.greatGrandfather) {
+        familyHTML += createFamilyRelationCard('太祖父', family.greatGrandfather);
+      }
+
       // 祖父
       if (family.grandfather) {
         familyHTML += createFamilyRelationCard('祖父', family.grandfather);
