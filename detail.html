@@ -881,8 +881,8 @@
     function getFamilyMembers(person, personMap) {
       const family = {
         father: null,
-        grandfather: null,
-        greatGrandfather: null,
+        grandfather: null, // 爷爷的父亲
+        greatGrandfather: null, // 祖父的父亲（太祖父）
         spouses: [],
         children: [],
         grandchildren: [],
@@ -894,16 +894,18 @@
         const fatherId = person.family.parents[0];
         family.father = getPersonById(fatherId, personMap);
         
-        // 祖父（父亲的父亲）
+        // 爷爷（父亲的父亲）
         if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
           const grandfatherId = family.father.family.parents[0];
-          family.grandfather = getPersonById(grandfatherId, personMap);
+          const grandfather = getPersonById(grandfatherId, personMap);
           
-          // 太祖父（祖父的父亲）
-          if (family.grandfather && family.grandfather.family && family.grandfather.family.parents && family.grandfather.family.parents.length > 0) {
-            const greatGrandfatherId = family.grandfather.family.parents[0];
+          // 祖父（爷爷的父亲）
+          if (grandfather && grandfather.family && grandfather.family.parents && grandfather.family.parents.length > 0) {
+            const greatGrandfatherId = grandfather.family.parents[0];
             family.greatGrandfather = getPersonById(greatGrandfatherId, personMap);
           }
+          
+          family.grandfather = grandfather;
         }
       }
 
@@ -1042,14 +1044,23 @@
         });
       }
 
-      // 太祖父
+      // 太祖父（祖父的父亲）
       if (family.greatGrandfather) {
         familyHTML += createFamilyRelationCard('太祖父', family.greatGrandfather);
       }
 
-      // 祖父
+      // 祖父（爷爷的父亲）
       if (family.grandfather) {
         familyHTML += createFamilyRelationCard('祖父', family.grandfather);
+      }
+
+      // 爷爷（父亲的父亲）- 必须显示
+      if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
+        const grandfatherId = family.father.family.parents[0];
+        const grandfather = getPersonById(grandfatherId, personMap);
+        if (grandfather) {
+          familyHTML += createFamilyRelationCard('爷爷', grandfather);
+        }
       }
 
       // 父亲
