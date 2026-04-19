@@ -1,12 +1,25 @@
+# 临时文件
 node_modules
 dist-ssr
 *.local
 .DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
+.vite
+
+# 构建文件
+dist
+assets
+
+# 配置文件
+package.json
+package-lock.json
+vite.config.js
+
+# 源代码
+src/
+
+# 文档
+*.md
+LICENSE
+
+# 部署脚本
+deploy.bat

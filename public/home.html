@@ -111,17 +111,6 @@
       border-color: #ccc;
     }
 
-    .tree-generation-filter {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 15px;
-      background: #f9f9f9;
-      border-radius: 10px;
-    }
-
     .tree-search-box {
       display: flex;
       gap: 10px;
@@ -367,20 +356,6 @@
       margin-bottom: 5px;
     }
 
-    .search-results {
-      margin-top: 20px;
-    }
-
-    .search-results h3 {
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    #tree-container {
-      width: 100%;
-      height: 600px;
-    }
-
     .node rect {
       cursor: pointer;
       stroke: #667eea;
@@ -420,12 +395,6 @@
       stroke-width: 1.5px;
       stroke-linecap: round;
       stroke-linejoin: round;
-    }
-
-    .no-results {
-      text-align: center;
-      padding: 50px;
-      color: #999;
     }
 
     .pagination {
@@ -588,10 +557,6 @@
       return 1;
     }
 
-    function getGenerationFromCode(code) {
-      return Math.floor(parseInt(code) / 1000);
-    }
-
     function buildPersonMap() {
       const map = new Map();
       Object.values(familyData.family.persons).forEach(person => {
@@ -655,7 +620,7 @@
         const card = document.createElement('div');
         card.className = 'person-card';
         card.onclick = () => {
-          window.location.href = `detail.html?id=${person.id}`;
+          window.location.href = `/public/detail.html?id=${person.id}`;
         };
 
         card.innerHTML = `
@@ -766,34 +731,26 @@
       modal.classList.add('show');
     }
 
-    function closeModal() {
-      document.getElementById('detailModal').classList.remove('show');
-    }
-
     function searchPerson() {
       const query = document.getElementById('searchInput').value.toLowerCase();
       if (!query || !familyData) return;
 
       // 跳转到搜索结果页面
-      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `/public/search.html?q=${encodeURIComponent(query)}`;
     }
 
     function switchView(view) {
-      console.log('进入 switchView 函数，view:', view);
       currentView = view;
 
       document.querySelectorAll('.view-toggle button').forEach(btn => btn.classList.remove('active'));
       document.querySelector(`[onclick="switchView('${view}')"]`).classList.add('active');
 
       if (view === 'list') {
-        console.log('切换到列表视图');
         document.getElementById('list-view').style.display = 'block';
         document.getElementById('tree-view').style.display = 'none';
       } else {
-        console.log('切换到树形视图');
         document.getElementById('list-view').style.display = 'none';
         document.getElementById('tree-view').style.display = 'block';
-        console.log('调用 renderTree 函数');
         renderTree(currentGenerationFilter);
       }
     }
@@ -945,7 +902,7 @@
         .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
         .style('cursor', 'pointer')
         .on('click', (event, d) => {
-          window.location.href = `detail.html?id=${d.data.id}`;
+          window.location.href = `/public/detail.html?id=${d.data.id}`;
         });
 
       nodes.append('rect')
@@ -970,63 +927,17 @@
       svg.call(zoom.transform, initialTransform);
     }
 
-    function buildHierarchy(rootId, persons) {
-      const personMap = new Map();
-
-      Object.values(persons).forEach(p => {
-        personMap.set(p.id, { ...p, children: [] });
-      });
-
-      Object.values(persons).forEach(person => {
-        if (person.family.parents && person.family.parents.length > 0) {
-          const firstParentId = person.family.parents[0];
-          const parent = personMap.get(firstParentId);
-          if (parent) {
-            parent.children.push(personMap.get(person.id));
-          }
-        }
-      });
-
-      return personMap.get(rootId);
-    }
-
-    function getDirectLineage(root, targetGen) {
-      if (!root) return null;
-      const gen = getGenerationFromCode(root.generationCode);
-      if (gen === targetGen) {
-        return {
-          ...root,
-          children: []
-        };
-      }
-      const node = {
-        ...root,
-        children: []
-      };
-      if (root.children && root.children.length > 0) {
-        node.children = root.children
-          .map(child => getDirectLineage(child, targetGen))
-          .filter(Boolean);
-      }
-      return node.children.length > 0 ? node : null;
-    }
-
     function renderTree(filterGen = 0) {
-      console.log('进入 renderTree 函数，filterGen:', filterGen);
       const container = document.getElementById('tree-container');
       container.innerHTML = '';
 
       const persons = familyData.family.persons;
       const personMap = new Map(Object.values(persons).map(p => [p.id, p]));
       
-      // 获取根节点人物
       const rootPerson = personMap.get(familyData.family.rootId);
-      console.log('根节点人物:', rootPerson);
       
-      // 默认显示 5 代：根节点 + 下 4 代
       const maxDepth = 5;
       const hierarchy = getDescendantsWithSiblings(rootPerson, personMap, maxDepth);
-      console.log('层级结构:', hierarchy);
 
       const nodeWidth = 160;
       const nodeHeight = 50;
@@ -1086,7 +997,7 @@
         .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
         .style('cursor', 'pointer')
         .on('click', (event, d) => {
-          window.location.href = `detail.html?id=${d.data.id}`;
+          window.location.href = `/public/detail.html?id=${d.data.id}`;
         });
 
       nodes.append('rect')
@@ -1118,13 +1029,11 @@
           throw new Error('数据加载失败');
         }
         familyData = await response.json();
-        console.log('数据加载成功:', familyData);
         
         document.getElementById('loading').style.display = 'none';
         renderPersonList();
       } catch (error) {
-        console.error('初始化失败:', error);
-        document.getElementById('loading').textContent = '加载失败: ' + error.message;
+        document.getElementById('loading').textContent = '加载失败：' + error.message;
       }
     }
 

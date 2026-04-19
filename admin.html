@@ -452,7 +452,7 @@
     <div class="header">
       <h1>📋 周氏家族谱 - 管理后台</h1>
       <div class="header-buttons">
-        <button class="btn btn-secondary" onclick="window.location.href='/public/static.html'">返回首页</button>
+        <button class="btn btn-secondary" onclick="window.location.href='/public/home.html'">返回首页</button>
         <button class="btn btn-success" onclick="exportJSON()">📥 导出 JSON</button>
       </div>
     </div>
@@ -639,9 +639,7 @@
         const response = await fetch('/public/data/family.json');
         const data = await response.json();
         familyData = data;
-        console.log('加载现有数据成功');
       } catch (error) {
-        console.log('无法加载现有数据，从空白开始:', error);
       }
       renderMemberList();
       updateStats();
@@ -996,7 +994,6 @@
         
       }).catch(err => {
         alert('❌ 复制失败，请手动复制');
-        console.error('复制失败:', err);
       });
     }
 
