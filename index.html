@@ -469,9 +469,9 @@
       /* 头部适配移动端 - 改为顶部固定栏 */
       .header {
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 12px 15px;
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding: 10px 12px;
         width: 100%;
         max-width: none;
         top: 0;
@@ -479,36 +479,46 @@
         transform: none;
         border-radius: 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
       }
 
       .header h1 {
-        font-size: 20px;
-        width: auto;
-        text-align: left;
-        margin: 0;
-        flex: 0 0 auto;
+        font-size: 16px;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       /* 搜索框 */
       .search-box {
-        order: 3;
-        width: 100%;
-        max-width: none;
+        flex: 1;
+        min-width: 0;
         margin-left: 0;
-        margin-top: 5px;
-        justify-content: center;
+        margin-top: 0;
+        justify-content: flex-start;
+        gap: 5px;
       }
 
       .search-box input {
-        max-width: 120px;
+        padding: 6px 8px;
+        font-size: 12px;
+        max-width: none;
+        min-width: 60px;
+      }
+
+      .search-box button {
+        padding: 6px 10px;
+        font-size: 11px;
+        white-space: nowrap;
       }
 
       /* 树形视图按钮 */
       .tree-toggle-btn {
-        margin-left: auto;
-        order: 2;
-        padding: 6px 12px;
-        font-size: 13px;
+        margin-left: 0;
+        order: 3;
+        padding: 6px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       /* 内容区域调整 */
@@ -646,22 +656,23 @@
       }
 
       .header h1 {
-        font-size: 18px;
-      }
-
-      .tree-toggle-btn {
-        padding: 5px 10px;
-        font-size: 12px;
+        font-size: 15px;
       }
 
       .search-box input {
-        padding: 8px 10px;
-        font-size: 13px;
+        padding: 5px 6px;
+        font-size: 11px;
+        min-width: 50px;
       }
 
       .search-box button {
-        padding: 8px 12px;
-        font-size: 12px;
+        padding: 5px 8px;
+        font-size: 10px;
+      }
+
+      .tree-toggle-btn {
+        padding: 5px 8px;
+        font-size: 10px;
       }
 
       .content {
