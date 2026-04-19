@@ -610,9 +610,9 @@
 
       .person-detail {
         flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        text-align: center;
+        gap: 0;
+        align-items: flex-start;
+        text-align: left;
       }
 
       .detail-avatars {
@@ -621,6 +621,7 @@
         justify-content: flex-start;
         flex-wrap: wrap;
         margin: 0;
+        margin-bottom: 20px;
       }
 
       .detail-avatar-main,
@@ -641,6 +642,8 @@
 
       .detail-info {
         width: 100%;
+        text-align: left;
+        padding-left: 0;
       }
 
       .detail-info h2 {
