@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>鍛ㄦ皬鏃忚氨 - 浜虹墿璇︽儏</title>
+  <title>周氏族谱 - 人物详情</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * {
@@ -253,7 +253,7 @@
       margin-top: 15px;
     }
 
-    /* Markdown 鏍峰紡 */
+    /* Markdown 样式 */
     .markdown-content h1,
     .markdown-content h2,
     .markdown-content h3,
@@ -511,54 +511,54 @@
 <body>
   <div class="header">
     <div class="header-left">
-      <a href="index.html" class="header-logo">鍛ㄦ皬鏃忚氨</a>
+      <a href="/" class="header-logo">周氏族谱</a>
     </div>
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="鎼滅储瀹舵棌鎴愬憳...">
-      <button onclick="searchPerson()">鎼滅储</button>
+      <input type="text" id="searchInput" placeholder="搜索家族成员...">
+      <button onclick="searchPerson()">搜索</button>
     </div>
   </div>
 
   <div class="container">
     <div class="content">
-      <div id="loading" class="loading">鍔犺浇涓?..</div>
+      <div id="loading" class="loading">加载中...</div>
       <div id="personDetail" style="display: none;">
         <div class="person-detail">
           <div class="detail-avatar">
             <img id="detailAvatar" src="" alt="">
           </div>
           <div class="detail-info">
-            <h2 id="detailName">鍛ㄦ枃鐜?/h2>
+            <h2 id="detailName">周文王</h2>
             <div class="info-section" id="detailGeneration">
-              <h3>涓栦唬淇℃伅</h3>
-              <p>绗嚑浠ｏ細绗?1 浠?/p>
+              <h3>世代信息</h3>
+              <p>第几代：第 1 代</p>
             </div>
             <div class="info-section">
-              <h3>鍩烘湰淇℃伅</h3>
-              <p id="detailBasic">鍑虹敓锛氬叕鍏冨墠 1152 骞?| 閫濅笘锛氬叕鍏冨墠 1056 骞?| 绫嶈疮锛氬矏灞?| 鑱屼笟锛氬懆鏈濆悰涓?/p>
+              <h3>基本信息</h3>
+              <p id="detailBasic">出生：公元前 1152 年 | 逝世：公元前 1056 年 | 籍贯：岐山 | 职业：周朝君主</p>
             </div>
           </div>
         </div>
 
         <div class="info-section" id="detailFamily">
-          <h3>瀹舵棌鍏崇郴</h3>
+          <h3>家族关系</h3>
           <div class="family-relation-grid" id="familyRelationGrid">
-            <!-- 瀹舵棌鍏崇郴鍗＄墖灏嗛€氳繃 JavaScript 鍔ㄦ€佺敓鎴?-->
+            <!-- 家族关系卡片将通过 JavaScript 动态生成 -->
           </div>
         </div>
       </div>
       <div id="notFound" class="not-found" style="display: none;">
-        <h2>鏈壘鍒颁汉鐗╀俊鎭?/h2>
-        <p>璇疯繑鍥炲垪琛ㄩ€夋嫨姝ｇ‘鐨勫鏃忔垚鍛?/p>
+        <h2>未找到人物信息</h2>
+        <p>请返回列表选择正确的家族成员</p>
       </div>
       <div style="text-align: right; margin-top: 30px;">
-        <a href="/" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">杩斿洖鍒楄〃</a>
+        <a href="/" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">返回列表</a>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <p>&copy; 2026 鍛ㄦ皬鏃忚氨 - 瀹舵棌浼犳壙锛屾簮杩滄祦闀?/p>
+    <p>&copy; 2026 周氏族谱 - 家族传承，源远流长</p>
   </div>
 
   <script>
@@ -568,12 +568,12 @@
       try {
         const response = await fetch('./data/family.json');
         if (!response.ok) {
-          throw new Error('鏁版嵁鍔犺浇澶辫触');
+          throw new Error('数据加载失败');
         }
         familyData = await response.json();
         return true;
       } catch (error) {
-        console.error('鍔犺浇瀹舵棌鏁版嵁澶辫触:', error);
+        console.error('加载家族数据失败:', error);
         return false;
       }
     }
@@ -650,14 +650,14 @@
     initPage();
 
     function showPersonDetail(personId) {
-      console.log('鏌ユ壘浜虹墿 ID:', personId);
+      console.log('查找人物 ID:', personId);
       const personMap = buildPersonMap();
       const person = getPersonById(personId, personMap);
       
-      console.log('鎵惧埌鐨勪汉鐗?', person);
+      console.log('找到的人物:', person);
       
       if (!person) {
-        console.log('鏈壘鍒颁汉鐗╋紝鏄剧ず閿欒淇℃伅');
+        console.log('未找到人物，显示错误信息');
         document.getElementById('loading').style.display = 'none';
         document.getElementById('personDetail').style.display = 'none';
         document.getElementById('notFound').style.display = 'block';
@@ -674,69 +674,70 @@
       };
       document.getElementById('detailName').textContent = person.name;
 
-      // 鍩烘湰淇℃伅
+      // 基本信息
       const basicInfoHTML = `
         <div class="info-section">
-          <div style="margin-bottom: 8px;"><strong>馃搷 鍑虹敓鍦?/strong>锛?{person.birthPlace || '涓嶈'}</div>
-          <div style="margin-bottom: 8px;"><strong>馃彔 鐜板眳鍦?/strong>锛?{person.residence || '涓嶈'}</div>
-          <div style="margin-bottom: 8px;"><strong>馃巶 鍑虹敓鏃ユ湡</strong>锛?{person.birthDate || '涓嶈'}</div>
-          <div style="margin-bottom: 8px;"><strong>鈿帮笍 閫濅笘鏃ユ湡</strong>锛?{person.deathDate || '鍦ㄤ笘'}</div>
-          ${person.cemetery && person.cemetery.location ? `<div style="margin-bottom: 8px;"><strong>馃 澧撳湴</strong>锛?a href="https://uri.amap.com/marker?position=${person.cemetery.longitude},${person.cemetery.latitude}&name=${encodeURIComponent(person.cemetery.location)}" target="_blank" style="color: #333; text-decoration: none;">${person.cemetery.location} <span style="font-size: 12px; color: #666;">锛堢偣鍑诲鑸級</span></a></div>` : ''}
-          <div style="margin-bottom: 8px;"><strong style="color: white;">ID</strong><span style="color: white;">锛?/span><span style="color: white;">${person.id}</span></div>
+          <div style="margin-bottom: 8px;"><strong>📍 出生地</strong>：${person.birthPlace || '不详'}</div>
+          <div style="margin-bottom: 8px;"><strong>🏠 现居地</strong>：${person.residence || '不详'}</div>
+          <div style="margin-bottom: 8px;"><strong>🎂 出生日期</strong>：${person.birthDate || '不详'}</div>
+          <div style="margin-bottom: 8px;"><strong>⚰️ 逝世日期</strong>：${person.deathDate || '在世'}</div>
+          ${person.cemetery && person.cemetery.location ? `<div style="margin-bottom: 8px;"><strong>🪦 墓地</strong>：<a href="https://uri.amap.com/marker?position=${person.cemetery.longitude},${person.cemetery.latitude}&name=${encodeURIComponent(person.cemetery.location)}" target="_blank" style="color: #333; text-decoration: none;">${person.cemetery.location} <span style="font-size: 12px; color: #666;">（点击导航）</span></a></div>` : ''}
+          <div style="margin-bottom: 8px;"><strong style="color: white;">ID</strong><span style="color: white;">：</span><span style="color: white;">${person.id}</span></div>
         </div>
       `;
       document.getElementById('detailBasic').parentElement.innerHTML = basicInfoHTML;
       
-      // 涓栦唬淇℃伅
+      // 世代信息
       const generationInfoHTML = `
         <div class="info-section">
-          <div style="margin-bottom: 8px;"><strong>馃懁 濮撳悕</strong>锛?{person.name}</div>
-          <div style="margin-bottom: 8px;"><strong>鈾傦笍 鎬у埆</strong>锛?{person.gender === 'M' ? '鐢? : '濂?}</div>
-          ${person.generationWord ? `<div style="margin-bottom: 8px;"><strong>馃摐 瀛楄緢</strong>锛?{person.generationWord}</div>` : '<div style="margin-bottom: 8px;"><strong>馃摐 瀛楄緢</strong>锛氭殏鏃?/div>'}
+          <div style="margin-bottom: 8px;"><strong>👤 姓名</strong>：${person.name}</div>
+          <div style="margin-bottom: 8px;"><strong>♂️ 性别</strong>：${person.gender === 'M' ? '男' : '女'}</div>
+          ${person.generationWord ? `<div style="margin-bottom: 8px;"><strong>📜 字辈</strong>：${person.generationWord}</div>` : '<div style="margin-bottom: 8px;"><strong>📜 字辈</strong>：暂无</div>'}
         </div>
       `;
       document.getElementById('detailGeneration').innerHTML = generationInfoHTML;
       
-      // 鏄剧ず绠€浠?鐢熷钩锛堟敮鎸?Markdown锛?      if (person.biography) {
+      // 显示简介/生平（支持 Markdown）
+      if (person.biography) {
         const biographyHTML = `
           <div class="info-section" style="margin-top: 20px;">
-            <h3>绠€浠?鐢熷钩</h3>
+            <h3>简介/生平</h3>
             <div class="markdown-content">${marked.parse(person.biography)}</div>
           </div>
         `;
         document.getElementById('detailFamily').insertAdjacentHTML('beforebegin', biographyHTML);
       }
 
-      // 娓叉煋瀹舵棌鍏崇郴锛堟瘡涓汉鍗曠嫭涓€涓崱鐗囷級
+      // 渲染家族关系（每个人单独一个卡片）
       const familyGrid = document.getElementById('familyRelationGrid');
       let familyHTML = '';
 
-      // 閰嶅伓
+      // 配偶
       if (family.spouses && family.spouses.length > 0) {
         family.spouses.forEach(spouse => {
-          familyHTML += createFamilyRelationCard('閰嶅伓', spouse);
+          familyHTML += createFamilyRelationCard('配偶', spouse);
         });
       }
 
-      // 绁栫埗
+      // 祖父
       if (family.grandfather) {
-        familyHTML += createFamilyRelationCard('绁栫埗', family.grandfather);
+        familyHTML += createFamilyRelationCard('祖父', family.grandfather);
       }
 
-      // 鐖朵翰
+      // 父亲
       if (family.father) {
-        familyHTML += createFamilyRelationCard('鐖朵翰', family.father);
+        familyHTML += createFamilyRelationCard('父亲', family.father);
       }
 
-      // 瀛愬コ
+      // 子女
       if (family.children && family.children.length > 0) {
         family.children.forEach(child => {
-          familyHTML += createFamilyRelationCard('瀛愬コ', child);
+          familyHTML += createFamilyRelationCard('子女', child);
         });
       }
 
       if (familyHTML === '') {
-        familyHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #999; padding: 20px;">鏆傛棤瀹舵棌鍏崇郴</div>';
+        familyHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #999; padding: 20px;">暂无家族关系</div>';
       }
 
       familyGrid.innerHTML = familyHTML;
@@ -746,9 +747,10 @@
       document.getElementById('notFound').style.display = 'none';
     }
 
-    // 鍒涘缓瀹舵棌鍏崇郴鍗＄墖鐨勫嚱鏁?    function createFamilyRelationCard(relationType, person) {
+    // 创建家族关系卡片的函数
+    function createFamilyRelationCard(relationType, person) {
       return `
-        <div class="family-relation" onclick="window.location.href='index.html?id=${person.id}'" style="cursor: pointer;">
+        <div class="family-relation" onclick="window.location.href='/?id=${person.id}'" style="cursor: pointer;">
           <div class="family-relation-avatar">
             <img src="../media/${person.id}.jpg" alt="${person.name}" onerror="this.src='../media/man.png'">
           </div>
@@ -767,7 +769,7 @@
       const query = document.getElementById('searchInput').value.toLowerCase();
       if (!query) return;
       
-      window.location.href = `index.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `/?q=${encodeURIComponent(query)}`;
     }
 
     document.getElementById('searchInput').addEventListener('keypress', (e) => {

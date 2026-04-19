@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>鎼滅储缁撴灉 - 鍛ㄦ皬鏃忚氨</title>
+  <title>搜索结果 - 周氏族谱</title>
   <style>
     * {
       margin: 0;
@@ -228,19 +228,19 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1 onclick="window.location.href='/'">鍛ㄦ皬鏃忚氨</h1>
+      <h1 onclick="window.location.href='/public/home.html'">周氏族谱</h1>
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="鎼滅储瀹舵棌鎴愬憳...">
-        <button onclick="searchPerson()">鎼滅储</button>
+        <input type="text" id="searchInput" placeholder="搜索家族成员...">
+        <button onclick="searchPerson()">搜索</button>
       </div>
       <div class="header-right">
-        <a href="/" class="back-btn">杩斿洖鍒楄〃</a>
+        <a href="/" class="back-btn">返回列表</a>
       </div>
     </div>
 
     <div class="content" style="padding-top: 100px;">
       <div class="search-results-header">
-        <h2 id="resultsTitle">鎼滅储缁撴灉</h2>
+        <h2 id="resultsTitle">搜索结果</h2>
         <p id="resultsCount"></p>
       </div>
       <div id="searchResults" class="person-list"></div>
@@ -248,7 +248,7 @@
   </div>
 
   <div class="footer">
-    <p>&copy; 2026 鍛ㄦ皬鏃忚氨 - 瀹舵棌浼犳壙锛屾簮杩滄祦闀?/p>
+    <p>&copy; 2026 周氏族谱 - 家族传承，源远流长</p>
   </div>
 
   <script>
@@ -263,13 +263,13 @@
 
     async function loadFamilyData() {
       try {
-        const response = await fetch('data/family.json');
+        const response = await fetch('/public/data/family.json');
         if (!response.ok) {
-          throw new Error('鏁版嵁鍔犺浇澶辫触');
+          throw new Error('数据加载失败');
         }
         familyData = await response.json();
       } catch (error) {
-        console.error('鍔犺浇鏁版嵁澶辫触:', error);
+        console.error('加载数据失败:', error);
       }
     }
 
@@ -289,36 +289,36 @@
       const resultsCount = document.getElementById('resultsCount');
       const searchResults = document.getElementById('searchResults');
 
-      resultsTitle.textContent = `鎼滅储缁撴灉`;
+      resultsTitle.textContent = `搜索结果`;
       
       if (found.length > 0) {
-        resultsCount.textContent = `鍏辨壘鍒?${found.length} 涓笌 "${query}" 鐩稿叧鐨勫鏃忔垚鍛榒;
+        resultsCount.textContent = `共找到 ${found.length} 个与 "${query}" 相关的家族成员`;
         
         searchResults.innerHTML = found.map(person => {
           const generation = calculateGeneration(person);
           return `
-            <div class="person-card" onclick="window.location.href='detail.html?id=${person.id}'">
+            <div class="person-card" onclick="window.location.href='/public/detail.html?id=${person.id}'">
               <div class="card-avatar">
                 <img src="/media/man.png" alt="${person.name}">
               </div>
               <div class="card-title">
                 <h3>${person.name}</h3>
-                <span class="gender ${person.gender === 'M' ? 'male' : 'female'}">${person.gender === 'M' ? '鐢? : '濂?}</span>
+                <span class="gender ${person.gender === 'M' ? 'male' : 'female'}">${person.gender === 'M' ? '男' : '女'}</span>
                 <div class="card-info">
-                  <p>鍑虹敓锛?{person.birthDate || '涓嶈'}</p>
-                  <p>浠ｆ暟锛氱 ${generation} 浠?(${person.generationCode})</p>
+                  <p>出生：${person.birthDate || '不详'}</p>
+                  <p>代数：第 ${generation} 代 (${person.generationCode})</p>
                 </div>
               </div>
             </div>
           `;
         }).join('');
       } else {
-        resultsCount.textContent = `鏈壘鍒颁笌 "${query}" 鐩稿叧鐨勫鏃忔垚鍛榒;
-        searchResults.innerHTML = '<div class="no-results">鏈壘鍒板尮閰嶇殑瀹舵棌鎴愬憳</div>';
+        resultsCount.textContent = `未找到与 "${query}" 相关的家族成员`;
+        searchResults.innerHTML = '<div class="no-results">未找到匹配的家族成员</div>';
       }
     }
 
-    // 浠?URL 鑾峰彇鎼滅储鍙傛暟
+    // 从 URL 获取搜索参数
     function loadSearchFromURL() {
       const urlParams = new URLSearchParams(window.location.search);
       const query = urlParams.get('q');
