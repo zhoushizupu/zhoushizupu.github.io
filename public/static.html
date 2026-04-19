@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周氏家族谱</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background: white;
+      min-height: 100vh;
+      padding-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-top: 100px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      min-height: calc(100vh - 40px);
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      max-width: 1440px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header h1 {
+      color: #667eea;
+      font-size: 28px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      max-width: 400px;
+      margin-left: 50px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #667eea;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .search-box button:hover {
+      background: #764ba2;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 10px;
+    }
+
+    .view-toggle button {
+      padding: 10px 18px;
+      background: #f0f0f0;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .view-toggle button.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    .view-toggle button:hover:not(.active) {
+      background: #e0e0e0;
+      border-color: #ccc;
+    }
+
+    .tree-generation-filter {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+
+    .tree-search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      align-items: center;
+    }
+
+    .tree-search-box input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #667eea;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .tree-search-box button {
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .tree-search-box button:hover {
+      background: #764ba2;
+    }
+
+    .content {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      min-height: 600px;
+    }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      font-size: 24px;
+      color: #667eea;
+    }
+
+    .tree-view {
+      display: none;
+      min-height: 850px;
+    }
+
+    #tree-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .list-view {
+      display: block;
+    }
+
+    .person-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .person-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      gap: 25px;
+    }
+
+    .person-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .card-avatar {
+      width: 150px;
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      flex: 1;
+    }
+
+    .card-title h3 {
+      color: #333;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .card-title .gender {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .gender.male {
+      background: #667eea;
+      color: white;
+    }
+
+    .gender.female {
+      background: #FF69B4;
+      color: white;
+    }
+
+    .card-info {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .card-info p {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .detail-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .detail-modal.show {
+      display: flex;
+    }
+
+    .detail-content {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .modal-header h2 {
+      color: #333;
+      font-size: 24px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #999;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      color: #666;
+    }
+
+    .detail-section {
+      margin-bottom: 20px;
+    }
+
+    .detail-section h3 {
+      color: #667eea;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .detail-section p, .detail-section li {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .detail-section ul {
+      padding-left: 20px;
+    }
+
+    .family-relation {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    .family-relation h4 {
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .search-results {
+      margin-top: 20px;
+    }
+
+    .search-results h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    #tree-container {
+      width: 100%;
+      height: 600px;
+    }
+
+    .node rect {
+      cursor: pointer;
+      stroke: #667eea;
+      stroke-width: 2px;
+      rx: 10px;
+      ry: 10px;
+    }
+
+    .node rect.male {
+      fill: #f0f8ff;
+    }
+
+    .node rect.female {
+      fill: #fff0f5;
+    }
+
+    .node text {
+      font: 16px 'Microsoft YaHei', sans-serif;
+      pointer-events: none;
+      fill: #333;
+      font-weight: bold;
+    }
+
+    .node .name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .node .info {
+      font-size: 12px;
+      fill: #666;
+    }
+
+    .link {
+      fill: none;
+      stroke: #667eea;
+      stroke-width: 1.5px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 50px;
+      color: #999;
+    }
+
+    .pagination {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      margin-top: 30px;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .pagination-info {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .pagination-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pagination-buttons button {
+      padding: 8px 14px;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    .pagination-buttons button:hover:not(:disabled) {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    .pagination-buttons button.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+    }
+
+    .pagination-buttons button:disabled {
+      background: #f5f5f5;
+      color: #ccc;
+      cursor: not-allowed;
+      border-color: #e0e0e0;
+      opacity: 0.5;
+    }
+
+    .footer {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>周氏家族谱</h1>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索家族成员...">
+        <button onclick="searchPerson()">搜索</button>
+      </div>
+      <div class="view-toggle">
+        <button class="active" onclick="switchView('list')">列表视图</button>
+        <button onclick="switchView('tree')">树形视图</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="loading" class="loading">加载中...</div>
+      
+      <div id="list-view" class="list-view">
+        <div id="personList" class="person-list"></div>
+        <div id="searchResults" class="search-results"></div>
+        <div id="pagination" class="pagination"></div>
+      </div>
+
+      <div id="tree-view" class="tree-view">
+        <div class="tree-search-box">
+          <input type="text" id="treeSearchInput" placeholder="输入人物姓名，查看其上三辈下三辈...">
+          <button onclick="searchTreePerson()">查看族谱</button>
+        </div>
+        <div id="tree-container"></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="footer">
+      <p>&copy; 2026 周氏家族谱 - 家族传承，源远流长</p>
+    </div>
+
+  <div id="detailModal" class="detail-modal">
+    <div class="detail-content">
+      <div class="modal-header">
+        <h2 id="modalName">周文王</h2>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="detail-section">
+        <h3>基本信息</h3>
+        <p id="modalBasic">出生：公元前1152年 | 逝世：公元前1056年 | 籍贯：岐山 | 职业：西伯侯</p>
+      </div>
+      <div class="detail-section" id="modalAchievements">
+        <h3>成就与荣誉</h3>
+        <ul>
+          <li>推演《周易》六十四卦</li>
+          <li>奠定周朝八百年基业</li>
+        </ul>
+      </div>
+      <div class="detail-section" id="modalBiography">
+        <h3>生平简介</h3>
+        <p>周文王姬昌，周朝奠基者。被商纣王囚禁于羑里期间，推演《周易》。</p>
+      </div>
+      <div class="detail-section" id="modalFamily">
+        <h3>家族关系</h3>
+        <div class="family-relation">
+          <h4>父亲</h4>
+          <p id="modalFather">不详</p>
+        </div>
+        <div class="family-relation">
+          <h4>祖父</h4>
+          <p id="modalGrandfather">不详</p>
+        </div>
+        <div class="family-relation">
+          <h4>配偶</h4>
+          <p id="modalSpouses">不详</p>
+        </div>
+        <div class="family-relation">
+          <h4>子女</h4>
+          <p id="modalChildren">不详</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let familyData = null;
+    let currentView = 'list';
+    let currentGenerationFilter = 0;
+    let currentPage = 1;
+    const pageSize = 15;
+
+    function calculateGeneration(person) {
+      if (person.generationCode) {
+        return Math.floor(parseInt(person.generationCode) / 1000);
+      }
+      return 1;
+    }
+
+    function getGenerationFromCode(code) {
+      return Math.floor(parseInt(code) / 1000);
+    }
+
+    function buildPersonMap() {
+      const map = new Map();
+      Object.values(familyData.family.persons).forEach(person => {
+        map.set(person.id, person);
+      });
+      return map;
+    }
+
+    function getPersonById(id, personMap) {
+      return personMap.get(id);
+    }
+
+    function getFamilyMembers(person, personMap) {
+      const family = {
+        father: null,
+        grandfather: null,
+        spouses: [],
+        children: []
+      };
+
+      if (person.family.parents && person.family.parents.length > 0) {
+        const fatherId = person.family.parents[0];
+        family.father = getPersonById(fatherId, personMap);
+
+        if (family.father && family.father.family.parents && family.father.family.parents.length > 0) {
+          const grandfatherId = family.father.family.parents[0];
+          family.grandfather = getPersonById(grandfatherId, personMap);
+        }
+      }
+
+      if (person.family.spouses) {
+        family.spouses = person.family.spouses.map(id => getPersonById(id, personMap)).filter(Boolean);
+      }
+
+      if (person.family.children) {
+        family.children = person.family.children.map(id => getPersonById(id, personMap)).filter(Boolean);
+      }
+
+      return family;
+    }
+
+    function renderPersonList(filterGen = 0) {
+      const personMap = buildPersonMap();
+      const personList = document.getElementById('personList');
+      personList.innerHTML = '';
+
+      let persons = Object.values(familyData.family.persons);
+      if (filterGen > 0) {
+        persons = persons.filter(p => calculateGeneration(p) === filterGen);
+      }
+
+      // 计算分页
+      const totalItems = persons.length;
+      const totalPages = Math.ceil(totalItems / pageSize);
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      const pagePersons = persons.slice(startIndex, endIndex);
+
+      pagePersons.forEach(person => {
+        const generation = calculateGeneration(person);
+        const card = document.createElement('div');
+        card.className = 'person-card';
+        card.onclick = () => {
+          window.location.href = `detail.html?id=${person.id}`;
+        };
+
+        card.innerHTML = `
+          <div class="card-avatar">
+            <img src="/media/${person.id}.jpg" alt="${person.name}" onerror="this.src='/media/man.png'">
+          </div>
+          <div class="card-header">
+            <div class="card-title">
+              <h3>${person.name}</h3>
+              <div class="card-info">
+                <p>👤 姓名：${person.name}</p>
+                <p>${person.gender === 'M' ? '♂' : '♀'} 性别：${person.gender === 'M' ? '男' : '女'}</p>
+                <p>🎂 生辰：${person.birthDate || '不详'}</p>
+                ${person.generationWord ? `<p>📜 字辈：${person.generationWord}</p>` : '<p>📜 字辈：暂无</p>'}
+              </div>
+            </div>
+          </div>
+        `;
+
+        personList.appendChild(card);
+      });
+
+      // 渲染分页控件
+      renderPagination(totalItems, totalPages);
+    }
+
+    function renderPagination(totalItems, totalPages) {
+      const paginationContainer = document.getElementById('pagination');
+      if (!paginationContainer) return;
+
+      if (totalPages <= 1) {
+        paginationContainer.innerHTML = '';
+        return;
+      }
+
+      let paginationHTML = `
+        <div class="pagination-buttons">
+          <button onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''}>首页</button>
+          <button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>上一页</button>
+      `;
+
+      // 显示页码
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(totalPages, currentPage + 2);
+
+      for (let i = startPage; i <= endPage; i++) {
+        paginationHTML += `<button onclick="goToPage(${i})" ${i === currentPage ? 'class="active"' : ''}>${i}</button>`;
+      }
+
+      paginationHTML += `
+          <button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>下一页</button>
+          <button onclick="goToPage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>末页</button>
+        </div>
+      `;
+
+      paginationContainer.innerHTML = paginationHTML;
+    }
+
+    function goToPage(page) {
+      const personMap = buildPersonMap();
+      let persons = Object.values(familyData.family.persons);
+      if (currentGenerationFilter > 0) {
+        persons = persons.filter(p => calculateGeneration(p) === currentGenerationFilter);
+      }
+      const totalPages = Math.ceil(persons.length / pageSize);
+      
+      if (page < 1 || page > totalPages) return;
+      
+      currentPage = page;
+      renderPersonList(currentGenerationFilter);
+      
+      // 滚动到列表顶部
+      document.getElementById('personList').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showPersonDetail(person, personMap) {
+      const family = getFamilyMembers(person, personMap);
+      const modal = document.getElementById('detailModal');
+      
+      document.getElementById('modalName').textContent = person.name;
+      document.getElementById('modalBasic').textContent = `出生：${person.birthDate || '不详'} | 逝世：${person.deathDate || '不详'} | 籍贯：${person.birthPlace || '不详'} | 职业：${person.occupation || '不详'}`;
+
+      if (person.achievements && person.achievements.length > 0) {
+        document.getElementById('modalAchievements').innerHTML = `
+          <h3>成就与荣誉</h3>
+          <ul>
+            ${person.achievements.map(a => `<li>${a}</li>`).join('')}
+          </ul>
+        `;
+      } else {
+        document.getElementById('modalAchievements').innerHTML = '<h3>成就与荣誉</h3><p>无</p>';
+      }
+
+      if (person.biography) {
+        document.getElementById('modalBiography').innerHTML = `
+          <h3>生平简介</h3>
+          <p>${person.biography}</p>
+        `;
+      } else {
+        document.getElementById('modalBiography').innerHTML = '<h3>生平简介</h3><p>无</p>';
+      }
+
+      document.getElementById('modalFather').textContent = family.father ? family.father.name : '不详';
+      document.getElementById('modalGrandfather').textContent = family.grandfather ? family.grandfather.name : '不详';
+      document.getElementById('modalSpouses').textContent = family.spouses.length > 0 ? family.spouses.map(s => s.name).join('、') : '不详';
+      document.getElementById('modalChildren').textContent = family.children.length > 0 ? family.children.map(c => c.name).join('、') : '不详';
+
+      modal.classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('detailModal').classList.remove('show');
+    }
+
+    function searchPerson() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      if (!query || !familyData) return;
+
+      // 跳转到搜索结果页面
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+
+    function switchView(view) {
+      console.log('进入 switchView 函数，view:', view);
+      currentView = view;
+
+      document.querySelectorAll('.view-toggle button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add('active');
+
+      if (view === 'list') {
+        console.log('切换到列表视图');
+        document.getElementById('list-view').style.display = 'block';
+        document.getElementById('tree-view').style.display = 'none';
+      } else {
+        console.log('切换到树形视图');
+        document.getElementById('list-view').style.display = 'none';
+        document.getElementById('tree-view').style.display = 'block';
+        console.log('调用 renderTree 函数');
+        renderTree(currentGenerationFilter);
+      }
+    }
+
+    function searchTreePerson() {
+      const query = document.getElementById('treeSearchInput').value.trim();
+      if (!query || !familyData) return;
+
+      const person = Object.values(familyData.family.persons).find(p => 
+        p.name.toLowerCase().includes(query.toLowerCase())
+      );
+
+      if (person) {
+        renderAncestryTree(person);
+      } else {
+        alert('未找到该家族成员');
+      }
+    }
+
+    // 递归获取祖先（上三辈），返回祖先数组（从远到近：曾祖父→祖父→父亲）
+    function getAncestorChain(person, personMap, maxDepth) {
+      if (maxDepth <= 0) return [];
+      if (!person.family.parents || person.family.parents.length === 0) {
+        return [];
+      }
+      const parentId = person.family.parents[0];
+      const parent = personMap.get(parentId);
+      if (!parent) return [];
+      
+      const chain = getAncestorChain(parent, personMap, maxDepth - 1);
+      chain.push(parent);
+      return chain;
+    }
+
+    // 递归获取后代（下 N 辈），包含所有兄弟姐妹
+    function getDescendantsWithSiblings(person, personMap, maxDepth) {
+      if (maxDepth <= 0) return [];
+      
+      const result = { ...person, children: [] };
+      
+      if (person.family.children) {
+        // 获取所有子女
+        const children = person.family.children
+          .map(childId => personMap.get(childId))
+          .filter(Boolean);
+        
+        // 为每个子女递归获取后代
+        result.children = children.map(child => getDescendantsWithSiblings(child, personMap, maxDepth - 1));
+      }
+      
+      return result;
+    }
+
+    function renderAncestryTree(centerPerson) {
+      const container = document.getElementById('tree-container');
+      container.innerHTML = '';
+
+      const persons = familyData.family.persons;
+      const personMap = new Map(Object.values(persons).map(p => [p.id, p]));
+
+      // 构建祖先链（不包括自己）
+      const ancestorChain = getAncestorChain(centerPerson, personMap, 3);
+      
+      // 从最高祖先开始构建树
+      let hierarchy;
+      if (ancestorChain.length > 0) {
+        // 有祖先，从最高祖先开始
+        const topAncestor = ancestorChain[0];
+        hierarchy = { ...topAncestor, children: [] };
+        
+        // 逐代向下构建，每一代只有一个节点
+        let currentParent = hierarchy;
+        for (let i = 1; i < ancestorChain.length; i++) {
+          const person = ancestorChain[i];
+          const personNode = { ...person, children: [] };
+          currentParent.children.push(personNode);
+          currentParent = personNode;
+        }
+        
+        // 最后添加本人
+        const centerNode = { ...centerPerson, children: [] };
+        currentParent.children.push(centerNode);
+        
+        // 为本人添加所有子女（下三辈，包含所有兄弟姐妹）
+        const descendants = getDescendantsWithSiblings(centerPerson, personMap, 3);
+        if (descendants.children && descendants.children.length > 0) {
+          centerNode.children = descendants.children;
+        }
+      } else {
+        // 没有祖先，以自己为根
+        hierarchy = getDescendantsWithSiblings(centerPerson, personMap, 3);
+      }
+
+      const nodeWidth = 160;
+      const nodeHeight = 50;
+      const horizontalSpacing = 240;
+      const verticalSpacing = 140;
+
+      const treeWidth = Math.max(1400, 10 * horizontalSpacing);
+      const treeHeight = Math.max(600, 6 * verticalSpacing);
+
+      const svg = d3.select('#tree-container')
+        .append('svg')
+        .attr('width', '100%')
+        .attr('height', treeHeight)
+        .attr('viewBox', `0 0 ${treeWidth} ${treeHeight}`);
+
+      const g = svg.append('g');
+
+      const zoom = d3.zoom()
+        .scaleExtent([0.1, 3])
+        .on('zoom', (event) => {
+          g.attr('transform', event.transform);
+        });
+
+      svg.call(zoom);
+
+      // 使用自上而下的树形布局
+      const treeLayout = d3.tree()
+        .size([treeWidth - 200, treeHeight - 200])
+        .separation((a, b) => a.parent === b.parent ? 1.5 : 2);
+
+      const root = d3.hierarchy(hierarchy);
+      treeLayout(root);
+
+      g.selectAll('.link')
+        .data(root.links())
+        .join('path')
+        .attr('class', 'link')
+        .attr('d', d => {
+          const sourceX = d.source.x;
+          const sourceY = d.source.y;
+          const targetX = d.target.x;
+          const targetY = d.target.y;
+          // 传统族谱样式：从父节点底部中心垂直向下，然后水平，再垂直向下到子节点顶部中心
+          const midY = (sourceY + targetY) / 2;
+          return `M${sourceX},${sourceY + nodeHeight / 2} L${sourceX},${midY} L${targetX},${midY} L${targetX},${targetY - nodeHeight / 2}`;
+        })
+        .attr('fill', 'none')
+        .attr('stroke', '#667eea')
+        .attr('stroke-width', '1.5px')
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round');
+
+      const nodes = g.selectAll('.node')
+        .data(root.descendants())
+        .join('g')
+        .attr('class', 'node')
+        .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
+        .style('cursor', 'pointer')
+        .on('click', (event, d) => {
+          window.location.href = `detail.html?id=${d.data.id}`;
+        });
+
+      nodes.append('rect')
+        .attr('width', nodeWidth)
+        .attr('height', nodeHeight)
+        .attr('class', d => d.data.gender === 'M' ? 'male' : 'female');
+
+      nodes.append('text')
+        .attr('class', 'name')
+        .attr('x', nodeWidth / 2)
+        .attr('y', nodeHeight / 2 + 5)
+        .attr('text-anchor', 'middle')
+        .attr('font-weight', 'bold')
+        .attr('font-size', '14px')
+        .text(d => d.data.name);
+
+      // 计算居中位置：水平居中，垂直方向从顶部开始
+      const initialScale = 1.0;
+      const translateX = (treeWidth - treeWidth * initialScale) / 2;
+      const translateY = 20;
+      const initialTransform = d3.zoomIdentity.translate(translateX, translateY).scale(initialScale);
+      svg.call(zoom.transform, initialTransform);
+    }
+
+    function buildHierarchy(rootId, persons) {
+      const personMap = new Map();
+
+      Object.values(persons).forEach(p => {
+        personMap.set(p.id, { ...p, children: [] });
+      });
+
+      Object.values(persons).forEach(person => {
+        if (person.family.parents && person.family.parents.length > 0) {
+          const firstParentId = person.family.parents[0];
+          const parent = personMap.get(firstParentId);
+          if (parent) {
+            parent.children.push(personMap.get(person.id));
+          }
+        }
+      });
+
+      return personMap.get(rootId);
+    }
+
+    function getDirectLineage(root, targetGen) {
+      if (!root) return null;
+      const gen = getGenerationFromCode(root.generationCode);
+      if (gen === targetGen) {
+        return {
+          ...root,
+          children: []
+        };
+      }
+      const node = {
+        ...root,
+        children: []
+      };
+      if (root.children && root.children.length > 0) {
+        node.children = root.children
+          .map(child => getDirectLineage(child, targetGen))
+          .filter(Boolean);
+      }
+      return node.children.length > 0 ? node : null;
+    }
+
+    function renderTree(filterGen = 0) {
+      console.log('进入 renderTree 函数，filterGen:', filterGen);
+      const container = document.getElementById('tree-container');
+      container.innerHTML = '';
+
+      const persons = familyData.family.persons;
+      const personMap = new Map(Object.values(persons).map(p => [p.id, p]));
+      
+      // 获取根节点人物
+      const rootPerson = personMap.get(familyData.family.rootId);
+      console.log('根节点人物:', rootPerson);
+      
+      // 默认显示 5 代：根节点 + 下 4 代
+      const maxDepth = 5;
+      const hierarchy = getDescendantsWithSiblings(rootPerson, personMap, maxDepth);
+      console.log('层级结构:', hierarchy);
+
+      const nodeWidth = 160;
+      const nodeHeight = 50;
+      const horizontalSpacing = 240;
+      const verticalSpacing = 140;
+
+      const treeWidth = Math.max(1400, 10 * horizontalSpacing);
+      const treeHeight = Math.max(600, 6 * verticalSpacing);
+
+      const svg = d3.select('#tree-container')
+        .append('svg')
+        .attr('width', '100%')
+        .attr('height', treeHeight)
+        .attr('viewBox', `0 0 ${treeWidth} ${treeHeight}`);
+
+      const g = svg.append('g');
+
+      const zoom = d3.zoom()
+        .scaleExtent([0.1, 3])
+        .on('zoom', (event) => {
+          g.attr('transform', event.transform);
+        });
+
+      svg.call(zoom);
+
+      // 使用自上而下的树形布局
+      const treeLayout = d3.tree()
+        .size([treeWidth - 200, treeHeight - 200])
+        .separation((a, b) => a.parent === b.parent ? 1.5 : 2);
+
+      const root = d3.hierarchy(hierarchy);
+      treeLayout(root);
+
+      g.selectAll('.link')
+        .data(root.links())
+        .join('path')
+        .attr('class', 'link')
+        .attr('d', d => {
+          const sourceX = d.source.x;
+          const sourceY = d.source.y;
+          const targetX = d.target.x;
+          const targetY = d.target.y;
+          // 传统族谱样式：从父节点底部中心垂直向下，然后水平，再垂直向下到子节点顶部中心
+          const midY = (sourceY + targetY) / 2;
+          return `M${sourceX},${sourceY + nodeHeight / 2} L${sourceX},${midY} L${targetX},${midY} L${targetX},${targetY - nodeHeight / 2}`;
+        })
+        .attr('fill', 'none')
+        .attr('stroke', '#667eea')
+        .attr('stroke-width', '1.5px')
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round');
+
+      const nodes = g.selectAll('.node')
+        .data(root.descendants())
+        .join('g')
+        .attr('class', 'node')
+        .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
+        .style('cursor', 'pointer')
+        .on('click', (event, d) => {
+          window.location.href = `detail.html?id=${d.data.id}`;
+        });
+
+      nodes.append('rect')
+        .attr('width', nodeWidth)
+        .attr('height', nodeHeight)
+        .attr('class', d => d.data.gender === 'M' ? 'male' : 'female');
+
+      nodes.append('text')
+        .attr('class', 'name')
+        .attr('x', nodeWidth / 2)
+        .attr('y', nodeHeight / 2 + 5)
+        .attr('text-anchor', 'middle')
+        .attr('font-weight', 'bold')
+        .attr('font-size', '14px')
+        .text(d => d.data.name);
+
+      // 计算居中位置：水平居中，垂直方向从顶部开始
+      const initialScale = 1.0;
+      const translateX = (treeWidth - treeWidth * initialScale) / 2;
+      const translateY = 20;
+      const initialTransform = d3.zoomIdentity.translate(translateX, translateY).scale(initialScale);
+      svg.call(zoom.transform, initialTransform);
+    }
+
+    async function init() {
+      try {
+        const response = await fetch('/public/data/family.json');
+        if (!response.ok) {
+          throw new Error('数据加载失败');
+        }
+        familyData = await response.json();
+        console.log('数据加载成功:', familyData);
+        
+        document.getElementById('loading').style.display = 'none';
+        renderPersonList();
+      } catch (error) {
+        console.error('初始化失败:', error);
+        document.getElementById('loading').textContent = '加载失败: ' + error.message;
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchPerson();
+      }
+    });
+
+    document.getElementById('treeSearchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchTreePerson();
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

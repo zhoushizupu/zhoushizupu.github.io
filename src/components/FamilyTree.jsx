@@ -32,6 +32,11 @@ function FamilyTree({ familyData, onPersonSelect }) {
     
     const hierarchy = buildHierarchy(rootId, persons)
     
+    if (!hierarchy) {
+      console.error('无法构建家族树层级')
+      return
+    }
+    
     const treeLayout = d3.tree()
       .size([width - 100, height - 100])
       .nodeSize([180, 200])

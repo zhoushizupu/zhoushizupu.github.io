@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索结果 - 周氏家族谱</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-top: 90px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      min-height: calc(100vh - 40px);
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      max-width: 1440px;
+      z-index: 1000;
+    }
+
+    .header h1 {
+      color: #667eea;
+      font-size: 28px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .header h1:hover {
+      opacity: 0.7;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      max-width: 400px;
+      margin-left: 50px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #667eea;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .search-box button:hover {
+      background: #764ba2;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .back-btn {
+      padding: 8px 16px;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      color: #666;
+    }
+
+    .back-btn:hover {
+      background: #e0e0e0;
+    }
+
+    .content {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      min-height: calc(100vh - 200px);
+    }
+
+    .search-results-header {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .search-results-header h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .search-results-header p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .person-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .person-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      gap: 20px;
+    }
+
+    .person-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-avatar {
+      width: 100px;
+      height: 142px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      flex: 1;
+    }
+
+    .card-title h3 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .gender {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 12px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .gender.male {
+      background: #4CAF50;
+    }
+
+    .gender.female {
+      background: #FF69B4;
+    }
+
+    .card-info {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .card-info p {
+      margin-bottom: 5px;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 50px;
+      color: #999;
+      font-size: 18px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 onclick="window.location.href='/public/static.html'">周氏家族谱</h1>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索家族成员...">
+        <button onclick="searchPerson()">搜索</button>
+      </div>
+      <div class="header-right">
+        <a href="static.html" class="back-btn">返回列表</a>
+      </div>
+    </div>
+
+    <div class="content" style="padding-top: 100px;">
+      <div class="search-results-header">
+        <h2 id="resultsTitle">搜索结果</h2>
+        <p id="resultsCount"></p>
+      </div>
+      <div id="searchResults" class="person-list"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 周氏家族谱 - 家族传承，源远流长</p>
+  </div>
+
+  <script>
+    let familyData = null;
+
+    function calculateGeneration(person) {
+      if (person.generationCode) {
+        return Math.floor(parseInt(person.generationCode) / 1000);
+      }
+      return 1;
+    }
+
+    async function loadFamilyData() {
+      try {
+        const response = await fetch('/public/data/family.json');
+        if (!response.ok) {
+          throw new Error('数据加载失败');
+        }
+        familyData = await response.json();
+      } catch (error) {
+        console.error('加载数据失败:', error);
+      }
+    }
+
+    function searchPerson() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      if (!query || !familyData) return;
+
+      const found = Object.values(familyData.family.persons).filter(p => 
+        p.name.toLowerCase().includes(query)
+      );
+
+      displayResults(found, query);
+    }
+
+    function displayResults(found, query) {
+      const resultsTitle = document.getElementById('resultsTitle');
+      const resultsCount = document.getElementById('resultsCount');
+      const searchResults = document.getElementById('searchResults');
+
+      resultsTitle.textContent = `搜索结果`;
+      
+      if (found.length > 0) {
+        resultsCount.textContent = `共找到 ${found.length} 个与 "${query}" 相关的家族成员`;
+        
+        searchResults.innerHTML = found.map(person => {
+          const generation = calculateGeneration(person);
+          return `
+            <div class="person-card" onclick="window.location.href='detail.html?id=${person.id}'">
+              <div class="card-avatar">
+                <img src="/media/man.png" alt="${person.name}">
+              </div>
+              <div class="card-title">
+                <h3>${person.name}</h3>
+                <span class="gender ${person.gender === 'M' ? 'male' : 'female'}">${person.gender === 'M' ? '男' : '女'}</span>
+                <div class="card-info">
+                  <p>出生：${person.birthDate || '不详'}</p>
+                  <p>代数：第 ${generation} 代 (${person.generationCode})</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } else {
+        resultsCount.textContent = `未找到与 "${query}" 相关的家族成员`;
+        searchResults.innerHTML = '<div class="no-results">未找到匹配的家族成员</div>';
+      }
+    }
+
+    // 从 URL 获取搜索参数
+    function loadSearchFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('q');
+      if (query) {
+        document.getElementById('searchInput').value = query;
+        searchPerson();
+      }
+    }
+
+    async function init() {
+      await loadFamilyData();
+      loadSearchFromURL();
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchPerson();
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

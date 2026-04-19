@@ -11,17 +11,20 @@ function App() {
   const [loadError, setLoadError] = useState('')
 
   useEffect(() => {
+    console.log('开始加载数据...')
     setIsLoading(true)
     setLoadError('')
 
-    fetch('./data/family.json')
+    fetch('/data/family.json')
       .then(response => {
+        console.log('响应状态:', response.status)
         if (!response.ok) {
           throw new Error(`数据文件加载失败：${response.status}`)
         }
         return response.json()
       })
       .then(data => {
+        console.log('数据加载成功:', data)
         setFamilyData(data)
         setIsLoading(false)
       })
