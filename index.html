@@ -91,12 +91,11 @@
       transform: translateY(-50%);
       width: 36px;
       height: 36px;
-      background: #667eea;
-      color: white;
+      background: transparent;
+      color: #667eea;
       border: none;
-      border-radius: 50%;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -104,9 +103,8 @@
     }
 
     .search-icon-btn:hover {
-      background: #764ba2;
-      transform: translateY(-50%) scale(1.05);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      color: #764ba2;
+      transform: translateY(-50%) scale(1.1);
     }
 
     /* 树形视图切换按钮 */
@@ -538,8 +536,14 @@
       .search-icon-btn {
         width: 30px;
         height: 30px;
-        font-size: 14px;
+        font-size: 16px;
         right: 4px;
+        background: transparent;
+        color: #667eea;
+      }
+
+      .search-icon-btn:hover {
+        color: #764ba2;
       }
 
       /* 树形视图按钮 */
@@ -702,8 +706,14 @@
       .search-icon-btn {
         width: 26px;
         height: 26px;
-        font-size: 12px;
+        font-size: 14px;
         right: 3px;
+        background: transparent;
+        color: #667eea;
+      }
+
+      .search-icon-btn:hover {
+        color: #764ba2;
       }
 
       .tree-toggle-btn {
