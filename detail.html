@@ -881,8 +881,8 @@
     function getFamilyMembers(person, personMap) {
       const family = {
         father: null,
-        grandfather: null, // 爷爷的父亲
-        greatGrandfather: null, // 祖父的父亲（太祖父）
+        grandfather: null, // 祖父：爷爷的父亲
+        grandfatherDirect: null, // 爷爷：父亲的父亲（直接爷爷）
         spouses: [],
         children: [],
         grandchildren: [],
@@ -898,14 +898,13 @@
         if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
           const grandfatherId = family.father.family.parents[0];
           const grandfather = getPersonById(grandfatherId, personMap);
+          family.grandfatherDirect = grandfather; // 爷爷
           
           // 祖父（爷爷的父亲）
           if (grandfather && grandfather.family && grandfather.family.parents && grandfather.family.parents.length > 0) {
             const greatGrandfatherId = grandfather.family.parents[0];
-            family.greatGrandfather = getPersonById(greatGrandfatherId, personMap);
+            family.grandfather = getPersonById(greatGrandfatherId, personMap); // 祖父
           }
-          
-          family.grandfather = grandfather;
         }
       }
 
@@ -1050,12 +1049,8 @@
       }
 
       // 爷爷（父亲的父亲）- 必须显示
-      if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
-        const grandfatherId = family.father.family.parents[0];
-        const grandfather = getPersonById(grandfatherId, personMap);
-        if (grandfather) {
-          familyHTML += createFamilyRelationCard('爷爷', grandfather);
-        }
+      if (family.grandfatherDirect) {
+        familyHTML += createFamilyRelationCard('爷爷', family.grandfatherDirect);
       }
 
       // 父亲
