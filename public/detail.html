@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>周氏家族谱 - 人物详情</title>
+  <title>周氏族谱 - 人物详情</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * {
@@ -511,7 +511,7 @@
 <body>
   <div class="header">
     <div class="header-left">
-      <a href="/public/home.html" class="header-logo">周氏家族谱</a>
+      <a href="./home.html" class="header-logo">周氏族谱</a>
     </div>
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="搜索家族成员...">
@@ -558,7 +558,7 @@
   </div>
 
   <div class="footer">
-    <p>&copy; 2026 周氏家族谱 - 家族传承，源远流长</p>
+    <p>&copy; 2026 周氏族谱 - 家族传承，源远流长</p>
   </div>
 
   <script>
@@ -566,7 +566,7 @@
 
     async function loadFamilyData() {
       try {
-        const response = await fetch('/public/data/family.json');
+        const response = await fetch('./data/family.json');
         if (!response.ok) {
           throw new Error('数据加载失败');
         }
@@ -667,10 +667,10 @@
       const family = getFamilyMembers(person, personMap);
       const generation = calculateGeneration(person);
 
-      document.getElementById('detailAvatar').src = `/media/${personId}.jpg`;
+      document.getElementById('detailAvatar').src = `../media/${personId}.jpg`;
       document.getElementById('detailAvatar').alt = person.name;
       document.getElementById('detailAvatar').onerror = function() {
-        this.src = '/media/man.png';
+        this.src = '../media/man.png';
       };
       document.getElementById('detailName').textContent = person.name;
 
@@ -750,9 +750,9 @@
     // 创建家族关系卡片的函数
     function createFamilyRelationCard(relationType, person) {
       return `
-        <div class="family-relation" onclick="window.location.href='/public/home.html?id=${person.id}'" style="cursor: pointer;">
+        <div class="family-relation" onclick="window.location.href='./home.html?id=${person.id}'" style="cursor: pointer;">
           <div class="family-relation-avatar">
-            <img src="/media/${person.id}.jpg" alt="${person.name}" onerror="this.src='/media/man.png'">
+            <img src="../media/${person.id}.jpg" alt="${person.name}" onerror="this.src='../media/man.png'">
           </div>
           <div class="family-relation-overlay"></div>
           <div class="family-relation-info">
@@ -769,7 +769,7 @@
       const query = document.getElementById('searchInput').value.toLowerCase();
       if (!query) return;
       
-      window.location.href = `/public/home.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `./home.html?q=${encodeURIComponent(query)}`;
     }
 
     document.getElementById('searchInput').addEventListener('keypress', (e) => {

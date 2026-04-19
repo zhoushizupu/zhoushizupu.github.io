@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>周氏家族谱</title>
+  <title>周氏族谱</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     * {
@@ -466,7 +466,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>周氏家族谱</h1>
+      <h1>周氏族谱</h1>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="搜索家族成员...">
         <button onclick="searchPerson()">搜索</button>
@@ -497,7 +497,7 @@
   </div>
 
     <div class="footer">
-      <p>&copy; 2026 周氏家族谱 - 家族传承，源远流长</p>
+      <p>&copy; 2026 周氏族谱 - 家族传承，源远流长</p>
     </div>
 
   <div id="detailModal" class="detail-modal">
@@ -620,12 +620,12 @@
         const card = document.createElement('div');
         card.className = 'person-card';
         card.onclick = () => {
-          window.location.href = `/public/detail.html?id=${person.id}`;
+          window.location.href = `./detail.html?id=${person.id}`;
         };
 
         card.innerHTML = `
           <div class="card-avatar">
-            <img src="/media/${person.id}.jpg" alt="${person.name}" onerror="this.src='/media/man.png'">
+            <img src="../media/${person.id}.jpg" alt="${person.name}" onerror="this.src='../media/man.png'">
           </div>
           <div class="card-header">
             <div class="card-title">
@@ -902,7 +902,7 @@
         .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
         .style('cursor', 'pointer')
         .on('click', (event, d) => {
-          window.location.href = `/public/detail.html?id=${d.data.id}`;
+          window.location.href = `./detail.html?id=${d.data.id}`;
         });
 
       nodes.append('rect')
@@ -997,7 +997,7 @@
         .attr('transform', d => `translate(${d.x - nodeWidth / 2},${d.y - nodeHeight / 2})`)
         .style('cursor', 'pointer')
         .on('click', (event, d) => {
-          window.location.href = `/public/detail.html?id=${d.data.id}`;
+          window.location.href = `./detail.html?id=${d.data.id}`;
         });
 
       nodes.append('rect')

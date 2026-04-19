@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>周氏家族谱 - 管理后台</title>
+  <title>周氏族谱 - 管理后台</title>
   <style>
     * {
       margin: 0;
@@ -430,7 +430,7 @@
   <!-- 登录界面 -->
   <div id="loginPanel" class="login-container">
     <div class="login-box">
-      <h2>周氏家族谱</h2>
+      <h2>周氏族谱</h2>
       <p>管理后台登录</p>
       <form id="loginForm">
         <div class="form-group">
@@ -450,7 +450,7 @@
   <!-- 管理后台主界面 -->
   <div id="adminPanel" class="admin-container" style="display: none;">
     <div class="header">
-      <h1>📋 周氏家族谱 - 管理后台</h1>
+      <h1>📋 周氏族谱 - 管理后台</h1>
       <div class="header-buttons">
         <button class="btn btn-secondary" onclick="window.location.href='/public/home.html'">返回首页</button>
         <button class="btn btn-success" onclick="exportJSON()">📥 导出 JSON</button>
@@ -626,10 +626,10 @@
   <script>
     let familyData = {
       family: {
-        name: "周氏家族",
-        description: "周氏家族谱系",
-        rootId: "100000001",
-        persons: {}
+          name: "周氏族谱",
+          description: "周氏族谱系",
+          rootId: "100000001",
+          persons: {}
       }
     };
 
