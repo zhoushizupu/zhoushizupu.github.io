@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -1024,7 +1024,7 @@
 
     async function init() {
       try {
-        const response = await fetch('/public/data/family.json');
+        const response = await fetch('data/family.json');
         if (!response.ok) {
           throw new Error('数据加载失败');
         }

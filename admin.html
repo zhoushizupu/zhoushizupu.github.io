@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -600,7 +600,7 @@
         <h4 style="margin-bottom: 10px; color: #667eea;">💡 如何保存更改：</h4>
         <ol style="color: #555; line-height: 1.8;">
           <li>点击"📋 一键复制 JSON"按钮</li>
-          <li>打开文件：<code style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">/public/data/family.json</code></li>
+          <li>打开文件：<code style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">data/family.json</code></li>
           <li>按 <kbd style="background: #e0e0e0; padding: 2px 6px; border-radius: 4px;">Ctrl+A</kbd> 全选，然后 <kbd style="background: #e0e0e0; padding: 2px 6px; border-radius: 4px;">Ctrl+V</kbd> 粘贴</li>
           <li>按 <kbd style="background: #e0e0e0; padding: 2px 6px; border-radius: 4px;">Ctrl+S</kbd> 保存文件</li>
           <li>刷新网站页面即可看到更新</li>
@@ -636,7 +636,7 @@
     // 页面加载时读取现有数据
     async function loadExistingData() {
       try {
-        const response = await fetch('/public/data/family.json');
+        const response = await fetch('data/family.json');
         const data = await response.json();
         familyData = data;
       } catch (error) {
@@ -1009,7 +1009,7 @@
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      alert('✅ JSON 文件已生成并下载！\n\n请将下载的文件替换到 /public/data/family.json');
+      alert('✅ JSON 文件已生成并下载！\n\n请将下载的文件替换到 data/family.json');
     }
 
     // 模态框函数
