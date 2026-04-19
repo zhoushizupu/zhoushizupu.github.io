@@ -163,18 +163,47 @@
       margin-bottom: 30px;
     }
 
-    .detail-avatar {
+    .detail-avatars {
+      display: flex;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .detail-avatar-main,
+    .detail-avatar-spouse {
       width: 300px;
       aspect-ratio: 3 / 4;
       border-radius: 10px;
       overflow: hidden;
-      flex-shrink: 0;
+      position: relative;
     }
 
-    .detail-avatar img {
+    .detail-avatar-main img,
+    .detail-avatar-spouse img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .avatar-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .detail-avatar-spouse {
+      display: none;
+    }
+
+    .detail-avatar-spouse.active {
+      display: block;
     }
 
     .detail-info {
@@ -585,10 +614,27 @@
         text-align: center;
       }
 
-      .detail-avatar {
-        width: 180px;
-        height: 240px;
-        margin: 0 auto;
+      .detail-avatars {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .detail-avatar-main,
+      .detail-avatar-spouse {
+        width: 150px;
+        height: 200px;
+        margin: 0;
+      }
+
+      .detail-avatar-spouse.active {
+        display: block;
+      }
+
+      .avatar-label {
+        font-size: 12px;
+        padding: 6px;
       }
 
       .detail-info {
@@ -678,9 +724,19 @@
         padding: 12px;
       }
 
-      .detail-avatar {
-        width: 150px;
-        height: 200px;
+      .detail-avatars {
+        gap: 10px;
+      }
+
+      .detail-avatar-main,
+      .detail-avatar-spouse {
+        width: 120px;
+        height: 160px;
+      }
+
+      .avatar-label {
+        font-size: 11px;
+        padding: 5px;
       }
 
       .detail-info h2 {
@@ -746,8 +802,15 @@
       <div id="loading" class="loading">加载中...</div>
       <div id="personDetail" style="display: none;">
         <div class="person-detail">
-          <div class="detail-avatar">
-            <img id="detailAvatar" src="" alt="">
+          <div class="detail-avatars">
+            <div class="detail-avatar-main">
+              <img id="detailAvatar" src="" alt="">
+              <div class="avatar-label" id="mainAvatarLabel">本人</div>
+            </div>
+            <div class="detail-avatar-spouse" id="spouseAvatarContainer" style="display: none;">
+              <img id="detailSpouseAvatar" src="" alt="">
+              <div class="avatar-label" id="spouseAvatarLabel">配偶</div>
+            </div>
           </div>
           <div class="detail-info">
             <h2 id="detailName">周文王</h2>
@@ -895,6 +958,22 @@
         this.src = 'media/man.png';
       };
       document.getElementById('detailName').textContent = person.name;
+
+      // 显示配偶照片（如果有）
+      const spouseContainer = document.getElementById('spouseAvatarContainer');
+      if (family.spouses && family.spouses.length > 0) {
+        const spouse = family.spouses[0]; // 显示第一个配偶
+        document.getElementById('detailSpouseAvatar').src = `media/${spouse.id}.jpg`;
+        document.getElementById('detailSpouseAvatar').alt = spouse.name;
+        document.getElementById('detailSpouseAvatar').onerror = function() {
+          this.src = 'media/man.png';
+        };
+        spouseContainer.style.display = 'block';
+        spouseContainer.classList.add('active');
+      } else {
+        spouseContainer.style.display = 'none';
+        spouseContainer.classList.remove('active');
+      }
 
       // 基本信息
       const basicInfoHTML = `
