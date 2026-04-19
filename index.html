@@ -463,182 +463,278 @@
     }
 
     /* ========== 移动端响应式布局 ========== */
-    /* 平板和手机适配 */
+    
+    /* 平板和手机适配 (max-width: 768px) */
     @media screen and (max-width: 768px) {
       /* 容器调整 */
       .container {
-        padding: 10px;
-        padding-top: 140px;
+        padding: 0;
+        padding-top: 120px;
       }
 
-      /* 头部适配移动端 */
+      /* 头部适配移动端 - 改为顶部固定栏 */
       .header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-        width: calc(100% - 20px);
-        top: 10px;
-        left: 10px;
-        right: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 15px;
+        width: 100%;
         max-width: none;
+        top: 0;
+        left: 0;
+        transform: none;
+        border-radius: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
 
       .header h1 {
-        font-size: 22px;
-        width: 100%;
-        text-align: center;
+        font-size: 20px;
+        width: auto;
+        text-align: left;
+        margin: 0;
+        flex: 0 0 auto;
       }
 
-      /* 搜索框占满一行 */
+      /* 搜索框 */
       .search-box {
+        order: 3;
         width: 100%;
         max-width: none;
         margin-left: 0;
+        margin-top: 5px;
+      }
+
+      /* 视图切换按钮 */
+      .view-toggle {
+        margin-left: auto;
         order: 2;
       }
 
-      /* 视图切换按钮占满一行 */
-      .view-toggle {
-        width: 100%;
-        order: 1;
-        justify-content: center;
+      .view-toggle button {
+        padding: 6px 12px;
+        font-size: 13px;
       }
 
       /* 内容区域调整 */
       .content {
         padding: 15px;
         min-height: 500px;
+        border-radius: 0;
+        box-shadow: none;
       }
 
-      /* 人物列表改为单列 */
+      /* 人物列表改为 2 列 */
       .person-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        margin-top: 15px;
       }
 
-      /* 人物卡片适配 */
+      /* 人物卡片适配 - 保持横向布局 */
       .person-card {
-        padding: 15px;
-        gap: 15px;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        padding: 12px;
+        gap: 12px;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
       }
 
       .person-card .card-avatar {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         flex-shrink: 0;
       }
 
       .person-card .card-header {
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .card-title {
         flex: 1;
-        width: 100%;
+        min-width: 0;
       }
 
       .card-title h3 {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card-title .gender {
+        display: inline-block;
+        padding: 2px 8px;
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+
+      .card-info {
+        font-size: 12px;
       }
 
       .card-info p {
-        font-size: 13px;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       /* 树形搜索框调整 */
       .tree-search-box {
-        flex-direction: column;
-        padding: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 12px;
+        gap: 10px;
       }
 
-      .tree-search-box input,
+      .tree-search-box input {
+        flex: 1;
+        min-width: 150px;
+      }
+
       .tree-search-box button {
-        width: 100%;
+        white-space: nowrap;
       }
 
-      /* 分页按钮调整 */
+      /* 分页调整 */
       .pagination {
         padding: 15px 10px;
       }
 
       .pagination-buttons button {
-        padding: 6px 12px;
-        font-size: 13px;
+        padding: 6px 10px;
+        font-size: 12px;
       }
 
       /* 模态框适配 */
       .modal-content {
-        width: calc(100% - 30px);
-        max-height: calc(100vh - 60px);
-        overflow-y: auto;
+        width: calc(100% - 20px);
+        max-height: calc(100vh - 40px);
       }
 
       .modal-header h2 {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       .modal-body {
-        padding: 20px 15px;
+        padding: 15px;
       }
 
       .info-section {
-        font-size: 14px;
+        font-size: 13px;
       }
     }
 
-    /* 小屏手机优化 */
+    /* 小屏手机优化 (max-width: 480px) */
     @media screen and (max-width: 480px) {
       .container {
-        padding: 5px;
-        padding-top: 160px;
+        padding-top: 110px;
       }
 
       .header {
-        padding: 12px;
-        gap: 12px;
+        padding: 10px 12px;
+        gap: 8px;
       }
 
       .header h1 {
-        font-size: 20px;
-      }
-
-      .search-box input {
-        padding: 8px 12px;
-        font-size: 14px;
-      }
-
-      .search-box button {
-        padding: 8px 15px;
-        font-size: 13px;
+        font-size: 18px;
       }
 
       .view-toggle button {
-        padding: 8px 12px;
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+
+      .search-box input {
+        padding: 8px 10px;
         font-size: 13px;
-        flex: 1;
+      }
+
+      .search-box button {
+        padding: 8px 12px;
+        font-size: 12px;
       }
 
       .content {
         padding: 10px;
       }
 
+      /* 人物列表改为 1 列 */
+      .person-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      /* 人物卡片 - 改为上下结构 */
       .person-card {
-        padding: 12px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
       }
 
       .person-card .card-avatar {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+      }
+
+      .person-card .card-header {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .card-title h3 {
+        font-size: 18px;
+        white-space: normal;
+      }
+
+      .card-title .gender {
+        margin-bottom: 8px;
+      }
+
+      .card-info {
+        font-size: 13px;
+        width: 100%;
+      }
+
+      .card-info p {
+        white-space: normal;
+      }
+
+      .pagination-info {
+        font-size: 11px;
+      }
+
+      .pagination-buttons {
+        gap: 5px;
+      }
+
+      .pagination-buttons button {
+        padding: 5px 8px;
+        font-size: 11px;
+      }
+    }
+
+    /* 超小屏幕 (max-width: 360px) */
+    @media screen and (max-width: 360px) {
+      .header h1 {
+        font-size: 16px;
+      }
+
+      .person-card .card-avatar {
+        width: 70px;
+        height: 70px;
       }
 
       .card-title h3 {
         font-size: 16px;
       }
 
-      .card-info p {
-        font-size: 12px;
-      }
-
-      .pagination-info {
+      .card-info {
         font-size: 12px;
       }
     }
