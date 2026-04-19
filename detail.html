@@ -647,8 +647,11 @@
       }
 
       .detail-info h2 {
-        font-size: 22px;
-        margin-bottom: 15px;
+        display: none;
+      }
+
+      .detail-info h2.desktop-only {
+        display: block;
       }
 
       .gender-badge {
@@ -821,7 +824,7 @@
               </div>
             </div>
           <div class="detail-info">
-            <h2 id="detailName">周文王</h2>
+            <h2 class="desktop-only" id="detailName">周文王</h2>
             <div class="info-section" id="detailGeneration">
               <h3>世代信息</h3>
               <p>第几代：第 1 代</p>
