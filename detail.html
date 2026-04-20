@@ -897,7 +897,9 @@
         spouses: [],
         children: [],
         grandchildren: [],
-        greatGrandchildren: []
+        greatGrandchildren: [],
+        greatGreatGrandchildren: [],
+        kingGreatGrandchildren: []
       };
 
       // 父亲
@@ -940,13 +942,37 @@
           }
         });
         
-        // 曾孙（孙子的子女）
+        // 曾孙/曾孙女（孙子的子女）
         family.grandchildren.forEach(grandchild => {
           if (grandchild.family && grandchild.family.children) {
             grandchild.family.children.forEach(greatGrandchildId => {
               const greatGrandchild = getPersonById(greatGrandchildId, personMap);
               if (greatGrandchild) {
                 family.greatGrandchildren.push(greatGrandchild);
+              }
+            });
+          }
+        });
+        
+        // 玄孙/玄孙女（曾孙的子女）
+        family.greatGrandchildren.forEach(greatGrandchild => {
+          if (greatGrandchild.family && greatGrandchild.family.children) {
+            greatGrandchild.family.children.forEach(greatGreatGrandchildId => {
+              const greatGreatGrandchild = getPersonById(greatGreatGrandchildId, personMap);
+              if (greatGreatGrandchild) {
+                family.greatGreatGrandchildren.push(greatGreatGrandchild);
+              }
+            });
+          }
+        });
+        
+        // 来孙/来孙女（玄孙的子女）
+        family.greatGreatGrandchildren.forEach(greatGreatGrandchild => {
+          if (greatGreatGrandchild.family && greatGreatGrandchild.family.children) {
+            greatGreatGrandchild.family.children.forEach(kingGreatGrandchildId => {
+              const kingGreatGrandchild = getPersonById(kingGreatGrandchildId, personMap);
+              if (kingGreatGrandchild) {
+                family.kingGreatGrandchildren.push(kingGreatGrandchild);
               }
             });
           }
@@ -1084,21 +1110,40 @@
       // 子女
       if (family.children && family.children.length > 0) {
         family.children.forEach(child => {
-          familyHTML += createFamilyRelationCard('子女', child);
+          const childTitle = child.gender === 'M' ? '儿子' : '女儿';
+          familyHTML += createFamilyRelationCard(childTitle, child);
         });
       }
 
       // 孙子/孙女
       if (family.grandchildren && family.grandchildren.length > 0) {
         family.grandchildren.forEach(grandchild => {
-          familyHTML += createFamilyRelationCard('孙子/孙女', grandchild);
+          const grandchildTitle = grandchild.gender === 'M' ? '孙子' : '孙女';
+          familyHTML += createFamilyRelationCard(grandchildTitle, grandchild);
         });
       }
 
-      // 曾孙
+      // 曾孙/曾孙女
       if (family.greatGrandchildren && family.greatGrandchildren.length > 0) {
         family.greatGrandchildren.forEach(greatGrandchild => {
-          familyHTML += createFamilyRelationCard('曾孙', greatGrandchild);
+          const greatGrandchildTitle = greatGrandchild.gender === 'M' ? '曾孙' : '曾孙女';
+          familyHTML += createFamilyRelationCard(greatGrandchildTitle, greatGrandchild);
+        });
+      }
+
+      // 玄孙/玄孙女
+      if (family.greatGreatGrandchildren && family.greatGreatGrandchildren.length > 0) {
+        family.greatGreatGrandchildren.forEach(greatGreatGrandchild => {
+          const greatGreatGrandchildTitle = greatGreatGrandchild.gender === 'M' ? '玄孙' : '玄孙女';
+          familyHTML += createFamilyRelationCard(greatGreatGrandchildTitle, greatGreatGrandchild);
+        });
+      }
+
+      // 来孙/来孙女
+      if (family.kingGreatGrandchildren && family.kingGreatGrandchildren.length > 0) {
+        family.kingGreatGrandchildren.forEach(kingGreatGrandchild => {
+          const kingGreatGrandchildTitle = kingGreatGrandchild.gender === 'M' ? '来孙' : '来孙女';
+          familyHTML += createFamilyRelationCard(kingGreatGrandchildTitle, kingGreatGrandchild);
         });
       }
 

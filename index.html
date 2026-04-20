@@ -906,7 +906,7 @@
           <p id="modalSpouses">不详</p>
         </div>
         <div class="family-relation">
-          <h4>子女</h4>
+          <h4 id="childrenLabel">子女</h4>
           <p id="modalChildren">不详</p>
         </div>
       </div>
@@ -1097,7 +1097,22 @@
       document.getElementById('modalFather').textContent = family.father ? family.father.name : '不详';
       document.getElementById('modalGrandfather').textContent = family.grandfather ? family.grandfather.name : '不详';
       document.getElementById('modalSpouses').textContent = family.spouses.length > 0 ? family.spouses.map(s => s.name).join('、') : '不详';
-      document.getElementById('modalChildren').textContent = family.children.length > 0 ? family.children.map(c => c.name).join('、') : '不详';
+      
+      // 根据性别显示子女称呼
+      const childrenLabel = document.getElementById('childrenLabel');
+      const modalChildren = document.getElementById('modalChildren');
+      if (family.children.length > 0) {
+        modalChildren.textContent = family.children.map(c => c.name).join('、');
+        // 根据当前人物性别设置称呼
+        if (person.gender === 'M') {
+          childrenLabel.textContent = '儿子';
+        } else {
+          childrenLabel.textContent = '女儿';
+        }
+      } else {
+        modalChildren.textContent = '不详';
+        childrenLabel.textContent = '子女';
+      }
 
       modal.classList.add('show');
     }
@@ -1203,14 +1218,14 @@
         const centerNode = { ...centerPerson, children: [] };
         currentParent.children.push(centerNode);
         
-        // 为本人添加所有子女（下三辈，包含所有兄弟姐妹）
-        const descendants = getDescendantsWithSiblings(centerPerson, personMap, 3);
+        // 为本人添加所有子女（下五辈，包含所有兄弟姐妹）
+        const descendants = getDescendantsWithSiblings(centerPerson, personMap, 5);
         if (descendants.children && descendants.children.length > 0) {
           centerNode.children = descendants.children;
         }
       } else {
         // 没有祖先，以自己为根
-        hierarchy = getDescendantsWithSiblings(centerPerson, personMap, 3);
+        hierarchy = getDescendantsWithSiblings(centerPerson, personMap, 5);
       }
 
       const nodeWidth = 160;
