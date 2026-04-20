@@ -1081,12 +1081,10 @@
       const familyGrid = document.getElementById('familyRelationGrid');
       let familyHTML = '';
 
-      // 配偶（只显示有效的配偶，排除错误数据）
+      // 配偶
       if (family.spouses && family.spouses.length > 0) {
         family.spouses.forEach(spouse => {
-          // 检查配偶数据是否有效（排除性别错误等乱来的数据）
-          // 如果配偶是男性（数据错误），则不显示
-          if (spouse && spouse.id && spouse.name && spouse.gender !== 'M') {
+          if (spouse && spouse.id && spouse.name) {
             familyHTML += createFamilyRelationCard('配偶', spouse);
           }
         });
