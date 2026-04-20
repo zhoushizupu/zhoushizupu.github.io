@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周氏族谱 - 管理后台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background: #f4f4f4;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-box h2 {
+      color: #667eea;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .login-box p {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #5568d3;
+    }
+
+    .error-msg {
+      color: #ff4444;
+      font-size: 14px;
+      margin-top: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: #667eea;
+      font-size: 28px;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+    }
+
+    .btn-success {
+      background: #48bb78;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #38a169;
+    }
+
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #d0d0d0;
+    }
+
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .panel-title {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .member-list {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .member-item {
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+    }
+
+    .member-item:hover {
+      border-color: #667eea;
+      background: #f8f9ff;
+    }
+
+    .member-info {
+      flex: 1;
+    }
+
+    .member-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 3px;
+    }
+
+    .member-meta {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .member-actions {
+      display: flex;
+      gap: 5px;
+    }
+
+    .member-actions button {
+      padding: 5px 10px;
+      font-size: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-edit {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-delete {
+      background: #f56565;
+      color: white;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .gender-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .gender-badge.male {
+      background: #667eea;
+      color: white;
+    }
+
+    .gender-badge.female {
+      background: #ed64a6;
+      color: white;
+    }
+
+    .generation-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #f0f0f0;
+      color: #666;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    .help-text {
+      font-size: 12px;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .modal-header h3 {
+      color: #333;
+      font-size: 20px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .close-btn:hover {
+      color: #333;
+    }
+
+    .json-preview {
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.7;
+        transform: scale(1.02);
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <!-- 登录界面 -->
+  <div id="loginPanel" class="login-container">
+    <div class="login-box">
+      <h2>周氏族谱</h2>
+      <p>管理后台登录</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">账户</label>
+          <input type="text" id="username" placeholder="请输入账户" required>
+        </div>
+        <div class="form-group">
+          <label for="password">密码</label>
+          <input type="password" id="password" placeholder="请输入密码" required>
+        </div>
+        <button type="submit" class="login-btn">登录</button>
+        <p id="loginError" class="error-msg">账户或密码错误</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- 管理后台主界面 -->
+  <div id="adminPanel" class="admin-container" style="display: none;">
+    <div class="header">
+      <h1>📋 周氏族谱 - 管理后台</h1>
+      <div class="header-buttons">
+        <button class="btn btn-secondary" onclick="window.location.href='index.html'">返回首页</button>
+        <button class="btn btn-success" onclick="exportJSON()">📥 导出 JSON</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number" id="totalMembers">0</div>
+        <div class="stat-label">总成员数</div>
+      </div>
+      <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <div class="stat-number" id="totalMales">0</div>
+        <div class="stat-label">男性成员</div>
+      </div>
+      <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+        <div class="stat-number" id="totalFemales">0</div>
+        <div class="stat-label">女性成员</div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="panel">
+        <h2 class="panel-title">➕ 添加/编辑成员</h2>
+        <form id="memberForm">
+          <input type="hidden" id="editIndex" value="-1">
+          
+          <div class="form-group">
+            <label for="memberId">ID（自动生成，不可修改）</label>
+            <input type="text" id="memberId" readonly style="background: #f5f5f5; cursor: not-allowed;" placeholder="保存时自动生成">
+            <div class="help-text">ID 在保存时自动生成，格式：100000001 开始递增</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">姓名 *</label>
+              <input type="text" id="name" required placeholder="请输入姓名">
+            </div>
+            
+            <div class="form-group">
+              <label for="gender">性别 *</label>
+              <select id="gender" required>
+                <option value="">请选择</option>
+                <option value="M">男</option>
+                <option value="F">女</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthDate">出生日期（农历）*</label>
+              <input type="text" id="birthDate" required placeholder="例如：一九九零年八月初五">
+            </div>
+            
+            <div class="form-group">
+              <label for="deathDate">逝世日期</label>
+              <input type="text" id="deathDate" placeholder="留空表示在世">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="birthPlace">出生地</label>
+            <input type="text" id="birthPlace" value="广西钦州市灵山县那隆镇长福石岭垌村" placeholder="默认：广西钦州市灵山县那隆镇长福石岭垌村">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="residence">现居地</label>
+              <input type="text" id="residence" placeholder="例如：广西南宁市青秀区">
+            </div>
+            
+            <div class="form-group">
+              <label for="generationWord">字辈</label>
+              <input type="text" id="generationWord" placeholder="例如：文字辈">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="generation">代际（第几代）*</label>
+            <input type="number" id="generation" required placeholder="请输入阿拉伯数字，如：1 表示第 1 代" min="1" max="99">
+            <div class="help-text">请填写阿拉伯数字，如：1、2、3... 会自动根据父亲代际 +1</div>
+          </div>
+
+          <div class="form-group">
+            <label for="biography">简介/生平</label>
+            <textarea id="biography" placeholder="请输入个人简介，如：务农，勤劳朴实..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="father">父亲</label>
+              <select id="father">
+                <option value="">无</option>
+              </select>
+              <div class="help-text">选择父亲后会自动建立关系</div>
+            </div>
+            
+            <div class="form-group">
+              <label for="mother">母亲</label>
+              <select id="mother">
+                <option value="">无</option>
+              </select>
+              <div class="help-text">选择母亲后会自动建立关系</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="spouse">配偶</label>
+            <select id="spouse">
+              <option value="">无</option>
+            </select>
+            <div class="help-text">选择配偶后会自动建立夫妻关系</div>
+          </div>
+
+          <div class="panel-subtitle" style="margin: 20px 0 15px 0; font-size: 16px; color: #667eea; font-weight: 600;">墓地信息（可选，填写后需确认）</div>
+          
+          <div class="form-group">
+            <label for="cemeteryLocation">墓地地址</label>
+            <input type="text" id="cemeteryLocation" value="" placeholder="例如：陕西省咸阳市渭城区周陵镇（留空表示无专门墓地）">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cemeteryLatitude">纬度</label>
+              <input type="number" step="0.000001" id="cemeteryLatitude" value="" placeholder="例如：34.408">
+              <div class="help-text">在高德地图搜索位置后，右键点击获取经纬度</div>
+            </div>
+            
+            <div class="form-group">
+              <label for="cemeteryLongitude">经度</label>
+              <input type="number" step="0.000001" id="cemeteryLongitude" value="" placeholder="例如：108.726">
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button type="button" class="btn btn-secondary" onclick="resetForm()">重置表单</button>
+            <button type="submit" class="btn btn-primary">💾 保存成员</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">👥 成员列表</h2>
+        <div class="member-list" id="memberList">
+          <!-- 成员列表将动态加载 -->
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">📊 JSON 预览</h2>
+      <div class="json-preview" id="jsonPreview"></div>
+      <div class="action-buttons">
+        <button class="btn btn-secondary" onclick="copyJSON()">📋 一键复制 JSON</button>
+        <button class="btn btn-success" onclick="exportJSON()">📥 下载 JSON 文件</button>
+      </div>
+      <div style="margin-top: 20px; padding: 15px; background: #f8f9ff; border-radius: 8px; border-left: 4px solid #667eea;">
+        <h4 style="margin-bottom: 10px; color: #667eea;">💡 如何保存更改：</h4>
+        <ol style="color: #555; line-height: 1.8;">
+          <li>点击"📋 一键复制 JSON"按钮</li>
+          <li>打开文件：<code style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">data/family.json</code></li>
+          <li>按 <kbd style="background: #e0e0e0; padding: 2px 6px; border-radius: 4px;">Ctrl+A</kbd> 全选，然后 <kbd style="background: #e0e0e0; padding: 2px 6px; border-radius: 4px;">Ctrl+V</kbd> 粘贴</li>
+          <li>按 <kbd style="background: #e0e0e0; padding: 2px 6px; border-radius: 4px;">Ctrl+S</kbd> 保存文件</li>
+          <li>刷新网站页面即可看到更新</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="confirmModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">确认</h3>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modalBody"></div>
+      <div class="action-buttons">
+        <button class="btn btn-secondary" onclick="closeModal()">取消</button>
+        <button class="btn btn-primary" id="modalConfirmBtn">确认</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let familyData = {
+      family: {
+          name: "周氏族谱",
+          description: "周氏族谱系",
+          rootId: "100000001",
+          persons: {}
+      }
+    };
+
+    // 页面加载时读取现有数据
+    async function loadExistingData() {
+      try {
+        const response = await fetch('data/family.json');
+        const data = await response.json();
+        familyData = data;
+      } catch (error) {
+      }
+      renderMemberList();
+      updateStats();
+      updateSelectOptions();
+      updateJSONPreview();
+    }
+
+    // 渲染成员列表
+    function renderMemberList() {
+      const listContainer = document.getElementById('memberList');
+      const persons = Object.values(familyData.family.persons);
+      
+      if (persons.length === 0) {
+        listContainer.innerHTML = '<p style="text-align: center; color: #888; padding: 40px;">暂无成员，请添加第一位成员</p>';
+        return;
+      }
+
+      listContainer.innerHTML = persons.map(person => {
+        const generation = getGenerationFromPerson(person);
+        return `
+          <div class="member-item">
+            <div class="member-info">
+              <div class="member-name">
+                ${person.name}
+                <span class="gender-badge ${person.gender === 'M' ? 'male' : 'female'}">
+                  ${person.gender === 'M' ? '男' : '女'}
+                </span>
+                <span class="generation-badge">第${generation}代</span>
+                ${person.generationWord ? `<span class="generation-badge">${person.generationWord}</span>` : ''}
+              </div>
+              <div class="member-meta">
+                ID: ${person.id} | 代际码：${person.generationCode}
+                ${person.birthDate ? `| 出生：${person.birthDate}` : ''}
+                ${person.residence ? `| 现居：${person.residence}` : ''}
+              </div>
+            </div>
+            <div class="member-actions">
+              <button class="btn-edit" onclick="editMember('${person.id}')">编辑</button>
+              <button class="btn-delete" onclick="deleteMember('${person.id}')">删除</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 更新统计信息
+    function updateStats() {
+      const persons = Object.values(familyData.family.persons);
+      const total = persons.length;
+      const males = persons.filter(p => p.gender === 'M').length;
+      const females = persons.filter(p => p.gender === 'F').length;
+
+      document.getElementById('totalMembers').textContent = total;
+      document.getElementById('totalMales').textContent = males;
+      document.getElementById('totalFemales').textContent = females;
+    }
+
+    // 从 person 对象获取代际（从 generationCode 计算）
+    function getGenerationFromPerson(person) {
+      if (!person || !person.generationCode) return 1;
+      return Math.floor(person.generationCode / 1000);
+    }
+
+    // 更新下拉选项
+    function updateSelectOptions() {
+      const persons = Object.values(familyData.family.persons);
+      const currentEditId = document.getElementById('editIndex').value;
+      
+      const fatherSelect = document.getElementById('father');
+      const motherSelect = document.getElementById('mother');
+      const spouseSelect = document.getElementById('spouse');
+
+      const maleOptions = persons
+        .filter(p => p.gender === 'M' && p.id !== currentEditId)
+        .map(p => `<option value="${p.id}">${p.name} (第${getGenerationFromPerson(p)}代)</option>`)
+        .join('');
+
+      const femaleOptions = persons
+        .filter(p => p.gender === 'F' && p.id !== currentEditId)
+        .map(p => `<option value="${p.id}">${p.name} (第${getGenerationFromPerson(p)}代)</option>`)
+        .join('');
+
+      const allOptions = persons
+        .filter(p => p.id !== currentEditId)
+        .map(p => `<option value="${p.id}">${p.name} (${p.gender === 'M' ? '男' : '女'}, 第${getGenerationFromPerson(p)}代)</option>`)
+        .join('');
+
+      fatherSelect.innerHTML = '<option value="">无</option>' + maleOptions;
+      motherSelect.innerHTML = '<option value="">无</option>' + femaleOptions;
+      spouseSelect.innerHTML = '<option value="">无</option>' + allOptions;
+    }
+
+    // 生成下一个 ID（简单递增格式）
+    // 格式：100000001, 100000002, 100000003...
+    function generateNextId() {
+      const persons = Object.values(familyData.family.persons);
+      
+      if (persons.length === 0) {
+        return '100000001';
+      }
+      
+      // 找到最大 ID 并 +1
+      const maxId = Math.max(...persons.map(p => parseInt(p.id)));
+      return String(maxId + 1);
+    }
+
+    // 生成代际代码（简化格式：代际 × 1000 + 1）
+    // 例如：1001 = 第 1 代，2001 = 第 2 代，3001 = 第 3 代
+    function generateGenerationCode(generation) {
+      return generation * 1000 + 1;
+    }
+
+    // 表单提交
+    document.getElementById('memberForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const editIndex = document.getElementById('editIndex').value;
+      const fatherId = document.getElementById('father').value;
+      const motherId = document.getElementById('mother').value;
+      const spouseId = document.getElementById('spouse').value;
+
+      // 获取代际（优先从表单输入，其次从父亲/母亲自动计算）
+      let generation = parseInt(document.getElementById('generation').value);
+      if (!generation) {
+        // 如果没有填写，根据父亲/母亲自动计算
+        if (fatherId && familyData.family.persons[fatherId]) {
+          generation = Math.floor(familyData.family.persons[fatherId].generationCode / 1000) + 1;
+        } else if (motherId && familyData.family.persons[motherId]) {
+          generation = Math.floor(familyData.family.persons[motherId].generationCode / 1000) + 1;
+        } else {
+          generation = 1;
+        }
+      }
+
+      const personId = editIndex === '-1' ? generateNextId() : editIndex;
+      const generationCode = generation * 1000 + 1;
+
+      const person = {
+        id: personId,
+        generationCode: generationCode,
+        name: document.getElementById('name').value,
+        gender: document.getElementById('gender').value,
+        birthDate: document.getElementById('birthDate').value,
+        deathDate: document.getElementById('deathDate').value,
+        birthPlace: document.getElementById('birthPlace').value || '广西钦州市灵山县那隆镇长福石岭垌村',
+        residence: document.getElementById('residence').value,
+        generationWord: document.getElementById('generationWord').value,
+        biography: document.getElementById('biography').value,
+        cemetery: null,
+        family: {
+          parents: [],
+          spouses: [],
+          children: []
+        }
+      };
+      
+      // 设置墓地信息
+      const cemeteryLocation = document.getElementById('cemeteryLocation').value;
+      const cemeteryLatitude = document.getElementById('cemeteryLatitude').value;
+      const cemeteryLongitude = document.getElementById('cemeteryLongitude').value;
+      
+      if (cemeteryLocation && cemeteryLatitude && cemeteryLongitude) {
+        // 确认墓地信息
+        const confirmMsg = `确定要保存以下墓地信息吗？\n\n地址：${cemeteryLocation}\n纬度：${cemeteryLatitude}\n经度：${cemeteryLongitude}\n\n请确认经纬度准确无误！`;
+        if (!confirm(confirmMsg)) {
+          return; // 用户取消保存
+        }
+        
+        person.cemetery = {
+          location: cemeteryLocation,
+          latitude: parseFloat(cemeteryLatitude),
+          longitude: parseFloat(cemeteryLongitude)
+        };
+      }
+
+      // 设置父母关系
+      if (fatherId) {
+        person.family.parents.push(fatherId);
+      }
+      if (motherId) {
+        person.family.parents.push(motherId);
+      }
+
+      // 如果是编辑，保留原有的关系
+      if (editIndex !== '-1' && familyData.family.persons[personId]) {
+        const existing = familyData.family.persons[personId];
+        person.family.children = existing.family.children || [];
+      }
+
+      // 保存人员
+      familyData.family.persons[personId] = person;
+
+      // 更新父母的孩子列表
+      if (fatherId && familyData.family.persons[fatherId]) {
+        if (!familyData.family.persons[fatherId].family.children.includes(personId)) {
+          familyData.family.persons[fatherId].family.children.push(personId);
+        }
+      }
+      if (motherId && familyData.family.persons[motherId]) {
+        if (!familyData.family.persons[motherId].family.children.includes(personId)) {
+          familyData.family.persons[motherId].family.children.push(personId);
+        }
+      }
+
+      // 更新配偶关系
+      if (spouseId && familyData.family.persons[spouseId]) {
+        if (!person.family.spouses.includes(spouseId)) {
+          person.family.spouses.push(spouseId);
+        }
+        if (!familyData.family.persons[spouseId].family.spouses.includes(personId)) {
+          familyData.family.persons[spouseId].family.spouses.push(personId);
+        }
+      }
+
+      // 如果是编辑，先清除旧的配偶关系
+      if (editIndex !== '-1' && familyData.family.persons[personId]) {
+        const existing = familyData.family.persons[personId];
+        if (existing.family.spouses && existing.family.spouses.length > 0) {
+          existing.family.spouses.forEach(oldSpouseId => {
+            if (oldSpouseId !== spouseId && familyData.family.persons[oldSpouseId]) {
+              const oldSpouse = familyData.family.persons[oldSpouseId];
+              oldSpouse.family.spouses = oldSpouse.family.spouses.filter(id => id !== personId);
+            }
+          });
+        }
+      }
+
+      alert(editIndex === '-1' ? '✅ 成员添加成功！' : '✅ 成员更新成功！');
+      resetForm();
+      renderMemberList();
+      updateStats();
+      updateSelectOptions();
+      updateJSONPreview();
+    });
+
+    // 编辑成员
+    function editMember(id) {
+      const person = familyData.family.persons[id];
+      if (!person) return;
+
+      // 填充基本信息
+      document.getElementById('editIndex').value = person.id;
+      document.getElementById('memberId').value = person.id;
+      document.getElementById('name').value = person.name;
+      document.getElementById('gender').value = person.gender;
+      document.getElementById('birthDate').value = person.birthDate || '';
+      document.getElementById('deathDate').value = person.deathDate || '';
+      document.getElementById('birthPlace').value = person.birthPlace || '广西钦州市灵山县那隆镇长福石岭垌村';
+      document.getElementById('residence').value = person.residence || '';
+      document.getElementById('generationWord').value = person.generationWord || '';
+      document.getElementById('biography').value = person.biography || '';
+      
+      // 设置代际
+      const generation = Math.floor(person.generationCode / 1000);
+      document.getElementById('generation').value = generation;
+      
+      // 加载墓地信息
+      if (person.cemetery) {
+        document.getElementById('cemeteryLocation').value = person.cemetery.location || '';
+        document.getElementById('cemeteryLatitude').value = person.cemetery.latitude || '';
+        document.getElementById('cemeteryLongitude').value = person.cemetery.longitude || '';
+      } else {
+        document.getElementById('cemeteryLocation').value = '';
+        document.getElementById('cemeteryLatitude').value = '';
+        document.getElementById('cemeteryLongitude').value = '';
+      }
+
+      // 更新下拉选项（先更新，后设置值）
+      updateSelectOptions();
+      
+      // 设置父母和配偶（延迟执行，确保下拉选项已更新）
+      const fatherId = person.family.parents?.find(pid => familyData.family.persons[pid]?.gender === 'M');
+      const motherId = person.family.parents?.find(pid => familyData.family.persons[pid]?.gender === 'F');
+      const spouseId = person.family.spouses?.[0];
+      
+      setTimeout(() => {
+        if (fatherId) document.getElementById('father').value = fatherId;
+        if (motherId) document.getElementById('mother').value = motherId;
+        if (spouseId) document.getElementById('spouse').value = spouseId;
+      }, 100);
+
+      // 滚动到表单顶部，确保用户可以看到所有字段
+      const formContainer = document.querySelector('.panel');
+      formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      // 高亮显示表单（添加动画效果）
+      formContainer.style.transition = 'all 0.3s ease';
+      formContainer.style.boxShadow = '0 0 20px rgba(102, 126, 234, 0.6)';
+      setTimeout(() => {
+        formContainer.style.boxShadow = '';
+      }, 1500);
+    }
+
+    // 删除成员
+    function deleteMember(id) {
+      if (!confirm('确定要删除此成员吗？此操作不可撤销！')) return;
+
+      const person = familyData.family.persons[id];
+      
+      // 从父母的孩子列表中移除
+      person.family.parents?.forEach(parentId => {
+        if (familyData.family.persons[parentId]) {
+          familyData.family.persons[parentId].family.children = 
+            familyData.family.persons[parentId].family.children.filter(cid => cid !== id);
+        }
+      });
+
+      // 从配偶列表中移除
+      person.family.spouses?.forEach(spouseId => {
+        if (familyData.family.persons[spouseId]) {
+          familyData.family.persons[spouseId].family.spouses = 
+            familyData.family.persons[spouseId].family.spouses.filter(sid => sid !== id);
+        }
+      });
+
+      // 删除人员
+      delete familyData.family.persons[id];
+
+      renderMemberList();
+      updateStats();
+      updateSelectOptions();
+      updateJSONPreview();
+      
+      alert('✅ 成员已删除');
+    }
+
+    // 重置表单
+    function resetForm() {
+      document.getElementById('memberForm').reset();
+      document.getElementById('editIndex').value = '-1';
+      document.getElementById('memberId').value = '';
+      updateSelectOptions();
+    }
+
+    // 更新 JSON 预览
+    function updateJSONPreview() {
+      const preview = document.getElementById('jsonPreview');
+      preview.textContent = JSON.stringify(familyData, null, 2);
+    }
+
+    // 复制 JSON
+    function copyJSON() {
+      const jsonStr = JSON.stringify(familyData, null, 2);
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        // 显示成功提示
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✅ 已复制！';
+        btn.style.background = '#48bb78';
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+        }, 2000);
+        
+        // 高亮显示说明区域
+        const helpBox = document.querySelector('.panel:last-of-type > div[style*="background: #f8f9ff"]');
+        helpBox.style.animation = 'pulse 0.5s ease-in-out';
+        setTimeout(() => {
+          helpBox.style.animation = '';
+        }, 500);
+        
+      }).catch(err => {
+        alert('❌ 复制失败，请手动复制');
+      });
+    }
+
+    // 导出 JSON
+    function exportJSON() {
+      const jsonStr = JSON.stringify(familyData, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'family.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      alert('✅ JSON 文件已生成并下载！\n\n请将下载的文件替换到 data/family.json');
+    }
+
+    // 模态框函数
+    function showModal(title, content, onConfirm) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').innerHTML = content;
+      document.getElementById('modalConfirmBtn').onclick = () => {
+        onConfirm();
+        closeModal();
+      };
+      document.getElementById('confirmModal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('confirmModal').classList.remove('show');
+    }
+
+    // 登录验证
+    const ADMIN_USERNAME = 'admin';
+    const ADMIN_PASSWORD = '333333';
+
+    // 检查是否已登录
+    function checkLogin() {
+      const isLoggedIn = localStorage.getItem('adminLoggedIn');
+      if (isLoggedIn === 'true') {
+        showAdminPanel();
+      }
+    }
+
+    // 显示管理后台
+    function showAdminPanel() {
+      document.getElementById('loginPanel').style.display = 'none';
+      document.getElementById('adminPanel').style.display = 'block';
+      loadExistingData();
+    }
+
+    // 登录表单提交
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+        // 登录成功
+        localStorage.setItem('adminLoggedIn', 'true');
+        showAdminPanel();
+      } else {
+        // 登录失败
+        document.getElementById('loginError').style.display = 'block';
+      }
+    });
+
+    // 页面加载时检查登录状态
+    checkLogin();
+  </script>
+</body>
+</html>

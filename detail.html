@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周氏族谱 - 人物详情</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background: white;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      max-width: 1440px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header h1 {
+      color: #667eea;
+      font-size: 28px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .header h1:hover {
+      opacity: 0.7;
+    }
+
+    .search-box {
+      display: flex;
+      flex: 0 0 auto;
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .search-input-wrapper input {
+      width: 100%;
+      padding: 10px 45px 10px 15px;
+      border: 2px solid #667eea;
+      border-radius: 25px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color: #764ba2;
+      box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+    }
+
+    .search-icon-btn {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      color: #667eea;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .search-icon-btn:hover {
+      color: #764ba2;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .back-btn:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    .footer {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: calc(100vh - 40px);
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .content {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: transparent !important;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 30px 0;
+      margin-top: 80px;
+      margin-bottom: 100px;
+      min-height: calc(100vh - 200px);
+    }
+
+    .person-detail {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .detail-avatars {
+      display: flex;
+      gap: 30px;
+      flex-shrink: 0;
+      justify-content: flex-start;
+    }
+
+    .detail-avatar-main {
+      width: 350px;
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .detail-avatar-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .detail-info {
+      flex: 1;
+    }
+
+    .detail-info h2 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .detail-info h2.desktop-only {
+      display: block;
+    }
+
+    .gender-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .gender-badge.male {
+      background: #667eea;
+    }
+
+    .gender-badge.female {
+      background: #FF69B4;
+    }
+
+    .info-section {
+      margin-bottom: 25px;
+    }
+
+    .info-section h3 {
+      color: #667eea;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-section p, .info-section li {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-section ul {
+      padding-left: 20px;
+    }
+
+    .info-section strong {
+      display: inline-block;
+      min-width: 100px;
+    }
+
+    .info-section strong::before {
+      font-size: 16px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .info-section + .info-section {
+      margin-top: 15px;
+    }
+
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3,
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+      color: #333;
+      margin: 20px 0 10px 0;
+      font-weight: 600;
+    }
+
+    .markdown-content h1 {
+      font-size: 24px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 8px;
+    }
+
+    .markdown-content h2 {
+      font-size: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 6px;
+    }
+
+    .markdown-content h3 {
+      font-size: 18px;
+      color: #667eea;
+    }
+
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+      font-size: 16px;
+    }
+
+    .markdown-content p {
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+      margin-bottom: 12px;
+      padding-left: 24px;
+    }
+
+    .markdown-content li {
+      margin-bottom: 6px;
+    }
+
+    .markdown-content strong {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .markdown-content em {
+      font-style: italic;
+    }
+
+    .markdown-content blockquote {
+      border-left: 4px solid #667eea;
+      padding-left: 16px;
+      margin: 16px 0;
+      color: #666;
+      background: #f8f9ff;
+      padding: 12px 16px;
+      border-radius: 4px;
+    }
+
+    .markdown-content code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #e83e8c;
+    }
+
+    .markdown-content pre {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    .markdown-content pre code {
+      background: transparent;
+      padding: 0;
+      color: #333;
+    }
+
+    .markdown-content hr {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 20px 0;
+    }
+
+    .markdown-content a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .markdown-content a:hover {
+      text-decoration: underline;
+    }
+
+    .markdown-content img {
+      max-width: 100%;
+      height: auto;
+      margin: 16px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    #detailFamily {
+      display: block;
+    }
+
+    #detailFamily > h3 {
+      margin-bottom: 15px;
+    }
+
+    .family-relation-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .family-relation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+
+    .family-relation {
+      margin-top: 0;
+      padding: 0;
+      background: #ffffff;
+      border-radius: 10px;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .family-relation:hover {
+      transform: translateY(-5px);
+    }
+
+    .family-relation-avatar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .family-relation-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .family-relation-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.3) 50%, 
+        rgba(0,0,0,0.9) 100%);
+      z-index: 2;
+    }
+
+    .family-relation-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 10px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .family-relation h4 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 11px;
+      margin: 0 0 3px 0;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .family-relation-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      line-height: 1.3;
+    }
+
+    .family-relation-name a {
+      color: rgba(255, 255, 255, 0.95);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .family-relation-name a:hover {
+      opacity: 0.9;
+      text-decoration: none;
+    }
+
+    .family-relation:hover .family-relation-overlay {
+      background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.1) 0%, 
+        rgba(0,0,0,0.5) 50%, 
+        rgba(0,0,0,0.95) 100%);
+    }
+
+    .family-relation-meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .family-relation a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .family-relation a:hover {
+      text-decoration: underline;
+    }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-size: 24px;
+      color: #667eea;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 50px;
+      color: #999;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 0;
+        padding-top: 100px;
+      }
+
+      .header {
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding: 10px 12px;
+        width: 100%;
+        max-width: none;
+        top: 0;
+        left: 0;
+        transform: none;
+        border-radius: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+      }
+
+      .header h1 {
+        font-size: 16px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .search-box {
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+
+      .search-input-wrapper {
+        max-width: 150px;
+      }
+
+      .search-input-wrapper input {
+        padding: 6px 38px 6px 12px;
+        font-size: 12px;
+        border-radius: 20px;
+      }
+
+      .search-icon-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        right: 4px;
+      }
+
+      .content {
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 80px;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .person-detail {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .detail-avatars {
+        flex-direction: row;
+        gap: 20px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+
+      .detail-avatar-main {
+        width: 180px;
+        height: 240px;
+        margin: 0;
+        margin-bottom: 15px;
+      }
+
+      .detail-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 0;
+      }
+
+      .detail-info h2 {
+        display: none !important;
+      }
+
+      .gender-badge {
+        padding: 6px 18px;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .info-section {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .info-section h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .info-section p,
+      .info-section li {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .family-relation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .family-relation {
+        padding: 0;
+      }
+
+      .family-relation-avatar {
+        width: 100%;
+        height: 100%;
+      }
+
+      .family-relation-info h4 {
+        font-size: 12px;
+      }
+
+      .family-relation-name {
+        font-size: 13px;
+      }
+
+      .back-btn {
+        padding: 12px 30px;
+        font-size: 15px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .header h1 {
+        font-size: 15px;
+      }
+
+      .search-input-wrapper {
+        max-width: 120px;
+      }
+
+      .search-input-wrapper input {
+        padding: 5px 32px 5px 10px;
+        font-size: 11px;
+        border-radius: 18px;
+      }
+
+      .search-icon-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+        right: 3px;
+      }
+
+      .content {
+        padding: 12px;
+      }
+
+      .detail-avatars {
+        gap: 15px;
+        justify-content: flex-start;
+        margin: 0;
+      }
+
+      .detail-avatar-main {
+        width: 140px;
+        height: 187px;
+        margin: 0;
+        margin-bottom: 15px;
+      }
+
+      .avatar-label {
+        font-size: 11px;
+        padding: 5px;
+      }
+
+      .avatar-label {
+        font-size: 11px;
+        padding: 5px;
+      }
+
+      .detail-info h2 {
+        font-size: 20px;
+      }
+
+      .gender-badge {
+        padding: 5px 15px;
+        font-size: 12px;
+      }
+
+      .info-section h3 {
+        font-size: 14px;
+      }
+
+      .info-section p,
+      .info-section li {
+        font-size: 12px;
+      }
+
+      .family-relation-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .family-relation {
+        padding: 0;
+      }
+
+      .family-relation-avatar {
+        width: 100%;
+        height: 100%;
+      }
+
+      .family-relation-info h4 {
+        font-size: 10px;
+      }
+
+      .family-relation-name {
+        font-size: 11px;
+      }
+
+      .back-btn {
+        padding: 10px 24px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1><a href="index.html" style="text-decoration: none; color: inherit; cursor: pointer;">周氏族谱</a></h1>
+    <div class="search-box">
+      <div class="search-input-wrapper">
+        <input type="text" id="searchInput" placeholder="搜索家族成员...">
+        <button class="search-icon-btn" onclick="searchPerson()" title="搜索">🔍</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div id="loading" class="loading">加载中...</div>
+      <div id="personDetail" style="display: none;">
+        <div class="person-detail">
+          <div class="detail-avatars">
+            <div class="detail-avatar-main">
+              <img id="detailAvatar" src="" alt="">
+              <div class="avatar-label" id="mainAvatarLabel"></div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <h2 class="desktop-only" id="detailName">周文王</h2>
+            <div class="info-section" id="detailGeneration">
+              <h3>世代信息</h3>
+              <p>第几代：第 1 代</p>
+            </div>
+            <div class="info-section">
+              <h3>基本信息</h3>
+              <p id="detailBasic">出生：公元前 1152 年 | 逝世：公元前 1056 年 | 籍贯：岐山 | 职业：周朝君主</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section" id="detailFamily">
+          <h3>家族关系</h3>
+          <div class="family-relation-grid" id="familyRelationGrid">
+            <!-- 家族关系卡片将通过 JavaScript 动态生成 -->
+          </div>
+        </div>
+      </div>
+      <div id="notFound" class="not-found" style="display: none;">
+        <h2>未找到人物信息</h2>
+        <p>请返回列表选择正确的家族成员</p>
+      </div>
+      <div style="text-align: right; margin-top: 30px;">
+        <a href="/" class="back-btn" style="display: inline-block; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 500;">返回列表</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 周氏族谱 - 家族传承，源远流长</p>
+  </div>
+
+  <script>
+    let familyData = null;
+
+    async function loadFamilyData() {
+      try {
+        const response = await fetch('./data/family.json');
+        if (!response.ok) {
+          throw new Error('数据加载失败');
+        }
+        familyData = await response.json();
+        return true;
+      } catch (error) {
+        console.error('加载家族数据失败:', error);
+        return false;
+      }
+    }
+
+    function calculateGeneration(person) {
+      // 从 generationCode 计算代际（代际 × 1000 + 1）
+      if (person.generationCode) {
+        return Math.floor(person.generationCode / 1000);
+      }
+      return 1;
+    }
+
+    function buildPersonMap() {
+      const personMap = new Map();
+      if (familyData && familyData.family && familyData.family.persons) {
+        Object.values(familyData.family.persons).forEach(p => {
+          personMap.set(p.id, p);
+        });
+      }
+      return personMap;
+    }
+
+    function getPersonById(id, personMap) {
+      return personMap.get(id);
+    }
+
+    function getFamilyMembers(person, personMap) {
+      const family = {
+        father: null,
+        grandfather: null, // 祖父：爷爷的父亲
+        grandfatherDirect: null, // 爷爷：父亲的父亲（直接爷爷）
+        spouses: [],
+        children: [],
+        grandchildren: [],
+        greatGrandchildren: [],
+        greatGreatGrandchildren: [],
+        kingGreatGrandchildren: []
+      };
+
+      // 父亲
+      if (person.family && person.family.parents && person.family.parents.length > 0) {
+        const fatherId = person.family.parents[0];
+        family.father = getPersonById(fatherId, personMap);
+        
+        // 爷爷（父亲的父亲）
+        if (family.father && family.father.family && family.father.family.parents && family.father.family.parents.length > 0) {
+          const grandfatherId = family.father.family.parents[0];
+          const grandfather = getPersonById(grandfatherId, personMap);
+          family.grandfatherDirect = grandfather; // 爷爷
+          
+          // 祖父（爷爷的父亲）
+          if (grandfather && grandfather.family && grandfather.family.parents && grandfather.family.parents.length > 0) {
+            const greatGrandfatherId = grandfather.family.parents[0];
+            family.grandfather = getPersonById(greatGrandfatherId, personMap); // 祖父
+          }
+        }
+      }
+
+      // 配偶
+      if (person.family && person.family.spouses) {
+        family.spouses = person.family.spouses.map(id => getPersonById(id, personMap)).filter(Boolean);
+      }
+
+      // 子女
+      if (person.family && person.family.children) {
+        family.children = person.family.children.map(id => getPersonById(id, personMap)).filter(Boolean);
+        
+        // 孙子/孙女（子女的子女）
+        family.children.forEach(child => {
+          if (child.family && child.family.children) {
+            child.family.children.forEach(grandchildId => {
+              const grandchild = getPersonById(grandchildId, personMap);
+              if (grandchild) {
+                family.grandchildren.push(grandchild);
+              }
+            });
+          }
+        });
+        
+        // 曾孙/曾孙女（孙子的子女）
+        family.grandchildren.forEach(grandchild => {
+          if (grandchild.family && grandchild.family.children) {
+            grandchild.family.children.forEach(greatGrandchildId => {
+              const greatGrandchild = getPersonById(greatGrandchildId, personMap);
+              if (greatGrandchild) {
+                family.greatGrandchildren.push(greatGrandchild);
+              }
+            });
+          }
+        });
+        
+        // 玄孙/玄孙女（曾孙的子女）
+        family.greatGrandchildren.forEach(greatGrandchild => {
+          if (greatGrandchild.family && greatGrandchild.family.children) {
+            greatGrandchild.family.children.forEach(greatGreatGrandchildId => {
+              const greatGreatGrandchild = getPersonById(greatGreatGrandchildId, personMap);
+              if (greatGreatGrandchild) {
+                family.greatGreatGrandchildren.push(greatGreatGrandchild);
+              }
+            });
+          }
+        });
+        
+        // 来孙/来孙女（玄孙的子女）
+        family.greatGreatGrandchildren.forEach(greatGreatGrandchild => {
+          if (greatGreatGrandchild.family && greatGreatGrandchild.family.children) {
+            greatGreatGrandchild.family.children.forEach(kingGreatGrandchildId => {
+              const kingGreatGrandchild = getPersonById(kingGreatGrandchildId, personMap);
+              if (kingGreatGrandchild) {
+                family.kingGreatGrandchildren.push(kingGreatGrandchild);
+              }
+            });
+          }
+        });
+      }
+
+      return family;
+    }
+
+    async function initPage() {
+      // 确保初始状态下详情和错误信息都隐藏
+      document.getElementById('personDetail').style.display = 'none';
+      document.getElementById('notFound').style.display = 'none';
+      
+      const loaded = await loadFamilyData();
+      if (!loaded) {
+        hideLoading();
+        document.getElementById('notFound').style.display = 'block';
+        return;
+      }
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const personId = urlParams.get('id');
+      if (personId) {
+        showPersonDetail(personId);
+      } else {
+        hideLoading();
+        document.getElementById('personDetail').style.display = 'none';
+        document.getElementById('notFound').style.display = 'block';
+      }
+    }
+    
+    function hideLoading() {
+      const loading = document.getElementById('loading');
+      loading.classList.add('hidden');
+      setTimeout(() => {
+        loading.style.display = 'none';
+      }, 300);
+    }
+
+    initPage();
+
+    function showPersonDetail(personId) {
+      console.log('查找人物 ID:', personId);
+      const personMap = buildPersonMap();
+      const person = getPersonById(personId, personMap);
+      
+      console.log('找到的人物:', person);
+      
+      if (!person) {
+        console.log('未找到人物，显示错误信息');
+        hideLoading();
+        document.getElementById('personDetail').style.display = 'none';
+        document.getElementById('notFound').style.display = 'block';
+        return;
+      }
+
+      const family = getFamilyMembers(person, personMap);
+      const generation = calculateGeneration(person);
+
+      document.getElementById('detailAvatar').src = `media/${personId}.jpg`;
+      document.getElementById('detailAvatar').alt = person.name;
+      document.getElementById('detailAvatar').onerror = function() {
+        this.src = 'media/man.png';
+      };
+      document.getElementById('detailName').textContent = person.name;
+      
+      // 设置本人标签为名字
+      document.getElementById('mainAvatarLabel').textContent = person.name;
+
+      // 基本信息
+      const basicInfoHTML = `
+        <div class="info-section">
+          <div style="margin-bottom: 8px;"><strong>📍 出生地</strong>：${person.birthPlace || '不详'}</div>
+          <div style="margin-bottom: 8px;"><strong>🏠 现居地</strong>：${person.residence || '不详'}</div>
+          <div style="margin-bottom: 8px;"><strong>🎂 出生日期</strong>：${person.birthDate || '不详'}</div>
+          <div style="margin-bottom: 8px;"><strong>⚰️ 逝世日期</strong>：${person.deathDate || '在世'}</div>
+          ${person.cemetery && person.cemetery.location ? `<div style="margin-bottom: 8px;"><strong>🪦 墓地</strong>：<a href="https://uri.amap.com/marker?position=${person.cemetery.longitude},${person.cemetery.latitude}&name=${encodeURIComponent(person.cemetery.location)}" target="_blank" style="color: #333; text-decoration: none;">${person.cemetery.location} <span style="font-size: 12px; color: #666;">（点击导航）</span></a></div>` : ''}
+          <div style="margin-bottom: 8px;"><strong style="color: white;">ID</strong><span style="color: white;">：</span><span style="color: white;">${person.id}</span></div>
+        </div>
+      `;
+      document.getElementById('detailBasic').parentElement.innerHTML = basicInfoHTML;
+      
+      // 世代信息
+      const generationInfoHTML = `
+        <div class="info-section">
+          <div style="margin-bottom: 8px;"><strong>👤 姓名</strong>：${person.name}</div>
+          <div style="margin-bottom: 8px;"><strong>♂️ 性别</strong>：${person.gender === 'M' ? '男' : '女'}</div>
+          ${person.generationWord ? `<div style="margin-bottom: 8px;"><strong>📜 字辈</strong>：${person.generationWord}</div>` : '<div style="margin-bottom: 8px;"><strong>📜 字辈</strong>：暂无</div>'}
+        </div>
+      `;
+      document.getElementById('detailGeneration').innerHTML = generationInfoHTML;
+      
+      // 显示简介/生平（支持 Markdown）
+      if (person.biography) {
+        const biographyHTML = `
+          <div class="info-section" style="margin-top: 20px;">
+            <h3>简介/生平</h3>
+            <div class="markdown-content">${marked.parse(person.biography)}</div>
+          </div>
+        `;
+        document.getElementById('detailFamily').insertAdjacentHTML('beforebegin', biographyHTML);
+      }
+
+      // 渲染家族关系（每个人单独一个卡片）
+      const familyGrid = document.getElementById('familyRelationGrid');
+      let familyHTML = '';
+
+      // 配偶（只显示有效的配偶，排除错误数据）
+      if (family.spouses && family.spouses.length > 0) {
+        family.spouses.forEach(spouse => {
+          // 检查配偶数据是否有效（排除性别错误等乱来的数据）
+          // 如果配偶是男性（数据错误），则不显示
+          if (spouse && spouse.id && spouse.name && spouse.gender !== 'M') {
+            familyHTML += createFamilyRelationCard('配偶', spouse);
+          }
+        });
+      }
+
+      // 祖父（爷爷的父亲）
+      if (family.grandfather) {
+        familyHTML += createFamilyRelationCard('祖父', family.grandfather);
+      }
+
+      // 爷爷（父亲的父亲）- 必须显示
+      if (family.grandfatherDirect) {
+        familyHTML += createFamilyRelationCard('爷爷', family.grandfatherDirect);
+      }
+
+      // 父亲
+      if (family.father) {
+        familyHTML += createFamilyRelationCard('父亲', family.father);
+      }
+
+      // 子女
+      if (family.children && family.children.length > 0) {
+        family.children.forEach(child => {
+          const childTitle = child.gender === 'M' ? '儿子' : '女儿';
+          familyHTML += createFamilyRelationCard(childTitle, child);
+        });
+      }
+
+      // 孙子/孙女
+      if (family.grandchildren && family.grandchildren.length > 0) {
+        family.grandchildren.forEach(grandchild => {
+          const grandchildTitle = grandchild.gender === 'M' ? '孙子' : '孙女';
+          familyHTML += createFamilyRelationCard(grandchildTitle, grandchild);
+        });
+      }
+
+      // 曾孙/曾孙女
+      if (family.greatGrandchildren && family.greatGrandchildren.length > 0) {
+        family.greatGrandchildren.forEach(greatGrandchild => {
+          const greatGrandchildTitle = greatGrandchild.gender === 'M' ? '曾孙' : '曾孙女';
+          familyHTML += createFamilyRelationCard(greatGrandchildTitle, greatGrandchild);
+        });
+      }
+
+      // 玄孙/玄孙女
+      if (family.greatGreatGrandchildren && family.greatGreatGrandchildren.length > 0) {
+        family.greatGreatGrandchildren.forEach(greatGreatGrandchild => {
+          const greatGreatGrandchildTitle = greatGreatGrandchild.gender === 'M' ? '玄孙' : '玄孙女';
+          familyHTML += createFamilyRelationCard(greatGreatGrandchildTitle, greatGreatGrandchild);
+        });
+      }
+
+      // 来孙/来孙女
+      if (family.kingGreatGrandchildren && family.kingGreatGrandchildren.length > 0) {
+        family.kingGreatGrandchildren.forEach(kingGreatGrandchild => {
+          const kingGreatGrandchildTitle = kingGreatGrandchild.gender === 'M' ? '来孙' : '来孙女';
+          familyHTML += createFamilyRelationCard(kingGreatGrandchildTitle, kingGreatGrandchild);
+        });
+      }
+
+      if (familyHTML === '') {
+        familyHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #999; padding: 20px;">暂无家族关系</div>';
+      }
+
+      familyGrid.innerHTML = familyHTML;
+
+      // 所有内容渲染完成后，隐藏加载状态并显示详情
+      hideLoading();
+      document.getElementById('personDetail').style.display = 'block';
+      document.getElementById('notFound').style.display = 'none';
+    }
+
+    // 创建家族关系卡片的函数
+    function createFamilyRelationCard(relationType, person) {
+      return `
+        <div class="family-relation" onclick="window.location.href='detail.html?id=${person.id}'" style="cursor: pointer;">
+          <div class="family-relation-avatar">
+            <img src="media/${person.id}.jpg" alt="${person.name}" onerror="this.src='media/man.png'">
+          </div>
+          <div class="family-relation-overlay"></div>
+          <div class="family-relation-info">
+            <h4>${relationType}</h4>
+            <p class="family-relation-name">
+              ${person.name}
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    function searchPerson() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      if (!query) return;
+      
+      window.location.href = `/?q=${encodeURIComponent(query)}`;
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchPerson();
+      }
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const personId = urlParams.get('id');
+    if (personId) {
+      showPersonDetail(personId);
+    } else {
+      hideLoading();
+      document.getElementById('personDetail').style.display = 'none';
+      document.getElementById('notFound').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
